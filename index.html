@@ -9,31 +9,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F2EBDC;
-    --cream-2: #ECE2CC;
-    --cream-3: #E5D8BC;
-    --plum: #2A1B2D;
-    --plum-2: #43304A;
-    --plum-soft: #6B4F70;
-    --coral: #E8624A;
-    --coral-dark: #C84B33;
-    --butter: #F4D06F;
-    --butter-soft: #FAE5A6;
-    --sage: #8FA67E;
-    --sage-dark: #6A8260;
-    --ink: #1A1518;
-    --ink-2: #3D3236;
-    --ink-muted: #7A6B71;
-    --line: rgba(42, 27, 45, 0.14);
-    --line-strong: rgba(42, 27, 45, 0.32);
-    --shadow-1: 0 1px 0 rgba(42,27,45,0.06), 0 8px 24px -12px rgba(42,27,45,0.18);
-    --shadow-2: 0 1px 0 rgba(42,27,45,0.08), 0 20px 40px -20px rgba(42,27,45,0.3);
+    /* Background tones */
+    --bg: #FBF1F4;
+    --bg-2: #F4E2E8;
+    --bg-3: #EBD2DC;
+    --bg-card: #FFFFFF;
+
+    /* Primary: deep magenta */
+    --magenta: #8B1E5C;
+    --magenta-dark: #5F1041;
+    --magenta-deep: #3A0524;
+
+    /* Hot pink accent */
+    --pink: #EC4899;
+    --pink-bright: #F472B6;
+    --pink-soft: #FCE7F3;
+
+    /* Green for growth/positive */
+    --green: #059669;
+    --green-bright: #10B981;
+    --green-soft: #D1FAE5;
+
+    /* Blue for trust/info/learning */
+    --blue: #2563EB;
+    --blue-bright: #60A5FA;
+    --blue-soft: #DBEAFE;
+
+    /* Ink + lines */
+    --ink: #1F0B17;
+    --ink-2: #4B1C36;
+    --ink-muted: #8B5A75;
+    --line: rgba(139, 30, 92, 0.14);
+    --line-strong: rgba(139, 30, 92, 0.32);
+
+    --shadow-1: 0 1px 0 rgba(58,5,36,0.06), 0 8px 24px -12px rgba(58,5,36,0.18);
+    --shadow-2: 0 1px 0 rgba(58,5,36,0.08), 0 20px 40px -20px rgba(58,5,36,0.3);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   html, body {
-    background: var(--cream);
+    background: var(--bg);
     color: var(--ink);
     font-family: 'DM Sans', system-ui, sans-serif;
     font-size: 16px;
@@ -43,16 +59,15 @@
     overflow-x: hidden;
   }
 
-  /* Subtle paper grain */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 999;
-    opacity: 0.35;
+    opacity: 0.3;
     mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0 0.18 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32 0 0 0 0 0.05 0 0 0 0 0.18 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 180px;
   }
 
@@ -60,7 +75,7 @@
     font-family: 'Fraunces', serif;
     font-weight: 500;
     letter-spacing: -0.02em;
-    color: var(--plum);
+    color: var(--magenta);
     line-height: 1.05;
   }
 
@@ -68,11 +83,12 @@
 
   a { color: inherit; text-decoration: none; }
   button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, textarea, select { font: inherit; color: inherit; }
 
   /* ============ HEADER ============ */
   .header {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(242, 235, 220, 0.85);
+    background: rgba(251, 241, 244, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
@@ -91,26 +107,17 @@
     font-weight: 600;
     font-size: 26px;
     letter-spacing: -0.03em;
-    color: var(--plum);
+    color: var(--magenta);
     display: flex;
     align-items: center;
     gap: 6px;
   }
-  .logo-mark {
-    display: inline-block;
-    width: 22px; height: 22px;
-    margin-right: 2px;
-    transform: translateY(2px);
-  }
-  .logo em {
-    font-style: italic;
-    font-weight: 500;
-    color: var(--coral);
-  }
+  .logo-mark { display: inline-block; width: 22px; height: 22px; margin-right: 2px; transform: translateY(2px); }
+  .logo em { font-style: italic; font-weight: 500; color: var(--pink); }
   .nav {
     display: flex;
     gap: 4px;
-    background: var(--cream-2);
+    background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: 100px;
     padding: 4px;
@@ -120,52 +127,48 @@
     border-radius: 100px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--plum-2);
+    color: var(--ink-2);
     transition: all 0.2s ease;
     letter-spacing: -0.005em;
   }
-  .nav-item:hover { color: var(--plum); }
+  .nav-item:hover { color: var(--magenta); }
   .nav-item.active {
-    background: var(--plum);
-    color: var(--cream);
+    background: var(--magenta);
+    color: white;
   }
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+  .header-right { display: flex; align-items: center; gap: 14px; }
   .coin-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 8px 14px 8px 10px;
-    background: linear-gradient(135deg, var(--butter) 0%, var(--butter-soft) 100%);
-    border: 1px solid rgba(180, 130, 30, 0.3);
+    background: linear-gradient(135deg, var(--pink) 0%, var(--magenta) 100%);
+    border: 1px solid var(--magenta-dark);
     border-radius: 100px;
     font-weight: 600;
     font-size: 14px;
-    color: var(--plum);
-    box-shadow: var(--shadow-1);
+    color: white;
+    box-shadow: 0 4px 12px -4px rgba(139, 30, 92, 0.4);
   }
   .coin-pill .coin-icon {
     width: 22px; height: 22px;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #FFF1B3, #E8B948 70%, #B58A2A);
-    border: 1.5px solid rgba(180, 130, 30, 0.5);
-    box-shadow: inset 0 -2px 4px rgba(140, 90, 0, 0.3);
+    background: radial-gradient(circle at 30% 30%, #FFE5F0, var(--pink-bright) 60%, var(--pink));
+    border: 1.5px solid var(--magenta-dark);
+    box-shadow: inset 0 -2px 4px rgba(94, 16, 65, 0.5);
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; color: #6E4A0E; font-weight: 700;
+    font-size: 11px; color: white; font-weight: 700;
   }
   .avatar {
     width: 38px; height: 38px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--coral), #C84B33);
-    color: var(--cream);
+    background: linear-gradient(135deg, var(--blue), var(--magenta));
+    color: white;
     display: flex; align-items: center; justify-content: center;
     font-family: 'Fraunces', serif;
     font-weight: 600;
     font-size: 15px;
-    border: 1.5px solid var(--plum);
+    border: 1.5px solid var(--magenta-dark);
   }
 
   /* ============ PAGE STRUCTURE ============ */
@@ -178,10 +181,7 @@
   main { max-width: 1400px; margin: 0 auto; padding: 0 40px 80px; }
 
   /* ============ LEARN PAGE ============ */
-  .hero {
-    padding: 80px 0 60px;
-    position: relative;
-  }
+  .hero { padding: 80px 0 60px; position: relative; }
   .eyebrow {
     display: inline-flex;
     align-items: center;
@@ -190,25 +190,21 @@
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--plum-soft);
+    color: var(--magenta);
     margin-bottom: 24px;
   }
-  .eyebrow::before {
-    content: '';
-    width: 24px; height: 1px;
-    background: var(--plum-soft);
-  }
+  .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--magenta); }
   .hero h1 {
     font-size: clamp(48px, 7vw, 92px);
     font-weight: 500;
     max-width: 1100px;
-    color: var(--plum);
+    color: var(--magenta);
     margin-bottom: 28px;
   }
   .hero h1 em {
     font-style: italic;
     font-weight: 400;
-    color: var(--coral);
+    color: var(--pink);
     position: relative;
   }
   .hero h1 em::after {
@@ -216,9 +212,9 @@
     position: absolute;
     bottom: -2px; left: 0; right: 0;
     height: 10px;
-    background: var(--butter);
+    background: var(--green-soft);
     z-index: -1;
-    opacity: 0.6;
+    opacity: 0.9;
     transform: skewX(-8deg);
   }
   .hero-sub {
@@ -239,7 +235,7 @@
     font-family: 'Fraunces', serif;
     font-size: 32px;
     font-weight: 500;
-    color: var(--plum);
+    color: var(--magenta);
     display: block;
   }
   .stat-label {
@@ -248,7 +244,6 @@
     letter-spacing: 0.02em;
   }
 
-  /* Decorative flourish */
   .hero-flourish {
     position: absolute;
     top: 90px;
@@ -269,20 +264,9 @@
     border-bottom: 1px solid var(--line);
     gap: 40px;
   }
-  .section-head h2 {
-    font-size: clamp(28px, 3.6vw, 44px);
-    font-weight: 500;
-  }
-  .section-head h2 em {
-    font-style: italic;
-    color: var(--coral);
-  }
-  .section-head p {
-    color: var(--ink-muted);
-    font-size: 15px;
-    max-width: 420px;
-    text-align: right;
-  }
+  .section-head h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 500; }
+  .section-head h2 em { font-style: italic; color: var(--pink); }
+  .section-head p { color: var(--ink-muted); font-size: 15px; max-width: 420px; text-align: right; }
 
   .topic-grid {
     display: grid;
@@ -293,7 +277,7 @@
   @media (max-width: 640px) { .topic-grid { grid-template-columns: 1fr; } }
 
   .topic {
-    background: var(--cream-2);
+    background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: 18px;
     overflow: hidden;
@@ -301,87 +285,55 @@
     cursor: pointer;
   }
   .topic:hover {
-    background: var(--cream-3);
+    background: var(--bg-3);
     border-color: var(--line-strong);
     transform: translateY(-2px);
   }
   .topic.open {
     background: #fff;
-    border-color: var(--plum);
+    border-color: var(--magenta);
     box-shadow: var(--shadow-1);
   }
-  .topic-head {
-    padding: 22px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-  }
-  .topic-head-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+  .topic-head { padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .topic-head-left { display: flex; align-items: center; gap: 16px; }
   .topic-icon {
     width: 46px; height: 46px;
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    background: var(--cream);
+    background: var(--bg);
     border: 1px solid var(--line);
     flex-shrink: 0;
   }
-  .topic.open .topic-icon { background: var(--butter-soft); border-color: var(--butter); }
-  .topic-title {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--plum);
-  }
-  .topic-sub {
-    font-size: 12.5px;
-    color: var(--ink-muted);
-    margin-top: 2px;
-  }
+  .topic.open .topic-icon { background: var(--pink-soft); border-color: var(--pink-bright); }
+  .topic-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--magenta); }
+  .topic-sub { font-size: 12.5px; color: var(--ink-muted); margin-top: 2px; }
   .topic-chevron {
     width: 26px; height: 26px;
     border-radius: 50%;
     border: 1px solid var(--line-strong);
     display: flex; align-items: center; justify-content: center;
     transition: transform 0.25s;
-    color: var(--plum);
+    color: var(--magenta);
     flex-shrink: 0;
   }
-  .topic.open .topic-chevron { transform: rotate(180deg); background: var(--plum); color: var(--cream); border-color: var(--plum); }
-  .topic-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-  }
+  .topic.open .topic-chevron { transform: rotate(180deg); background: var(--magenta); color: white; border-color: var(--magenta); }
+  .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
   .topic.open .topic-body { max-height: 500px; }
-  .topic-body-inner {
-    padding: 0 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  .topic-body-inner { padding: 0 24px 22px; display: flex; flex-direction: column; gap: 8px; }
   .subtopic {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 14px;
-    background: var(--cream);
+    background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.15s;
     user-select: none;
   }
-  .subtopic:hover { background: var(--cream-2); border-color: var(--line-strong); }
-  .subtopic.selected {
-    background: var(--plum);
-    color: var(--cream);
-    border-color: var(--plum);
-  }
+  .subtopic:hover { background: var(--bg-2); border-color: var(--line-strong); }
+  .subtopic.selected { background: var(--magenta); color: white; border-color: var(--magenta); }
   .subtopic .check {
     width: 20px; height: 20px;
     border-radius: 50%;
@@ -390,38 +342,27 @@
     flex-shrink: 0;
     transition: all 0.15s;
   }
-  .subtopic.selected .check {
-    background: var(--coral);
-    border-color: var(--coral);
-  }
+  .subtopic.selected .check { background: var(--pink); border-color: var(--pink); }
   .subtopic.selected .check svg { opacity: 1; }
   .subtopic .check svg { opacity: 0; transition: opacity 0.15s; }
-  .subtopic-label {
-    font-size: 14px;
-    font-weight: 500;
-    flex: 1;
-  }
-  .subtopic-time {
-    font-size: 11.5px;
-    color: var(--ink-muted);
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .subtopic.selected .subtopic-time { color: rgba(242, 235, 220, 0.65); }
+  .subtopic-label { font-size: 14px; font-weight: 500; flex: 1; }
+  .subtopic-time { font-size: 11.5px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; }
+  .subtopic.selected .subtopic-time { color: rgba(255,255,255,0.7); }
 
   /* ============ GENERATE COURSE BAR ============ */
   .generate-bar {
     position: sticky;
     bottom: 24px;
     margin: 40px auto 0;
-    background: var(--plum);
-    color: var(--cream);
+    background: var(--magenta);
+    color: white;
     border-radius: 100px;
     padding: 12px 14px 12px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    box-shadow: 0 20px 50px -20px rgba(42, 27, 45, 0.6);
+    box-shadow: 0 20px 50px -20px rgba(58, 5, 36, 0.6);
     max-width: 720px;
     opacity: 0;
     pointer-events: none;
@@ -429,24 +370,11 @@
     transition: all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
     z-index: 50;
   }
-  .generate-bar.show {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-  .generate-bar-info {
-    display: flex; align-items: center; gap: 14px;
-    font-size: 14px;
-  }
-  .gen-count {
-    font-family: 'Fraunces', serif;
-    font-size: 24px;
-    font-weight: 500;
-    font-style: italic;
-    color: var(--butter);
-  }
+  .generate-bar.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .generate-bar-info { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+  .gen-count { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; font-style: italic; color: var(--pink-bright); }
   .gen-btn {
-    background: var(--coral);
+    background: var(--pink);
     color: white;
     padding: 12px 22px;
     border-radius: 100px;
@@ -457,12 +385,12 @@
     gap: 8px;
     transition: all 0.2s;
   }
-  .gen-btn:hover { background: var(--coral-dark); transform: translateX(2px); }
+  .gen-btn:hover { background: var(--pink-bright); transform: translateX(2px); }
 
-  /* ============ AI COURSE MODAL ============ */
+  /* ============ MODAL ============ */
   .modal-bg {
     position: fixed; inset: 0;
-    background: rgba(26, 21, 24, 0.7);
+    background: rgba(58, 5, 36, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: none;
@@ -475,7 +403,7 @@
   .modal-bg.show { display: flex; }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   .modal {
-    background: var(--cream);
+    background: var(--bg);
     border: 1px solid var(--line);
     border-radius: 24px;
     max-width: 720px;
@@ -491,62 +419,41 @@
     float: right;
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: var(--cream-2);
+    background: var(--bg-2);
     border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
+    color: var(--magenta);
   }
-  .modal-close:hover { background: var(--cream-3); transform: rotate(90deg); }
+  .modal-close:hover { background: var(--bg-3); transform: rotate(90deg); }
 
-  .ai-loading {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  .ai-loader {
-    width: 60px; height: 60px;
-    margin: 0 auto 24px;
-    position: relative;
-  }
+  /* AI loader */
+  .ai-loading { text-align: center; padding: 40px 20px; }
+  .ai-loader { width: 60px; height: 60px; margin: 0 auto 24px; position: relative; }
   .ai-loader-ring {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     border-radius: 50%;
     border: 2px solid transparent;
-    border-top-color: var(--coral);
+    border-top-color: var(--pink);
     animation: spin 1s linear infinite;
   }
   .ai-loader-ring:nth-child(2) {
     inset: 8px;
-    border-top-color: var(--butter);
+    border-top-color: var(--blue);
     animation-duration: 1.4s;
     animation-direction: reverse;
   }
   .ai-loader-ring:nth-child(3) {
     inset: 16px;
-    border-top-color: var(--sage);
+    border-top-color: var(--green);
     animation-duration: 0.7s;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .ai-loading h3 {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-  .ai-loading-status {
-    font-size: 14px;
-    color: var(--ink-muted);
-    font-family: 'JetBrains Mono', monospace;
-    animation: statusChange 0.5s ease;
-  }
+  .ai-loading h3 { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; margin-bottom: 8px; }
+  .ai-loading-status { font-size: 14px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; animation: fadeIn 0.4s ease; }
 
-  .course-result h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 36px;
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  .course-result h3 em { font-style: italic; color: var(--coral); }
+  .course-result h3 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; margin-bottom: 6px; }
+  .course-result h3 em { font-style: italic; color: var(--pink); }
   .course-meta {
     display: flex;
     gap: 20px;
@@ -557,54 +464,28 @@
     color: var(--ink-muted);
   }
   .course-meta span { display: flex; align-items: center; gap: 6px; }
-  .module {
-    display: flex;
-    gap: 16px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--line);
-    align-items: flex-start;
-  }
+  .module { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
   .module:last-child { border-bottom: none; }
   .module-num {
     width: 32px; height: 32px;
     border-radius: 50%;
-    background: var(--cream-2);
+    background: var(--bg-2);
     border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
     font-family: 'Fraunces', serif;
     font-weight: 500;
     flex-shrink: 0;
-    color: var(--plum);
+    color: var(--magenta);
   }
   .module-body { flex: 1; }
-  .module-title {
-    font-family: 'Fraunces', serif;
-    font-size: 17px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    color: var(--plum);
-  }
-  .module-desc {
-    font-size: 13.5px;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-  .module-meta {
-    display: flex;
-    gap: 12px;
-    margin-top: 8px;
-    font-size: 11.5px;
-    color: var(--plum-soft);
-    font-family: 'JetBrains Mono', monospace;
-  }
-  .module-meta .coin-mini {
-    color: #B58A2A;
-    font-weight: 600;
-  }
+  .module-title { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin-bottom: 4px; color: var(--magenta); }
+  .module-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.5; }
+  .module-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 11.5px; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; }
+  .module-meta .coin-mini { color: var(--pink); font-weight: 600; }
   .course-cta {
     margin-top: 24px;
-    background: var(--plum);
-    color: var(--cream);
+    background: var(--magenta);
+    color: white;
     padding: 14px 24px;
     border-radius: 100px;
     font-weight: 600;
@@ -614,29 +495,20 @@
     gap: 10px;
     transition: all 0.2s;
   }
-  .course-cta:hover { background: var(--plum-2); }
+  .course-cta:hover { background: var(--magenta-dark); }
 
   /* ============ DASHBOARD ============ */
-  .dash-greet {
-    padding: 60px 0 30px;
-  }
-  .dash-greet h1 {
-    font-size: clamp(40px, 5.5vw, 68px);
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .dash-greet h1 em { font-style: italic; color: var(--coral); }
-  .dash-greet p {
-    font-size: 17px;
-    color: var(--ink-2);
-  }
+  .dash-greet { padding: 60px 0 30px; }
+  .dash-greet h1 { font-size: clamp(40px, 5.5vw, 68px); font-weight: 500; margin-bottom: 10px; }
+  .dash-greet h1 em { font-style: italic; color: var(--pink); }
+  .dash-greet p { font-size: 17px; color: var(--ink-2); }
 
   .finance-strip {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
     gap: 0;
-    background: var(--plum);
-    color: var(--cream);
+    background: var(--magenta);
+    color: white;
     border-radius: 24px;
     overflow: hidden;
     margin-bottom: 40px;
@@ -644,76 +516,163 @@
   }
   @media (max-width: 900px) { .finance-strip { grid-template-columns: 1fr 1fr; } }
   .finance-cell {
-    padding: 28px 28px;
-    border-right: 1px solid rgba(242, 235, 220, 0.1);
-    border-bottom: 1px solid rgba(242, 235, 220, 0.1);
+    padding: 28px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
   .finance-cell:last-child { border-right: none; }
-  .finance-cell.big {
-    background: var(--plum-2);
-    position: relative;
-  }
-  .finance-label {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(242, 235, 220, 0.55);
-    margin-bottom: 10px;
-  }
-  .finance-value {
-    font-family: 'Fraunces', serif;
-    font-size: 36px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 8px;
-  }
+  .finance-cell.big { background: var(--magenta-dark); position: relative; }
+  .finance-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+  .finance-value { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
   .finance-cell.big .finance-value { font-size: 56px; }
-  .finance-delta {
-    font-size: 12.5px;
-    color: var(--sage);
-    font-family: 'JetBrains Mono', monospace;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+  .finance-delta { font-size: 12.5px; color: var(--green-bright); font-family: 'JetBrains Mono', monospace; display: inline-flex; align-items: center; gap: 4px; }
+  .finance-delta.down { color: var(--pink-bright); }
+  .finance-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 8px;
   }
-  .finance-delta.down { color: var(--coral); }
+  .finance-input:focus { outline: none; border-color: var(--pink-bright); }
 
   /* GOALS */
   .goals-row {
     display: flex;
     align-items: end;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     gap: 24px;
     padding-bottom: 18px;
     border-bottom: 1px solid var(--line);
   }
-  .goals-row h2 {
-    font-size: clamp(28px, 3.6vw, 42px);
-    font-weight: 500;
+  .goals-row h2 { font-size: clamp(28px, 3.6vw, 42px); font-weight: 500; }
+  .goals-row h2 em { font-style: italic; color: var(--pink); }
+  .goals-row > div:last-child { color: var(--ink-muted); font-size: 14px; max-width: 360px; text-align: right; }
+
+  /* ============ ADD GOAL CARD ============ */
+  .add-goal-card {
+    background: linear-gradient(135deg, var(--blue-soft) 0%, var(--pink-soft) 100%);
+    border: 1.5px dashed var(--magenta);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
   }
-  .goals-row h2 em { font-style: italic; color: var(--coral); }
-  .add-goal-btn {
-    display: inline-flex;
+  .add-goal-trigger {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 11px 18px;
-    background: var(--cream-2);
-    border: 1px solid var(--line-strong);
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 20px;
+  }
+  .add-goal-trigger-left { display: flex; align-items: center; gap: 16px; }
+  .add-goal-icon {
+    width: 46px; height: 46px;
+    border-radius: 14px;
+    background: var(--magenta);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .add-goal-text-prompt {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--magenta);
+  }
+  .add-goal-text-prompt + p { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  .add-goal-cta-btn {
+    background: var(--magenta);
+    color: white;
+    padding: 11px 20px;
     border-radius: 100px;
+    font-weight: 600;
     font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .add-goal-cta-btn:hover { background: var(--magenta-dark); }
+
+  .add-goal-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .add-goal-card.open .add-goal-form { max-height: 700px; }
+  .add-goal-card.open { background: #fff; border-style: solid; }
+  .add-goal-form-inner {
+    padding-top: 22px;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 600px) { .form-row.grid { grid-template-columns: 1fr; } }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--magenta);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--pink);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+  }
+  .form-input.mono-input { font-family: 'JetBrains Mono', monospace; }
+  .form-textarea { min-height: 70px; resize: vertical; font-family: 'DM Sans', sans-serif; }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-muted); }
+  .form-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 8px 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 13px;
     font-weight: 500;
-    color: var(--plum);
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip:hover { border-color: var(--line-strong); }
+  .chip.selected { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .form-submit-row { display: flex; gap: 12px; align-items: center; }
+  .form-submit-btn {
+    background: var(--pink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
     transition: all 0.2s;
   }
-  .add-goal-btn:hover { background: var(--plum); color: var(--cream); border-color: var(--plum); }
+  .form-submit-btn:hover { background: var(--pink-bright); }
+  .form-cancel-btn { color: var(--ink-muted); font-size: 14px; padding: 12px 18px; }
+  .form-cancel-btn:hover { color: var(--magenta); }
+  .form-hint { font-size: 12px; color: var(--ink-muted); margin-left: auto; }
 
-  .goals-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  .goals-list { display: flex; flex-direction: column; gap: 16px; }
   .goal-card {
     background: #fff;
     border: 1px solid var(--line);
@@ -724,7 +683,9 @@
     gap: 32px;
     align-items: center;
     transition: all 0.25s;
+    animation: slideIn 0.5s cubic-bezier(0.34, 1.2, 0.64, 1) both;
   }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 900px) { .goal-card { grid-template-columns: 1fr; gap: 18px; } }
   .goal-card:hover { box-shadow: var(--shadow-1); border-color: var(--line-strong); }
 
@@ -739,93 +700,61 @@
     border-radius: 100px;
     margin-bottom: 12px;
   }
-  .goal-tag.save { background: rgba(143, 166, 126, 0.18); color: var(--sage-dark); }
-  .goal-tag.invest { background: rgba(232, 98, 74, 0.15); color: var(--coral-dark); }
-  .goal-tag.debt { background: rgba(244, 208, 111, 0.4); color: #8a6918; }
-  .goal-tag.fun { background: rgba(107, 79, 112, 0.15); color: var(--plum); }
-  .goal-title {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--plum);
-    margin-bottom: 4px;
-  }
-  .goal-desc {
-    font-size: 13.5px;
-    color: var(--ink-muted);
-  }
+  .goal-tag.save { background: var(--green-soft); color: var(--green); }
+  .goal-tag.invest { background: var(--blue-soft); color: var(--blue); }
+  .goal-tag.debt { background: var(--pink-soft); color: var(--magenta); }
+  .goal-tag.fun { background: rgba(244, 114, 182, 0.18); color: var(--pink); }
+  .goal-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--magenta); margin-bottom: 4px; }
+  .goal-desc { font-size: 13.5px; color: var(--ink-muted); }
+  .goal-deadline { font-size: 11.5px; color: var(--ink-muted); margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
 
-  .goal-progress-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .goal-progress-nums {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-  }
-  .goal-current {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--plum);
-  }
-  .goal-target {
-    color: var(--ink-muted);
-  }
-  .pbar {
-    height: 10px;
-    background: var(--cream-2);
-    border-radius: 100px;
-    overflow: hidden;
-    position: relative;
-  }
+  .goal-progress-wrap { display: flex; flex-direction: column; gap: 10px; }
+  .goal-progress-nums { display: flex; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .goal-current { font-size: 18px; font-weight: 600; color: var(--magenta); }
+  .goal-target { color: var(--ink-muted); }
+  .pbar { height: 10px; background: var(--bg-2); border-radius: 100px; overflow: hidden; position: relative; }
   .pbar-fill {
     height: 100%;
     border-radius: 100px;
-    background: linear-gradient(90deg, var(--coral), var(--butter));
+    background: linear-gradient(90deg, var(--pink), var(--magenta));
     position: relative;
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 12px rgba(232, 98, 74, 0.3);
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.3);
   }
-  .pbar-fill.save { background: linear-gradient(90deg, var(--sage), #B5C9A6); box-shadow: 0 0 12px rgba(143, 166, 126, 0.3); }
-  .pbar-fill.invest { background: linear-gradient(90deg, var(--coral), #F58E78); box-shadow: 0 0 12px rgba(232, 98, 74, 0.3); }
-  .pbar-fill.debt { background: linear-gradient(90deg, #D4A933, var(--butter)); box-shadow: 0 0 12px rgba(244, 208, 111, 0.4); }
-  .pbar-fill.fun { background: linear-gradient(90deg, var(--plum-soft), #9B7BA0); box-shadow: 0 0 12px rgba(107, 79, 112, 0.3); }
+  .pbar-fill.save { background: linear-gradient(90deg, var(--green), var(--green-bright)); box-shadow: 0 0 12px rgba(5, 150, 105, 0.3); }
+  .pbar-fill.invest { background: linear-gradient(90deg, var(--blue), var(--blue-bright)); box-shadow: 0 0 12px rgba(37, 99, 235, 0.3); }
+  .pbar-fill.debt { background: linear-gradient(90deg, var(--magenta), var(--pink)); box-shadow: 0 0 12px rgba(139, 30, 92, 0.3); }
+  .pbar-fill.fun { background: linear-gradient(90deg, var(--pink), var(--pink-bright)); box-shadow: 0 0 12px rgba(236, 72, 153, 0.3); }
 
-  .goal-reward {
-    border-left: 1px solid var(--line);
-    padding-left: 24px;
-  }
+  .goal-reward { border-left: 1px solid var(--line); padding-left: 24px; }
   @media (max-width: 900px) { .goal-reward { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 16px; } }
   .goal-reward-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-muted); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
   }
-  .goal-reward-name {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 16px;
-    color: var(--plum);
-    margin-bottom: 4px;
-  }
-  .goal-reward-detail {
-    font-size: 12.5px;
-    color: var(--ink-muted);
-  }
+  .goal-reward-name { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--magenta); margin-bottom: 4px; }
+  .goal-reward-detail { font-size: 12.5px; color: var(--ink-muted); }
 
-  /* STREAK CALLOUT */
+  .goal-actions { display: flex; gap: 6px; margin-top: 12px; }
+  .goal-action-btn {
+    font-size: 11.5px;
+    padding: 6px 10px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--ink-2);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .goal-action-btn:hover { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .goal-action-btn.delete:hover { background: var(--pink); border-color: var(--pink); }
+
+  /* STREAK */
   .streak-callout {
-    background: linear-gradient(135deg, var(--butter-soft), var(--butter));
-    border: 1px solid rgba(180, 130, 30, 0.3);
+    background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
+    color: white;
+    border: 1px solid var(--magenta-dark);
     border-radius: 18px;
     padding: 24px 28px;
     margin-top: 40px;
@@ -835,46 +764,16 @@
     justify-content: space-between;
   }
   .streak-callout-text { display: flex; align-items: center; gap: 20px; }
-  .streak-flame {
-    width: 56px; height: 56px;
-    flex-shrink: 0;
-  }
-  .streak-callout h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--plum);
-    margin-bottom: 2px;
-  }
-  .streak-callout p {
-    font-size: 14px;
-    color: var(--ink-2);
-  }
-  .streak-num {
-    font-family: 'Fraunces', serif;
-    font-size: 54px;
-    font-weight: 600;
-    color: var(--plum);
-    line-height: 1;
-  }
+  .streak-flame { width: 56px; height: 56px; flex-shrink: 0; }
+  .streak-callout h3 { font-family: 'Fraunces', serif; font-size: 22px; font-style: italic; color: white; margin-bottom: 2px; }
+  .streak-callout p { font-size: 14px; color: rgba(255,255,255,0.85); }
+  .streak-num { font-family: 'Fraunces', serif; font-size: 54px; font-weight: 600; color: white; line-height: 1; }
 
   /* ============ JOURNEY PAGE ============ */
-  .journey-head {
-    padding: 60px 0 40px;
-    text-align: center;
-  }
-  .journey-head h1 {
-    font-size: clamp(40px, 6vw, 80px);
-    font-weight: 500;
-    margin-bottom: 18px;
-  }
-  .journey-head h1 em { font-style: italic; color: var(--coral); }
-  .journey-head p {
-    font-size: 18px;
-    color: var(--ink-2);
-    max-width: 580px;
-    margin: 0 auto;
-  }
+  .journey-head { padding: 60px 0 40px; text-align: center; }
+  .journey-head h1 { font-size: clamp(40px, 6vw, 80px); font-weight: 500; margin-bottom: 18px; }
+  .journey-head h1 em { font-style: italic; color: var(--pink); }
+  .journey-head p { font-size: 18px; color: var(--ink-2); max-width: 580px; margin: 0 auto; }
 
   .journey-stats {
     display: flex;
@@ -884,36 +783,18 @@
     padding: 24px 0;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
   }
   .journey-stat { text-align: center; }
-  .journey-stat-num {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 500;
-    color: var(--plum);
-    line-height: 1;
-  }
-  .journey-stat-num em { font-style: italic; color: var(--coral); }
-  .journey-stat-label {
-    font-size: 12px;
-    color: var(--ink-muted);
-    margin-top: 6px;
-    letter-spacing: 0.04em;
-  }
+  .journey-stat-num { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; color: var(--magenta); line-height: 1; }
+  .journey-stat-num em { font-style: italic; color: var(--pink); }
+  .journey-stat-label { font-size: 12px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 0.04em; }
 
-  /* Road SVG container */
-  .road-wrap {
-    position: relative;
-    margin: 20px 0 60px;
-    padding: 40px 20px;
-  }
-  .road-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+  /* Road */
+  .road-wrap { position: relative; margin: 20px 0 60px; padding: 40px 20px; }
+  .road-svg { width: 100%; height: auto; display: block; }
 
-  /* Hurdle detail panel */
+  /* Hurdle detail */
   .hurdle-detail {
     background: #fff;
     border: 1px solid var(--line);
@@ -928,51 +809,27 @@
   }
   @media (max-width: 800px) { .hurdle-detail { grid-template-columns: 1fr; } }
   .hurdle-detail-info { display: flex; flex-direction: column; gap: 14px; }
-  .hurdle-stage-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--coral);
-  }
-  .hurdle-detail h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 500;
-  }
+  .hurdle-stage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); }
+  .hurdle-detail h3 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; }
   .hurdle-detail h3 em { font-style: italic; }
-  .hurdle-detail p {
-    color: var(--ink-2);
-    line-height: 1.55;
-  }
-  .hurdle-tasks {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .hurdle-task {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--ink-2);
-  }
+  .hurdle-detail p { color: var(--ink-2); line-height: 1.55; }
+  .hurdle-tasks { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .hurdle-task { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-2); }
   .hurdle-task .dot {
     width: 18px; height: 18px;
     border-radius: 50%;
     border: 1.5px solid var(--line-strong);
     flex-shrink: 0;
+    margin-top: 2px;
     display: flex; align-items: center; justify-content: center;
   }
-  .hurdle-task.done .dot { background: var(--sage); border-color: var(--sage); }
-  .hurdle-task.done .dot svg { color: white; }
+  .hurdle-task.done .dot { background: var(--green); border-color: var(--green); }
+  .hurdle-task.done .dot svg { opacity: 1; color: white; }
   .hurdle-task .dot svg { opacity: 0; color: white; }
-  .hurdle-task.done .dot svg { opacity: 1; }
   .hurdle-task.done { text-decoration: line-through; color: var(--ink-muted); }
 
   .reward-card {
-    background: linear-gradient(160deg, var(--coral) 0%, #C84B33 100%);
+    background: linear-gradient(160deg, var(--pink) 0%, var(--magenta) 100%);
     color: white;
     border-radius: 20px;
     padding: 26px;
@@ -984,54 +841,282 @@
     position: absolute;
     top: -30px; right: -30px;
     width: 140px; height: 140px;
-    background: radial-gradient(circle, rgba(244, 208, 111, 0.4) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, transparent 60%);
   }
-  .reward-card-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    opacity: 0.85;
-    margin-bottom: 8px;
-  }
-  .reward-card-title {
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 26px;
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
-  .reward-card-detail {
-    font-size: 13px;
-    opacity: 0.9;
-    margin-bottom: 16px;
-  }
-  .reward-amount {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 28px;
-    font-weight: 600;
+  .reward-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 8px; }
+  .reward-card-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; line-height: 1.1; margin-bottom: 10px; }
+  .reward-card-detail { font-size: 13px; opacity: 0.9; margin-bottom: 16px; }
+  .reward-amount { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 600; display: flex; align-items: baseline; gap: 6px; }
+
+  /* GARAGE */
+  .garage-section { margin-top: 80px; }
+  .garage-head {
     display: flex;
-    align-items: baseline;
-    gap: 6px;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    gap: 24px;
+  }
+  .garage-head h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 500; }
+  .garage-head h2 em { font-style: italic; color: var(--pink); }
+  .garage-head p { font-size: 14px; color: var(--ink-muted); max-width: 380px; text-align: right; }
+  .garage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .garage-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .garage-grid { grid-template-columns: 1fr; } }
+  .car-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .car-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); }
+  .car-card.current { background: linear-gradient(135deg, var(--pink-soft) 0%, #fff 60%); border: 1.5px solid var(--pink); }
+  .car-card.locked { opacity: 0.6; }
+  .car-card-tag {
+    position: absolute;
+    top: 12px; right: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 100px;
+  }
+  .car-card-tag.equipped { background: var(--green); color: white; }
+  .car-card-tag.locked { background: var(--bg-2); color: var(--ink-muted); }
+  .car-display {
+    height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .car-display svg { max-width: 100%; height: auto; }
+  .car-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--magenta); margin-bottom: 2px; }
+  .car-desc { font-size: 12.5px; color: var(--ink-muted); line-height: 1.4; }
+  .car-price {
+    margin-top: 10px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 600; color: var(--magenta);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .car-price-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-bright), var(--pink));
+    color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
   }
 
-  /* footer */
+  /* ============ LESSON VIEW ============ */
+  .lesson-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .lesson-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--ink-2); font-size: 14px; font-weight: 500;
+    padding: 8px 16px 8px 12px;
+    background: var(--bg-2);
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+  .lesson-back:hover { background: var(--bg-3); color: var(--magenta); }
+  .lesson-pos { font-size: 13px; color: var(--ink-muted); }
+  .lesson-pos strong { color: var(--magenta); font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; }
+  .lesson-progress-bar {
+    height: 5px;
+    background: var(--bg-2);
+    border-radius: 100px;
+    width: 240px;
+    overflow: hidden;
+  }
+  .lesson-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--magenta));
+    border-radius: 100px;
+    transition: width 0.6s ease;
+  }
+
+  .lesson-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .lesson-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 16px;
+  }
+  .lesson-content h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.05;
+  }
+  .lesson-content h1 em { font-style: italic; color: var(--pink); }
+  .lesson-intro { font-size: 19px; line-height: 1.55; color: var(--ink-2); margin-bottom: 36px; }
+  .lesson-meta {
+    display: flex; gap: 18px;
+    padding: 16px 20px;
+    background: var(--bg-2);
+    border-radius: 14px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .lesson-meta span { display: flex; align-items: center; gap: 6px; }
+  .lesson-meta strong { color: var(--magenta); font-weight: 600; }
+  .lesson-content h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+  .lesson-content h2 em { font-style: italic; color: var(--pink); }
+  .lesson-content p { font-size: 16px; line-height: 1.65; color: var(--ink-2); margin-bottom: 16px; }
+  .lesson-content p strong { color: var(--magenta); font-weight: 600; }
+  .lesson-content ul, .lesson-content ol { margin: 0 0 16px 22px; }
+  .lesson-content li { font-size: 16px; line-height: 1.65; color: var(--ink-2); margin-bottom: 8px; }
+  .lesson-content li::marker { color: var(--pink); }
+
+  .callout {
+    background: linear-gradient(135deg, var(--blue-soft) 0%, var(--pink-soft) 100%);
+    border-left: 4px solid var(--pink);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 28px 0;
+  }
+  .callout-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .callout p { color: var(--magenta); font-size: 16px; line-height: 1.55; margin: 0; }
+  .callout p strong { color: var(--magenta-dark); }
+
+  .formula-box {
+    background: var(--magenta);
+    color: white;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .formula-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+  .formula-text { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; line-height: 1.3; }
+  .formula-text em { color: var(--pink-bright); font-style: normal; font-weight: 600; }
+
+  .quiz-block {
+    background: var(--bg-card);
+    border: 1.5px solid var(--magenta);
+    border-radius: 18px;
+    padding: 28px;
+    margin: 40px 0;
+  }
+  .quiz-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 8px;
+  }
+  .quiz-block h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 18px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 15px;
+    color: var(--ink-2);
+    display: flex; align-items: center; gap: 12px;
+    text-align: left;
+  }
+  .quiz-option:hover { background: var(--bg-2); border-color: var(--line-strong); }
+  .quiz-option .opt-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    color: var(--magenta);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .quiz-option.correct { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+  .quiz-option.correct .opt-letter { background: var(--green); color: white; }
+  .quiz-option.wrong { background: var(--pink-soft); border-color: var(--pink); color: var(--pink); }
+  .quiz-option.wrong .opt-letter { background: var(--pink); color: white; }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: var(--green-soft);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--green);
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+
+  .complete-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0 0;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    gap: 24px;
+  }
+  .complete-info { font-size: 13px; color: var(--ink-muted); }
+  .complete-info strong { color: var(--pink); }
+  .complete-btn {
+    background: var(--magenta);
+    color: white;
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: all 0.2s;
+  }
+  .complete-btn:hover { background: var(--magenta-dark); }
+  .complete-btn.done { background: var(--green); pointer-events: none; }
+
+  /* Footer */
   .footer {
     margin-top: 80px;
-    padding: 40px 40px;
+    padding: 40px;
     border-top: 1px solid var(--line);
     text-align: center;
     color: var(--ink-muted);
     font-size: 13px;
   }
-  .footer em { font-family: 'Fraunces', serif; font-style: italic; color: var(--plum); }
+  .footer em { font-family: 'Fraunces', serif; font-style: italic; color: var(--magenta); }
 
-  /* Scroll bar */
   ::-webkit-scrollbar { width: 12px; }
-  ::-webkit-scrollbar-track { background: var(--cream); }
-  ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 100px; border: 3px solid var(--cream); }
-  ::-webkit-scrollbar-thumb:hover { background: var(--plum-soft); }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 100px; border: 3px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--magenta); }
 
-  /* Coin earn animation */
+  /* Coin earn anim */
   @keyframes coinFly {
     0% { opacity: 1; transform: scale(1) translateY(0); }
     100% { opacity: 0; transform: scale(0.4) translateY(-80px); }
@@ -1041,15 +1126,35 @@
     z-index: 2000;
     font-family: 'Fraunces', serif;
     font-weight: 600;
-    color: #B58A2A;
+    color: white;
     pointer-events: none;
     animation: coinFly 1.2s ease-out forwards;
     font-size: 22px;
-    background: linear-gradient(135deg, var(--butter), var(--butter-soft));
+    background: linear-gradient(135deg, var(--pink), var(--magenta));
     padding: 6px 14px;
     border-radius: 100px;
-    border: 1px solid rgba(180, 130, 30, 0.4);
+    border: 1px solid var(--magenta-dark);
   }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--magenta);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 1500;
+    box-shadow: 0 12px 30px -10px rgba(58, 5, 36, 0.5);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -1059,9 +1164,9 @@
   <div class="header-inner">
     <a class="logo" href="#">
       <svg class="logo-mark" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="10" fill="#E8624A"/>
-        <circle cx="12" cy="12" r="6" fill="#F4D06F"/>
-        <path d="M9 12 L11.5 14.5 L15.5 9.5" stroke="#2A1B2D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="10" fill="#EC4899"/>
+        <circle cx="12" cy="12" r="6" fill="#8B1E5C"/>
+        <path d="M9 12 L11.5 14.5 L15.5 9.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       Compound<em>.</em>
     </a>
@@ -1092,13 +1197,12 @@
     <h1>Make your first <em>money move.</em><br/>Then a few more.</h1>
     <p class="hero-sub">A pocket-sized financial coach for college women learning to earn, save, invest, and negotiate — without the lecture or the lingo.</p>
 
-    <!-- decorative hand-drawn flourish -->
     <svg class="hero-flourish" viewBox="0 0 200 200" fill="none">
-      <path d="M30 130 Q 60 60, 120 80 T 180 50" stroke="#2A1B2D" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <path d="M170 45 L180 50 L175 60" stroke="#2A1B2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <circle cx="30" cy="130" r="5" fill="#E8624A"/>
-      <text x="38" y="155" font-family="Fraunces" font-style="italic" font-size="14" fill="#2A1B2D">today</text>
-      <text x="135" y="38" font-family="Fraunces" font-style="italic" font-size="14" fill="#E8624A">future you</text>
+      <path d="M30 130 Q 60 60, 120 80 T 180 50" stroke="#8B1E5C" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M170 45 L180 50 L175 60" stroke="#8B1E5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="30" cy="130" r="5" fill="#EC4899"/>
+      <text x="38" y="155" font-family="Fraunces" font-style="italic" font-size="14" fill="#8B1E5C">today</text>
+      <text x="135" y="38" font-family="Fraunces" font-style="italic" font-size="14" fill="#EC4899">future you</text>
     </svg>
 
     <div class="hero-stats">
@@ -1117,17 +1221,13 @@
     </div>
   </div>
 
-  <!-- TOPICS -->
   <div class="section-head">
     <h2>Pick what you actually want to <em>figure out.</em></h2>
     <p>Choose any subtopics that feel relevant. We'll braid them into a course built for where you are right now.</p>
   </div>
 
-  <div class="topic-grid" id="topicGrid">
-    <!-- Topics injected by JS -->
-  </div>
+  <div class="topic-grid" id="topicGrid"></div>
 
-  <!-- Sticky generate bar -->
   <div class="generate-bar" id="generateBar">
     <div class="generate-bar-info">
       <span class="gen-count" id="selectCount">0</span>
@@ -1157,50 +1257,119 @@
     <div class="finance-cell big">
       <div class="finance-label">Net worth</div>
       <div class="finance-value mono">$2,847</div>
-      <div class="finance-delta">↑ $312 this month</div>
+      <input type="number" class="finance-input mono" id="netWorthInput" placeholder="Enter net worth" style="display: none;">
     </div>
     <div class="finance-cell">
       <div class="finance-label">Checking</div>
       <div class="finance-value mono">$642</div>
-      <div class="finance-delta">↑ $80</div>
+      <input type="number" class="finance-input mono" id="checkingInput" placeholder="Enter checking" style="display: none;">
     </div>
     <div class="finance-cell">
       <div class="finance-label">Savings</div>
       <div class="finance-value mono">$1,580</div>
-      <div class="finance-delta">↑ $200</div>
+      <input type="number" class="finance-input mono" id="savingsInput" placeholder="Enter savings" style="display: none;">
     </div>
     <div class="finance-cell">
       <div class="finance-label">Invested</div>
       <div class="finance-value mono">$625</div>
-      <div class="finance-delta">↑ $32</div>
+      <input type="number" class="finance-input mono" id="investedInput" placeholder="Enter invested" style="display: none;">
     </div>
   </div>
 
   <div class="goals-row">
     <h2>Your <em>money moves,</em> in motion.</h2>
-    <button class="add-goal-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-      Add a goal
-    </button>
+    <div>Big or small — adding a goal helps us tailor your courses, rewards, and journey hurdles to what <em>you</em> actually care about.</div>
   </div>
 
-  <div class="goals-list" id="goalsList">
-    <!-- goals injected here -->
+  <!-- ADD GOAL: real form -->
+  <div class="add-goal-card" id="addGoalCard">
+    <div class="add-goal-trigger" id="addGoalTrigger">
+      <div class="add-goal-trigger-left">
+        <div class="add-goal-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="add-goal-text-prompt">What's a money goal you're working on?</div>
+          <p>Save for a Tokyo trip · pay off Mom's loan · build a $2K cushion · whatever it is, tell us.</p>
+        </div>
+      </div>
+      <button class="add-goal-cta-btn">
+        Add a goal
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="add-goal-form">
+      <div class="add-goal-form-inner">
+        <div class="form-row">
+          <label class="form-label">What are you saving toward?</label>
+          <input class="form-input" id="goalName" type="text" placeholder="e.g. Berlin trip with my friends, paying off my credit card, a real laptop…" />
+        </div>
+
+        <div class="form-row grid">
+          <div>
+            <label class="form-label">Target amount</label>
+            <input class="form-input mono-input" id="goalTarget" type="number" placeholder="$1,200" min="0" />
+          </div>
+          <div>
+            <label class="form-label">Already saved (optional)</label>
+            <input class="form-input mono-input" id="goalCurrent" type="number" placeholder="$0" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">What kind of goal?</label>
+          <div class="form-chips" id="goalChips">
+            <span class="chip selected" data-tag="save">Save</span>
+            <span class="chip" data-tag="invest">Invest</span>
+            <span class="chip" data-tag="debt">Pay off debt</span>
+            <span class="chip" data-tag="fun">Spend on purpose</span>
+          </div>
+        </div>
+
+        <div class="form-row grid">
+          <div>
+            <label class="form-label">By when? (optional)</label>
+            <input class="form-input" id="goalDeadline" type="date" />
+          </div>
+          <div>
+            <label class="form-label">Reward when you hit it</label>
+            <input class="form-input" id="goalReward" type="text" placeholder="A Sephora haul, sushi dinner, concert ticket…" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">Why does this matter to you? (optional)</label>
+          <textarea class="form-textarea" id="goalWhy" placeholder="Future-you will read this when motivation runs low. Be honest."></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button class="form-submit-btn" id="submitGoalBtn">
+            Add this goal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="form-cancel-btn" id="cancelGoalBtn">Cancel</button>
+          <span class="form-hint">+10¢ for every goal you set</span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Streak callout -->
+  <div class="goals-list" id="goalsList"></div>
+
+  <!-- Streak -->
   <div class="streak-callout">
     <div class="streak-callout-text">
       <svg class="streak-flame" viewBox="0 0 56 56" fill="none">
-        <path d="M28 8 C 20 18, 16 22, 16 32 C 16 42, 22 48, 28 48 C 34 48, 40 42, 40 32 C 40 22, 36 18, 28 8 Z" fill="#E8624A"/>
-        <path d="M28 20 C 24 26, 22 28, 22 34 C 22 40, 25 44, 28 44 C 31 44, 34 40, 34 34 C 34 28, 32 26, 28 20 Z" fill="#F4D06F"/>
+        <path d="M28 8 C 20 18, 16 22, 16 32 C 16 42, 22 48, 28 48 C 34 48, 40 42, 40 32 C 40 22, 36 18, 28 8 Z" fill="#F472B6"/>
+        <path d="M28 20 C 24 26, 22 28, 22 34 C 22 40, 25 44, 28 44 C 31 44, 34 40, 34 34 C 34 28, 32 26, 28 20 Z" fill="#FCE7F3"/>
       </svg>
       <div>
-        <h3>14 days in a row.</h3>
+        <h3>0 days in a row.</h3>
         <p>Consistency is your superpower. Don't break the chain.</p>
       </div>
     </div>
-    <div class="streak-num">14<span style="font-size: 22px; color: var(--ink-muted); font-style: italic;"> days</span></div>
+    <div class="streak-num">0<span style="font-size: 22px; opacity: 0.6; font-style: italic;"> days</span></div>
   </div>
 
 </section>
@@ -1227,7 +1396,7 @@
       <div class="journey-stat-label">Rewards earned</div>
     </div>
     <div class="journey-stat">
-      <div class="journey-stat-num">240<span style="color: #B58A2A;">¢</span></div>
+      <div class="journey-stat-num">240<span style="color: var(--pink);">¢</span></div>
       <div class="journey-stat-label">Coins banked</div>
     </div>
     <div class="journey-stat">
@@ -1238,12 +1407,12 @@
 
   <div class="road-wrap">
     <svg class="road-svg" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid meet" id="roadSvg">
-      <!-- background dotted path glow -->
       <defs>
         <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#8FA67E"/>
-          <stop offset="40%" stop-color="#E8624A"/>
-          <stop offset="100%" stop-color="#F4D06F"/>
+          <stop offset="0%" stop-color="#10B981"/>
+          <stop offset="40%" stop-color="#2563EB"/>
+          <stop offset="80%" stop-color="#8B1E5C"/>
+          <stop offset="100%" stop-color="#EC4899"/>
         </linearGradient>
         <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" result="b"/>
@@ -1251,8 +1420,7 @@
         </filter>
       </defs>
 
-      <!-- ZIG-ZAG PATH -->
-      <!-- Travels: down-left, then down-right, then down-left, then down-right - 4 wide zigzags -->
+      <!-- Road base -->
       <path id="roadPath" d="
         M 200 100
         L 1000 100
@@ -1278,13 +1446,13 @@
         L 600 1500
       "
       fill="none"
-      stroke="#E5D8BC"
+      stroke="#EBD2DC"
       stroke-width="60"
       stroke-linecap="round"
       stroke-linejoin="round"
       />
 
-      <!-- dashed center line -->
+      <!-- Dashed center -->
       <path d="
         M 200 100
         L 1000 100
@@ -1310,14 +1478,14 @@
         L 600 1500
       "
       fill="none"
-      stroke="#C9B68C"
+      stroke="#C58FA6"
       stroke-width="2"
       stroke-dasharray="8 14"
       stroke-linecap="round"
       />
 
-      <!-- Progress overlay (colored part shows progress) -->
-      <path id="progressOverlay" d="
+      <!-- Progress overlay -->
+      <path d="
         M 200 100
         L 1000 100
         Q 1100 100 1100 200
@@ -1327,145 +1495,337 @@
         Q 100 380 100 480
         L 100 560
         Q 100 660 200 660
-        L 1000 660
-        Q 1100 660 1100 760
-        L 1100 840
-        Q 1100 940 1000 940
-        L 200 940
-        Q 100 940 100 1040
-        L 100 1120
-        Q 100 1220 200 1220
-        L 1000 1220
-        Q 1100 1220 1100 1320
-        L 1100 1400
-        Q 1100 1500 1000 1500
-        L 600 1500
+        L 350 660
       "
       fill="none"
       stroke="url(#roadGrad)"
       stroke-width="62"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-dasharray="6800"
-      stroke-dashoffset="4250"
       opacity="0.95"
       />
 
-      <!-- Decorative scribbles around the road -->
-      <g opacity="0.45">
-        <path d="M 50 200 Q 70 190 85 210" stroke="#2A1B2D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <circle cx="1150" cy="500" r="3" fill="#E8624A"/>
-        <path d="M 1140 540 L 1160 560" stroke="#2A1B2D" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M 1160 540 L 1140 560" stroke="#2A1B2D" stroke-width="1.5" stroke-linecap="round"/>
-        <text x="50" y="1300" font-family="Fraunces" font-style="italic" font-size="20" fill="#6B4F70">almost there</text>
-        <path d="M 130 1320 Q 145 1310 160 1325" stroke="#6B4F70" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <path d="M 155 1320 L 162 1325 L 158 1332" stroke="#6B4F70" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Decorative scribbles -->
+      <g opacity="0.5">
+        <path d="M 50 200 Q 70 190 85 210" stroke="#8B1E5C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="1150" cy="500" r="3" fill="#EC4899"/>
+        <path d="M 1140 540 L 1160 560" stroke="#8B1E5C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 1160 540 L 1140 560" stroke="#8B1E5C" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="50" y="1300" font-family="Fraunces" font-style="italic" font-size="20" fill="#8B5A75">almost there</text>
+        <path d="M 130 1320 Q 145 1310 160 1325" stroke="#8B5A75" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 155 1320 L 162 1325 L 158 1332" stroke="#8B5A75" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
 
-      <!-- HURDLES - 8 milestones along the path -->
-      <!-- Hurdle 1: top-left start (DONE) -->
+      <!-- HURDLES -->
+      <!-- 1: DONE -->
       <g class="hurdle done" data-id="1" transform="translate(200, 100)">
-        <circle r="36" fill="#8FA67E" stroke="#2A1B2D" stroke-width="3"/>
+        <circle r="36" fill="#10B981" stroke="#1F0B17" stroke-width="3"/>
         <path d="M -12 0 L -3 9 L 14 -8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#2A1B2D">First lesson</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#6A8260">+50¢</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#1F0B17">Money map set up</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#059669">+50¢ starter</text>
       </g>
 
-      <!-- Hurdle 2 (DONE) -->
+      <!-- 2: DONE -->
       <g class="hurdle done" data-id="2" transform="translate(700, 100)">
-        <circle r="36" fill="#8FA67E" stroke="#2A1B2D" stroke-width="3"/>
+        <circle r="36" fill="#10B981" stroke="#1F0B17" stroke-width="3"/>
         <path d="M -12 0 L -3 9 L 14 -8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#2A1B2D">Savings account opened</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#6A8260">+$5 starter</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#1F0B17">Subscription audit done</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#059669">+$8/mo found</text>
       </g>
 
-      <!-- Hurdle 3 (DONE) -->
+      <!-- 3: DONE -->
       <g class="hurdle done" data-id="3" transform="translate(700, 380)">
-        <circle r="36" fill="#8FA67E" stroke="#2A1B2D" stroke-width="3"/>
+        <circle r="36" fill="#10B981" stroke="#1F0B17" stroke-width="3"/>
         <path d="M -12 0 L -3 9 L 14 -8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#2A1B2D">Built $500 buffer</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#6A8260">+$25 Target</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#1F0B17">HYSA switch</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#059669">+$5 deposit</text>
       </g>
 
-      <!-- Hurdle 4 (CURRENT) -->
-      <g class="hurdle current" data-id="4" transform="translate(500, 660)">
-        <circle r="42" fill="#F4D06F" stroke="#E8624A" stroke-width="4"/>
-        <circle r="42" fill="none" stroke="#E8624A" stroke-width="2" opacity="0.4">
-          <animate attributeName="r" from="42" to="58" dur="2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite"/>
+      <!-- CAR (current position, between 3 and 4) -->
+      <g id="userCar" transform="translate(380, 660)">
+        <!-- Shadow -->
+        <ellipse cx="0" cy="22" rx="35" ry="5" fill="#1F0B17" opacity="0.18"/>
+
+        <!-- Car body -->
+        <g>
+          <!-- Lower body -->
+          <path d="M -38 8 L -32 -4 L -22 -10 L 12 -10 L 22 -18 L 30 -18 L 36 -4 L 38 8 Z"
+                fill="#EC4899" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Window -->
+          <path d="M -22 -8 L -16 -16 L 10 -16 L 18 -8 Z"
+                fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Window divider -->
+          <line x1="-3" y1="-16" x2="-3" y2="-8" stroke="#1F0B17" stroke-width="1.5"/>
+          <!-- Door handle -->
+          <line x1="-4" y1="-2" x2="4" y2="-2" stroke="#1F0B17" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Headlight -->
+          <circle cx="33" cy="-2" r="2.5" fill="#F472B6"/>
+          <!-- Tail light -->
+          <circle cx="-34" cy="-2" r="2" fill="#8B1E5C"/>
+          <!-- Heart decal -->
+          <path d="M -10 -4 L -7 -7 L -4 -4 L -1 -7 L 2 -4 L -4 1 Z" fill="#F472B6" opacity="0.7"/>
+        </g>
+
+        <!-- Wheels -->
+        <g>
+          <circle cx="-22" cy="10" r="8" fill="#1F0B17"/>
+          <circle cx="-22" cy="10" r="3.5" fill="#FCE7F3"/>
+          <circle cx="22" cy="10" r="8" fill="#1F0B17"/>
+          <circle cx="22" cy="10" r="3.5" fill="#FCE7F3"/>
+        </g>
+
+        <!-- Pulse aura -->
+        <circle cx="0" cy="0" r="48" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.4">
+          <animate attributeName="r" from="44" to="62" dur="2s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite"/>
         </circle>
-        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#2A1B2D">4</text>
-        <text y="-58" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#2A1B2D">Open a Roth IRA</text>
-        <text y="-36" text-anchor="middle" font-family="DM Sans" font-size="12" fill="#7A6B71">→ you are here</text>
-        <text y="70" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#C84B33">+$20 Sephora</text>
+
+        <!-- Label -->
+        <text y="-40" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="16" fill="#8B1E5C">you are here</text>
+        <text y="-22" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="500" fill="#8B5A75">First-year hatchback ↓</text>
       </g>
 
-      <!-- Hurdle 5 (LOCKED) -->
+      <!-- 4: CURRENT -->
+      <g class="hurdle current" data-id="4" transform="translate(700, 660)">
+        <circle r="42" fill="#F472B6" stroke="#8B1E5C" stroke-width="4"/>
+        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="white">4</text>
+        <text y="-58" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#1F0B17">Build your $500 buffer</text>
+        <text y="74" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#8B1E5C">+$25 Trader Joe's</text>
+      </g>
+
+      <!-- 5: LOCKED -->
       <g class="hurdle locked" data-id="5" transform="translate(900, 660)">
-        <circle r="36" fill="#E5D8BC" stroke="#6B4F70" stroke-width="2" stroke-dasharray="4 4"/>
-        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#6B4F70">5</text>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#6B4F70">First investment</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#7A6B71">+$30 Amazon</text>
+        <circle r="36" fill="#EBD2DC" stroke="#8B5A75" stroke-width="2" stroke-dasharray="4 4"/>
+        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#8B5A75">5</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#8B5A75">Roth IRA opened</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#8B5A75">+$20 Sephora</text>
       </g>
 
-      <!-- Hurdle 6 (LOCKED) -->
+      <!-- 6: LOCKED -->
       <g class="hurdle locked" data-id="6" transform="translate(300, 940)">
-        <circle r="36" fill="#E5D8BC" stroke="#6B4F70" stroke-width="2" stroke-dasharray="4 4"/>
-        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#6B4F70">6</text>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#6B4F70">Negotiate a raise</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#7A6B71">+$50 spree</text>
+        <circle r="36" fill="#EBD2DC" stroke="#8B5A75" stroke-width="2" stroke-dasharray="4 4"/>
+        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#8B5A75">6</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#8B5A75">Crush the credit card cycle</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#8B5A75">+$25 Amazon</text>
       </g>
 
-      <!-- Hurdle 7 (LOCKED) -->
+      <!-- 7: LOCKED -->
       <g class="hurdle locked" data-id="7" transform="translate(500, 1220)">
-        <circle r="36" fill="#E5D8BC" stroke="#6B4F70" stroke-width="2" stroke-dasharray="4 4"/>
-        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#6B4F70">7</text>
-        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#6B4F70">Master credit cards</text>
-        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#7A6B71">+$25 reward</text>
+        <circle r="36" fill="#EBD2DC" stroke="#8B5A75" stroke-width="2" stroke-dasharray="4 4"/>
+        <text y="6" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="#8B5A75">7</text>
+        <text y="-52" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#8B5A75">Negotiate one thing</text>
+        <text y="62" text-anchor="middle" font-family="DM Sans" font-size="13" fill="#8B5A75">+$40 splurge</text>
       </g>
 
-      <!-- Hurdle 8 (FINALE - LOCKED) -->
+      <!-- 8: FINALE -->
       <g class="hurdle locked finale" data-id="8" transform="translate(800, 1500)">
-        <circle r="44" fill="#2A1B2D" stroke="#E8624A" stroke-width="3"/>
-        <path d="M -14 -4 L -4 -14 L 6 -4 L 16 -14 L 16 4 L 6 14 L -4 4 L -14 14 Z" fill="#F4D06F" transform="scale(0.7) translate(0, -2)"/>
-        <text y="-58" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#2A1B2D">$5K saved · graduated</text>
-        <text y="-36" text-anchor="middle" font-family="DM Sans" font-size="12" fill="#7A6B71">the big one</text>
-        <text y="74" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#C84B33">+$100 shopping spree</text>
+        <circle r="44" fill="#1F0B17" stroke="#EC4899" stroke-width="3"/>
+        <path d="M -14 -4 L -4 -14 L 6 -4 L 16 -14 L 16 4 L 6 14 L -4 4 L -14 14 Z" fill="#F472B6" transform="scale(0.7) translate(0, -2)"/>
+        <text y="-58" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" fill="#1F0B17">$5K saved · graduated</text>
+        <text y="-36" text-anchor="middle" font-family="DM Sans" font-size="12" fill="#8B5A75">the big one</text>
+        <text y="74" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="#8B1E5C">+$100 shopping spree</text>
       </g>
     </svg>
   </div>
 
   <!-- Hurdle detail -->
-  <div class="hurdle-detail" id="hurdleDetail">
-    <div class="hurdle-detail-info">
-      <span class="hurdle-stage-label">Hurdle 4 of 8 · in progress</span>
-      <h3>Open your first <em>Roth IRA.</em></h3>
-      <p>Future you wants to thank present you for this one. A Roth IRA at 19 means decades of tax-free compound growth — even with just $25/month, this single move could be worth $80,000+ at retirement.</p>
-      <div class="hurdle-tasks">
-        <div class="hurdle-task done">
-          <span class="dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Complete the "Roth IRA basics" lesson
+  <div class="hurdle-detail" id="hurdleDetail"></div>
+
+  <!-- GARAGE -->
+  <div class="garage-section">
+    <div class="garage-head">
+      <h2>Your <em>garage.</em></h2>
+      <p>Trade coins for upgrades. The further you go, the cooler your ride. <em>Honk.</em></p>
+    </div>
+    <div class="garage-grid">
+
+      <div class="car-card current">
+        <span class="car-card-tag equipped">Equipped</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="38" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 18 38 L 26 24 L 38 18 L 76 18 L 86 8 L 96 8 L 104 24 L 108 38 Z" fill="#EC4899" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 38 22 L 46 10 L 76 10 L 86 22 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="10" x2="62" y2="22" stroke="#1F0B17" stroke-width="1.5"/>
+            <circle cx="36" cy="48" r="9" fill="#1F0B17"/>
+            <circle cx="36" cy="48" r="4" fill="#FCE7F3"/>
+            <circle cx="90" cy="48" r="9" fill="#1F0B17"/>
+            <circle cx="90" cy="48" r="4" fill="#FCE7F3"/>
+            <path d="M 54 30 L 58 26 L 62 30 L 66 26 L 70 30 L 62 36 Z" fill="#F472B6" opacity="0.7"/>
+          </svg>
         </div>
-        <div class="hurdle-task done">
-          <span class="dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          Compare Fidelity, Vanguard, and Schwab
+        <div class="car-name">First-year hatchback</div>
+        <div class="car-desc">Cute, reliable, gets you started. The classic.</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="42" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 12 40 L 22 22 L 36 14 L 88 14 L 100 22 L 108 30 L 110 40 Z" fill="#2563EB" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 36 18 L 44 8 L 80 8 L 90 18 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="8" x2="62" y2="18" stroke="#1F0B17" stroke-width="1.5"/>
+            <circle cx="34" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="4" fill="#DBEAFE"/>
+            <circle cx="92" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="92" cy="48" r="4" fill="#DBEAFE"/>
+          </svg>
         </div>
-        <div class="hurdle-task">
-          <span class="dot"></span>
-          Open an account and link your bank
+        <div class="car-name">Cruiser sedan</div>
+        <div class="car-desc">A grown-up upgrade. Comfortable, capable.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 500</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="44" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 10 42 L 18 28 L 34 22 L 92 22 L 104 28 L 110 42 Z" fill="#10B981" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 36 22 L 50 14 L 82 14 L 90 22" fill="none" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <ellipse cx="63" cy="22" rx="28" ry="2" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="4" fill="#D1FAE5"/>
+            <circle cx="92" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="92" cy="48" r="4" fill="#D1FAE5"/>
+            <path d="M 48 32 L 76 32" stroke="#1F0B17" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
         </div>
-        <div class="hurdle-task">
-          <span class="dot"></span>
-          Make your first contribution ($25+)
+        <div class="car-name">Mint convertible</div>
+        <div class="car-desc">Top-down, sun out. Mood: post-internship.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 1,200</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="46" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 8 42 L 14 28 L 24 22 L 38 12 L 86 12 L 100 22 L 110 28 L 114 42 Z" fill="#8B1E5C" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 38 14 L 50 5 L 78 5 L 86 14" fill="#3A0524" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="5" x2="62" y2="14" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="32" cy="48" r="11" fill="#1F0B17"/>
+            <circle cx="32" cy="48" r="5" fill="#EC4899"/>
+            <circle cx="94" cy="48" r="11" fill="#1F0B17"/>
+            <circle cx="94" cy="48" r="5" fill="#EC4899"/>
+            <path d="M 22 28 L 102 28" stroke="#F472B6" stroke-width="1" opacity="0.6"/>
+            <text x="60" y="36" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="7" fill="#F472B6">CEO ENERGY</text>
+          </svg>
         </div>
+        <div class="car-name">Boss coupe</div>
+        <div class="car-desc">Final form. Compound queen status.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 3,000</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!--                     VIEW 4: LESSON                           -->
+<!-- ============================================================ -->
+<section class="view" id="view-lesson">
+
+  <div class="lesson-topbar">
+    <button class="lesson-back" id="lessonBackBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to my courses
+    </button>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <div class="lesson-pos">Lesson <strong>1</strong> of 5 · <span id="lessonCourseName">Your money primer</span></div>
+      <div class="lesson-progress-bar"><div class="lesson-progress-fill" style="width: 20%"></div></div>
+    </div>
+  </div>
+
+  <div class="lesson-content" id="lessonContent">
+    <div class="lesson-eyebrow">📚 Lesson 1</div>
+    <h1 id="lessonTitle">Build your first <em>real budget.</em></h1>
+    <p class="lesson-intro" id="lessonIntro">A budget isn't a punishment — it's permission. It's the difference between checking your balance and praying, vs knowing exactly what you have, what's coming, and what you can actually spend without guilt.</p>
+
+    <div class="lesson-meta">
+      <span>⏱ <strong>8 min</strong> read</span>
+      <span>💎 Earn <strong>25¢</strong></span>
+      <span>📈 Beginner</span>
+      <span>🎯 First-time budgeters</span>
+    </div>
+
+    <h2>The <em>50/30/20</em> rule (your training wheels)</h2>
+    <p>Forget complicated spreadsheets. The 50/30/20 rule is the most common starting framework — and it actually works. You take your <strong>after-tax</strong> income (what hits your account) and divide it three ways:</p>
+
+    <div class="formula-box">
+      <div class="formula-label">The split</div>
+      <div class="formula-text"><em>50%</em> needs · <em>30%</em> wants · <em>20%</em> savings + debt</div>
+    </div>
+
+    <p>Say your part-time campus job + freelance gigs net you <strong>$1,200/month</strong>. Here's how that breaks down:</p>
+
+    <ul>
+      <li><strong>$600 for needs</strong> — rent, groceries, your phone bill, gas, basic toiletries. Boring but non-negotiable.</li>
+      <li><strong>$360 for wants</strong> — coffee runs, going out, the occasional Sephora basket, Spotify Premium, that concert ticket.</li>
+      <li><strong>$240 for future-you</strong> — HYSA contributions, paying down debt, your Roth IRA (we'll get there).</li>
+    </ul>
+
+    <h2>How to actually do it <em>this week</em></h2>
+    <p>The framework is useless without a 20-minute action plan. Here's the move:</p>
+
+    <ol>
+      <li><strong>Pull your last 30 days of transactions.</strong> Open your bank app, screenshot or export. No judgment yet — just data.</li>
+      <li><strong>Categorize quickly.</strong> Three buckets: needs, wants, savings/debt. Don't agonize — if it took less than 3 seconds to want, it's a want.</li>
+      <li><strong>Compare against 50/30/20.</strong> Where are you actually? If wants are at 50% and savings at 5%, you've found your leak.</li>
+      <li><strong>Pick ONE category to shift this month.</strong> Not all of them. Just one. Maybe wants drops from 45% → 35%. That's a win.</li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-label">💡 The honest part</div>
+      <p>The 50/30/20 rule is a <strong>starting point</strong>, not a religion. If you live in a high-rent city, your needs might genuinely be 65% and that's fine — adjust wants and savings around it. The goal is awareness and intentionality, not perfection.</p>
+    </div>
+
+    <h2>The common <em>traps</em></h2>
+    <p>Most first budgets fall apart in the same three places. Don't let yours:</p>
+
+    <ul>
+      <li><strong>Forgetting subscriptions.</strong> Spotify, Hulu, Netflix, gym, that meditation app, ChatGPT Plus — they add up to $80-150/month silently. Audit them <em>monthly</em>.</li>
+      <li><strong>"Treat yourself" creep.</strong> A $7 oat latte three times a week is $84/month — which is $1,000/year. That's a flight to Europe. Not saying don't get the latte. Saying know what it costs.</li>
+      <li><strong>Ignoring irregular costs.</strong> Birthdays, holidays, textbooks at the start of a semester. Build a small "annual stuff" line item (~$40/month) and you'll never be ambushed again.</li>
+    </ul>
+
+    <div class="quiz-block">
+      <div class="quiz-label">⚡ Quick check</div>
+      <h3>Your roommate takes home $1,000/month from her dorm job. Under the 50/30/20 rule, how much should she put toward savings + debt payoff?</h3>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">A</span>
+          <span>$100 — that's 10%, a good start.</span>
+        </button>
+        <button class="quiz-option" data-correct="true">
+          <span class="opt-letter">B</span>
+          <span>$200 — 20% of $1,000.</span>
+        </button>
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">C</span>
+          <span>$500 — half of her income, ambitious.</span>
+        </button>
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">D</span>
+          <span>$300 — that's the "wants" allocation.</span>
+        </button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback">
+        ✓ Exactly. 20% of $1,000 = $200. That's what the rule calls for, though she can always push higher if her needs are lower.
       </div>
     </div>
 
-    <div class="reward-card">
-      <div class="reward-card-label">Reward unlocked at finish</div>
-      <div class="reward-card-title">A little Sephora spree</div>
-      <div class="reward-card-detail">A gift to celebrate, matched to a goal you set in your dashboard.</div>
-      <div class="reward-amount">$<span>20</span><span style="font-size: 14px; opacity: 0.7;">.00</span></div>
+    <div class="complete-section">
+      <div class="complete-info">
+        Lesson complete? You'll earn <strong>+25¢</strong> and unlock Lesson 2.
+      </div>
+      <button class="complete-btn" id="completeBtn">
+        Mark lesson complete
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 
@@ -1486,7 +1846,6 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
-      <!-- Loading state -->
       <div id="aiLoadingState" class="ai-loading">
         <div class="ai-loader">
           <div class="ai-loader-ring"></div>
@@ -1497,13 +1856,12 @@
         <div class="ai-loading-status" id="aiStatus">Reading what you picked…</div>
       </div>
 
-      <!-- Result state -->
       <div id="aiResultState" style="display: none;">
         <h3 id="courseTitle">Your <em>money primer</em></h3>
         <div class="course-meta">
           <span>📚 <span id="moduleCount">5</span> modules</span>
           <span>⏱ <span id="totalTime">42</span> min total</span>
-          <span style="color: #B58A2A;">¢ <span id="totalCoins">120</span> coins to earn</span>
+          <span style="color: var(--pink);">¢ <span id="totalCoins">120</span> coins to earn</span>
         </div>
         <div id="modulesList"></div>
         <button class="course-cta" id="startCourseBtn">
@@ -1515,24 +1873,30 @@
   </div>
 </div>
 
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span id="toastText">Added!</span>
+</div>
+
 <script>
   // ============ DATA ============
   const TOPICS = [
     {
       id: 'budget', title: 'Budgeting & Saving',
       sub: 'Make your money go further',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2" stroke="#2A1B2D" stroke-width="1.8"/><path d="M3 10h18" stroke="#2A1B2D" stroke-width="1.8"/><circle cx="17" cy="15" r="1.5" fill="#E8624A"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2" stroke="#8B1E5C" stroke-width="1.8"/><path d="M3 10h18" stroke="#8B1E5C" stroke-width="1.8"/><circle cx="17" cy="15" r="1.5" fill="#EC4899"/></svg>`,
       items: [
-        { name: 'Build your first budget', time: '8 min' },
-        { name: 'The 50/30/20 rule, explained', time: '5 min' },
-        { name: 'High-yield savings accounts', time: '6 min' },
-        { name: 'Emergency fund basics', time: '7 min' }
+        { name: 'Build your first real budget', time: '8 min' },
+        { name: 'The 50/30/20 rule, decoded', time: '5 min' },
+        { name: 'Switching to a HYSA (4.5%+ interest)', time: '6 min' },
+        { name: 'The subscription audit', time: '4 min' }
       ]
     },
     {
       id: 'invest', title: 'Investing',
       sub: 'Start while time is still on your side',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 18 L9 13 L13 16 L20 8" stroke="#2A1B2D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8 L20 8 L20 13" stroke="#E8624A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 18 L9 13 L13 16 L20 8" stroke="#8B1E5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8 L20 8 L20 13" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
       items: [
         { name: 'What is a Roth IRA, really', time: '9 min' },
         { name: 'Index funds vs. picking stocks', time: '8 min' },
@@ -1543,83 +1907,273 @@
     {
       id: 'earn', title: 'Earning More',
       sub: 'Get paid what you\'re worth',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#2A1B2D" stroke-width="1.8"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 2-1 2-3 2-3 .6-3 2 1.3 2 3 2 3-.6 3-2" stroke="#E8624A" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#8B1E5C" stroke-width="1.8"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 2-1 2-3 2-3 .6-3 2 1.3 2 3 2 3-.6 3-2" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/></svg>`,
       items: [
-        { name: 'Negotiating your first salary', time: '12 min' },
+        { name: 'Negotiate your first offer', time: '12 min' },
         { name: 'How to ask for a raise', time: '8 min' },
         { name: 'Side hustles that fit college', time: '7 min' },
-        { name: 'Freelancing 101', time: '9 min' }
+        { name: 'UGC, Depop, tutoring: pick yours', time: '9 min' }
       ]
     },
     {
       id: 'credit', title: 'Credit & Debt',
       sub: 'Build a score, avoid the trap',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#2A1B2D" stroke-width="1.8"/><path d="M3 10h18M7 15h3" stroke="#2A1B2D" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="15" r="1.2" fill="#E8624A"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#8B1E5C" stroke-width="1.8"/><path d="M3 10h18M7 15h3" stroke="#8B1E5C" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="15" r="1.2" fill="#EC4899"/></svg>`,
       items: [
         { name: 'Your first credit card', time: '8 min' },
         { name: 'Building credit from scratch', time: '7 min' },
         { name: 'Student loans, demystified', time: '11 min' },
-        { name: 'Avoiding common credit traps', time: '6 min' }
+        { name: 'Avoiding the 24% APR trap', time: '6 min' }
       ]
     },
     {
       id: 'career', title: 'Career Money',
       sub: 'The paycheck is just the start',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h16v12H4z" stroke="#2A1B2D" stroke-width="1.8"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#2A1B2D" stroke-width="1.8"/><circle cx="12" cy="14" r="1.5" fill="#E8624A"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h16v12H4z" stroke="#8B1E5C" stroke-width="1.8"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#8B1E5C" stroke-width="1.8"/><circle cx="12" cy="14" r="1.5" fill="#EC4899"/></svg>`,
       items: [
-        { name: 'Decoding your job benefits', time: '10 min' },
-        { name: '401(k) matching basics', time: '7 min' },
-        { name: 'Health insurance choices', time: '9 min' },
-        { name: 'Negotiating your offer', time: '11 min' }
+        { name: 'Reading your first paystub', time: '6 min' },
+        { name: '401(k) matching = free money', time: '7 min' },
+        { name: 'Health insurance, simplified', time: '9 min' },
+        { name: 'Negotiating your full offer', time: '11 min' }
       ]
     },
     {
       id: 'adult', title: 'Adulting Money',
       sub: 'The boring stuff that matters most',
-      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12 L12 4 L21 12 V20 H3 Z" stroke="#2A1B2D" stroke-width="1.8" stroke-linejoin="round"/><rect x="10" y="14" width="4" height="6" fill="#E8624A"/></svg>`,
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12 L12 4 L21 12 V20 H3 Z" stroke="#8B1E5C" stroke-width="1.8" stroke-linejoin="round"/><rect x="10" y="14" width="4" height="6" fill="#EC4899"/></svg>`,
       items: [
         { name: 'First apartment, real costs', time: '8 min' },
+        { name: 'Splitting bills with roommates', time: '5 min' },
         { name: 'Filing taxes for the first time', time: '12 min' },
-        { name: 'Renters insurance, do you need it', time: '5 min' },
-        { name: 'Understanding your paystub', time: '6 min' }
+        { name: 'Renters insurance, do you need it', time: '5 min' }
       ]
     }
   ];
 
-  const GOALS = [
-    {
-      tag: 'save', tagLabel: 'Save',
-      title: 'Build a $1,000 emergency fund',
-      desc: 'Three months of small disasters covered.',
-      current: 620, target: 1000,
-      reward: 'Sunday brunch with the girls', rewardDetail: '$30 budget you\'ve pre-funded'
-    },
-    {
-      tag: 'invest', tagLabel: 'Invest',
-      title: 'Open & fund a Roth IRA',
-      desc: 'Future you will compound her way to thanks.',
-      current: 175, target: 500,
-      reward: 'A Sephora spree', rewardDetail: '$20 set aside for the win'
-    },
-    {
-      tag: 'debt', tagLabel: 'Debt',
-      title: 'Pay off the $300 credit balance',
-      desc: 'Free yourself from the 22% APR drag.',
-      current: 220, target: 300,
-      reward: 'New running shoes', rewardDetail: '$50 toward the splurge'
-    },
-    {
-      tag: 'fun', tagLabel: 'Spend on Purpose',
-      title: 'Save $500 for spring break',
-      desc: 'Beach trip with zero financial hangover.',
-      current: 145, target: 500,
-      reward: 'Spring break excursion', rewardDetail: 'Snorkeling pre-paid by you'
-    }
+  // Pre-filled "Maya's" example goals
+  let SEED_GOALS = [
+    { tag: 'save', tagLabel: 'Save', title: 'Build a $1,000 emergency fund', desc: 'Three months of small disasters covered.', current: 620, target: 1000, deadline: 'Aug 2026', reward: 'Sunday brunch with the girls', rewardDetail: '$30 budget you\'ve pre-funded' },
+    { tag: 'invest', tagLabel: 'Invest', title: 'Open & fund a Roth IRA', desc: 'Future you will compound her way to thanks.', current: 175, target: 500, deadline: 'Jul 2026', reward: 'A Sephora spree', rewardDetail: '$20 set aside for the win' },
+    { tag: 'debt', tagLabel: 'Pay off debt', title: 'Clear the $300 credit balance', desc: 'Free yourself from the 24% APR drag.', current: 220, target: 300, deadline: 'Jun 2026', reward: 'New running shoes', rewardDetail: '$50 toward the splurge' }
   ];
+
+  // GEN-Z REAL HURDLES
+  const HURDLES = {
+    1: {
+      stage: 'Hurdle 1 of 8 · cleared',
+      title: 'Set up your <em>money map.</em>',
+      desc: 'Most people have nine apps and zero clarity. Linking your accounts gives you one source of truth — and seeing the full picture is honestly the move that changes everything else.',
+      tasks: [
+        ['Link your checking account', true],
+        ['Connect Venmo + Cash App', true],
+        ['Add credit card(s)', true]
+      ],
+      reward: '50¢ starter coins',
+      detail: 'Welcome bonus, banked.',
+      amount: '50¢'
+    },
+    2: {
+      stage: 'Hurdle 2 of 8 · cleared',
+      title: 'Run the <em>subscription audit.</em>',
+      desc: 'The average Gen Z student is paying for 4 streaming services, a meditation app, a free trial that never ended, and a gym membership they used twice. You found $8/month leaking out — that\'s $96/year back in your pocket.',
+      tasks: [
+        ['List every recurring charge', true],
+        ['Cancel anything not used in 30 days', true],
+        ['Share family plans where possible', true]
+      ],
+      reward: '$8/month back',
+      detail: 'Found and stopped the slow drip.',
+      amount: '$8/mo'
+    },
+    3: {
+      stage: 'Hurdle 3 of 8 · cleared',
+      title: 'Switch to a <em>high-yield savings.</em>',
+      desc: 'Your old bank pays 0.01%. A HYSA pays 4.5%+. Same money sitting there — but one earns you $200+/year, the other earns you a Starbucks. Wild that this isn\'t taught in school.',
+      tasks: [
+        ['Pick a HYSA (Ally, Marcus, Wealthfront)', true],
+        ['Open the account', true],
+        ['Move your existing savings over', true],
+        ['Set up an automatic monthly transfer', true]
+      ],
+      reward: '$5 starter deposit',
+      detail: 'We seeded your new savings.',
+      amount: '$5.00'
+    },
+    4: {
+      stage: 'Hurdle 4 of 8 · in progress',
+      title: 'Build your <em>$500 buffer.</em>',
+      desc: 'For when your laptop dies before finals, your car breaks in a Target parking lot, or your flight home gets cancelled. Half of Americans can\'t cover a $400 emergency. At 19, you\'re about to be in the other half.',
+      tasks: [
+        ['Save first $100 (the hardest)', true],
+        ['Hit $250 (halfway, you got this)', true],
+        ['Cross $500 (you\'re officially financially safer than 50% of adults)', false]
+      ],
+      reward: '$25 Trader Joe\'s card',
+      detail: 'For a real grocery run — or a flowers + snacks moment.',
+      amount: '$25.00'
+    },
+    5: {
+      stage: 'Hurdle 5 of 8 · locked',
+      title: 'Open & fund a <em>Roth IRA.</em>',
+      desc: 'Invest $25/month in a Roth IRA at 19, and you\'re looking at roughly $80,000+ at retirement — completely tax-free. Compound interest at your age is genuinely unfair (in the best way). Start now.',
+      tasks: [
+        ['Finish the "Roth IRA basics" lesson', false],
+        ['Compare Fidelity, Vanguard, Schwab', false],
+        ['Open the account online (15 min)', false],
+        ['Make your first $25 contribution', false]
+      ],
+      reward: '$20 Sephora credit',
+      detail: 'For when investing in your future also looks like a serum.',
+      amount: '$20.00'
+    },
+    6: {
+      stage: 'Hurdle 6 of 8 · locked',
+      title: 'Crush the <em>credit card cycle.</em>',
+      desc: 'Get a starter card (or use the one you have right), spend on planned things only, pay it off in full every month for 6 months straight. This is how you build a 750+ credit score before graduating — and unlock cheaper everything for the rest of your life.',
+      tasks: [
+        ['Get a student or no-fee starter card', false],
+        ['Use ONLY for planned expenses (gas, groceries)', false],
+        ['Pay in full, not just minimum, every month', false],
+        ['Hit 6 months in a row', false]
+      ],
+      reward: '$25 Amazon credit',
+      detail: 'For dorm stuff, dupes, whatever.',
+      amount: '$25.00'
+    },
+    7: {
+      stage: 'Hurdle 7 of 8 · locked',
+      title: 'Negotiate <em>one thing.</em>',
+      desc: 'First job offer. Internship stipend. Freelance rate. Rent renewal. UGC partnership rate. Women who negotiate their first job offer earn $500K+ more over their lifetime. We\'ll script the email, rehearse the words, and celebrate the win.',
+      tasks: [
+        ['Research the market rate (Levels.fyi, Glassdoor, friends)', false],
+        ['Draft your script (we have templates)', false],
+        ['Send the email or have the convo', false],
+        ['Get the yes (or counter — both count)', false]
+      ],
+      reward: '$40 splurge',
+      detail: 'A real reward for a real ask.',
+      amount: '$40.00'
+    },
+    8: {
+      stage: 'Hurdle 8 of 8 · the big one',
+      title: '<em>$5K saved</em> · you graduated.',
+      desc: 'When you cross this line, you\'re in the top 10% of women your age financially. Emergency fund built, retirement started, debt managed, credit established, real career money mindset locked in. This was the whole game.',
+      tasks: [
+        ['Hit $5K total across all your accounts', false],
+        ['Maintain a 12-month learning streak', false],
+        ['Complete the capstone lesson', false]
+      ],
+      reward: '$100 shopping spree',
+      detail: 'You earned every dollar of this. Spend it on whatever future-you would high-five present-you for.',
+      amount: '$100.00'
+    }
+  };
 
   // ============ STATE ============
   let coins = 240;
   let selected = new Set();
+  let userGoals = [
+    { tag: 'save', tagLabel: 'Save', title: 'Buy a new laptop', desc: 'Need a better computer for school.', current: 200, target: 1200, deadline: 'Dec 2026', reward: 'New laptop', rewardDetail: 'Finally get that MacBook', user: true }
+  ];   // user-added goals (rendered alongside seed goals)
+  let selectedTag = 'save';
+  let currentCourse = null;
+
+  // Dashboard stats that update based on goal progress
+  let dashboardStats = {
+    checking: 642,
+    savings: 1580,
+    invested: 625,
+    debt: 220  // credit card balance
+  };
+
+  // ============ DASHBOARD FUNCTIONS ============
+  function updateDashboardStats() {
+    // Calculate net worth = checking + savings + invested - debt
+    const netWorth = dashboardStats.checking + dashboardStats.savings + dashboardStats.invested - dashboardStats.debt;
+
+    // Update the DOM
+    document.querySelector('.finance-cell.big .finance-value').textContent = `$${netWorth.toLocaleString()}`;
+
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[0].textContent = `$${dashboardStats.checking.toLocaleString()}`;
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[1].textContent = `$${dashboardStats.savings.toLocaleString()}`;
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[2].textContent = `$${dashboardStats.invested.toLocaleString()}`;
+  }
+
+  function updateStatsFromGoals() {
+    // Reset stats to base values (which include seed goal progress)
+    dashboardStats.savings = 1580;
+    dashboardStats.invested = 625;
+    dashboardStats.debt = 220;
+
+    // Add progress from all goals (user and seed)
+    const allGoals = [...userGoals, ...SEED_GOALS];
+    allGoals.forEach(goal => {
+      if (goal.tag === 'save') {
+        dashboardStats.savings += goal.current;
+      } else if (goal.tag === 'invest') {
+        dashboardStats.invested += goal.current;
+      } else if (goal.tag === 'debt') {
+        dashboardStats.debt = Math.max(0, dashboardStats.debt - goal.current);
+      }
+    });
+
+    updateDashboardStats();
+  }
+
+  // Make finance values editable
+  function makeFinanceEditable() {
+    const cells = document.querySelectorAll('.finance-cell');
+    cells.forEach((cell, index) => {
+      const valueEl = cell.querySelector('.finance-value');
+      const inputEl = cell.querySelector('.finance-input');
+
+      if (valueEl && inputEl) {
+        valueEl.addEventListener('click', () => {
+          valueEl.style.display = 'none';
+          inputEl.style.display = 'block';
+          inputEl.focus();
+          if (index === 0) {
+            // Net worth - calculated
+            inputEl.value = (dashboardStats.checking + dashboardStats.savings + dashboardStats.invested - dashboardStats.debt).toString();
+          } else if (index === 1) {
+            // Checking
+            inputEl.value = dashboardStats.checking.toString();
+          } else if (index === 2) {
+            // Savings
+            inputEl.value = dashboardStats.savings.toString();
+          } else if (index === 3) {
+            // Invested
+            inputEl.value = dashboardStats.invested.toString();
+          }
+        });
+
+        inputEl.addEventListener('blur', () => {
+          const newValue = parseFloat(inputEl.value) || 0;
+          if (index === 0) {
+            // Net worth - this is calculated, not directly editable
+            inputEl.style.display = 'none';
+            valueEl.style.display = 'block';
+            return;
+          } else if (index === 1) {
+            dashboardStats.checking = newValue;
+          } else if (index === 2) {
+            dashboardStats.savings = newValue;
+          } else if (index === 3) {
+            dashboardStats.invested = newValue;
+          }
+          updateStatsFromGoals();
+          inputEl.style.display = 'none';
+          valueEl.style.display = 'block';
+        });
+
+        inputEl.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            inputEl.blur();
+          }
+        });
+      }
+    });
+  }
 
   // ============ RENDER TOPICS ============
   const grid = document.getElementById('topicGrid');
@@ -1657,10 +2211,8 @@
     grid.appendChild(el);
   });
 
-  // Topic interactions
   document.querySelectorAll('.topic').forEach(topic => {
-    const head = topic.querySelector('.topic-head');
-    head.addEventListener('click', () => topic.classList.toggle('open'));
+    topic.querySelector('.topic-head').addEventListener('click', () => topic.classList.toggle('open'));
   });
 
   document.querySelectorAll('.subtopic').forEach(sub => {
@@ -1676,13 +2228,12 @@
 
   function updateGenerateBar() {
     const bar = document.getElementById('generateBar');
-    const count = document.getElementById('selectCount');
-    count.textContent = selected.size;
+    document.getElementById('selectCount').textContent = selected.size;
     if (selected.size > 0) bar.classList.add('show');
     else bar.classList.remove('show');
   }
 
-  // ============ AI GENERATE FLOW ============
+  // ============ AI GENERATE ============
   const modal = document.getElementById('modalBg');
   const loadingState = document.getElementById('aiLoadingState');
   const resultState = document.getElementById('aiResultState');
@@ -1701,7 +2252,6 @@
     loadingState.style.display = 'block';
     resultState.style.display = 'none';
 
-    // Animate status changes
     let i = 0;
     statusEl.textContent = STATUSES[0];
     const interval = setInterval(() => {
@@ -1714,7 +2264,6 @@
       }
     }, 700);
 
-    // After delay, show result
     setTimeout(() => {
       clearInterval(interval);
       buildCourseResult();
@@ -1724,7 +2273,6 @@
   });
 
   function buildCourseResult() {
-    // Get selected items
     const picks = [];
     selected.forEach(k => {
       const [topicId, idx] = k.split('-');
@@ -1732,10 +2280,7 @@
       if (topic) picks.push({ topic, item: topic.items[parseInt(idx)] });
     });
 
-    // Cap at 6, but show all picks
     const modules = picks.slice(0, 8);
-
-    // Calc totals
     const totalMin = modules.reduce((a, m) => a + parseInt(m.item.time), 0);
     const totalCoins = modules.length * 25;
 
@@ -1743,7 +2288,6 @@
     document.getElementById('totalTime').textContent = totalMin;
     document.getElementById('totalCoins').textContent = totalCoins;
 
-    // Title based on which topics dominate
     const counts = {};
     picks.forEach(p => counts[p.topic.id] = (counts[p.topic.id] || 0) + 1);
     const top = Object.entries(counts).sort((a,b) => b[1]-a[1])[0][0];
@@ -1755,16 +2299,24 @@
       career: 'Your <em>career money</em> primer',
       adult: 'Your <em>adulting</em> survival kit'
     };
-    document.getElementById('courseTitle').innerHTML = titleMap[top] || 'Your <em>money primer</em>';
+    const titleHtml = titleMap[top] || 'Your <em>money primer</em>';
+    document.getElementById('courseTitle').innerHTML = titleHtml;
 
-    // Build modules
+    // Store current course
+    currentCourse = {
+      title: titleHtml,
+      titleText: titleHtml.replace(/<\/?em>/g, ''),
+      modules: modules,
+      firstModule: modules[0] || null
+    };
+
     const list = document.getElementById('modulesList');
     list.innerHTML = modules.map((m, i) => `
       <div class="module">
         <div class="module-num">${i + 1}</div>
         <div class="module-body">
           <div class="module-title">${m.item.name}</div>
-          <div class="module-desc">A focused lesson from <strong>${m.topic.title}</strong> — clear, fast, and built for someone exactly where you are.</div>
+          <div class="module-desc">A focused lesson from <strong>${m.topic.title}</strong> — clear, fast, built for someone exactly where you are.</div>
           <div class="module-meta">
             <span>⏱ ${m.item.time}</span>
             <span class="coin-mini">+25¢</span>
@@ -1774,56 +2326,218 @@
     `).join('');
   }
 
-  document.getElementById('modalClose').addEventListener('click', () => {
-    modal.classList.remove('show');
-  });
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('show');
-  });
+  document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('show'));
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
 
+  // Open the actual lesson view when "Start course" is clicked
   document.getElementById('startCourseBtn').addEventListener('click', () => {
-    // Add coins and switch to dashboard
-    addCoins(50);
     modal.classList.remove('show');
-    switchView('dashboard');
+    openLesson();
   });
 
-  // ============ DASHBOARD: RENDER GOALS ============
-  const goalsList = document.getElementById('goalsList');
-  GOALS.forEach(g => {
-    const pct = Math.round((g.current / g.target) * 100);
-    const el = document.createElement('div');
-    el.className = 'goal-card';
-    el.innerHTML = `
-      <div class="goal-info">
-        <span class="goal-tag ${g.tag}">${g.tagLabel}</span>
-        <div class="goal-title">${g.title}</div>
-        <div class="goal-desc">${g.desc}</div>
-      </div>
-      <div class="goal-progress-wrap">
-        <div class="goal-progress-nums">
-          <span class="goal-current">$${g.current.toLocaleString()}</span>
-          <span class="goal-target">of $${g.target.toLocaleString()} · ${pct}%</span>
-        </div>
-        <div class="pbar"><div class="pbar-fill ${g.tag}" style="width: 0%"></div></div>
-      </div>
-      <div class="goal-reward">
-        <div class="goal-reward-label">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Reward at finish
-        </div>
-        <div class="goal-reward-name">${g.reward}</div>
-        <div class="goal-reward-detail">${g.rewardDetail}</div>
-      </div>
-    `;
-    goalsList.appendChild(el);
-    // animate progress bar after a tick
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        el.querySelector('.pbar-fill').style.width = pct + '%';
-      }, 200 + (Array.from(goalsList.children).indexOf(el) * 120));
+  function openLesson() {
+    // Update lesson view based on currentCourse
+    if (currentCourse && currentCourse.firstModule) {
+      const fm = currentCourse.firstModule;
+      document.getElementById('lessonCourseName').textContent = currentCourse.titleText;
+      // adapt title slightly — but keep the rich budget content as our flagship lesson
+      const itemName = fm.item.name;
+      // Wrap last word as emphasis
+      const parts = itemName.split(' ');
+      const head = parts.slice(0, -2).join(' ');
+      const tail = parts.slice(-2).join(' ');
+      document.getElementById('lessonTitle').innerHTML = head + (head ? ' ' : '') + `<em>${tail}.</em>`;
+    }
+    switchView('lesson');
+  }
+
+  // ============ LESSON: BACK + COMPLETE ============
+  document.getElementById('lessonBackBtn').addEventListener('click', () => switchView('dashboard'));
+
+  document.getElementById('completeBtn').addEventListener('click', (e) => {
+    if (e.target.closest('.complete-btn').classList.contains('done')) return;
+    addCoins(25);
+    const btn = document.getElementById('completeBtn');
+    btn.classList.add('done');
+    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Lesson completed!`;
+    document.querySelector('.lesson-progress-fill').style.width = '40%';
+    showToast('+25¢ earned. Lesson 2 unlocked.');
+    setTimeout(() => switchView('dashboard'), 1800);
+  });
+
+  // Quiz interaction
+  document.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const isCorrect = opt.dataset.correct === 'true';
+      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('correct', 'wrong'));
+      if (isCorrect) {
+        opt.classList.add('correct');
+        document.getElementById('quizFeedback').classList.add('show');
+      } else {
+        opt.classList.add('wrong');
+        const correct = document.querySelector('.quiz-option[data-correct="true"]');
+        setTimeout(() => correct.classList.add('correct'), 400);
+      }
     });
   });
+
+  // ============ DASHBOARD: GOAL FORM ============
+  const card = document.getElementById('addGoalCard');
+  document.getElementById('addGoalTrigger').addEventListener('click', (e) => {
+    if (card.classList.contains('open')) return;
+    card.classList.add('open');
+  });
+
+  document.querySelectorAll('#goalChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#goalChips .chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      selectedTag = chip.dataset.tag;
+    });
+  });
+
+  document.getElementById('cancelGoalBtn').addEventListener('click', () => {
+    card.classList.remove('open');
+    resetGoalForm();
+  });
+
+  document.getElementById('submitGoalBtn').addEventListener('click', () => {
+    const name = document.getElementById('goalName').value.trim();
+    const target = parseFloat(document.getElementById('goalTarget').value) || 0;
+    const current = parseFloat(document.getElementById('goalCurrent').value) || 0;
+    const deadline = document.getElementById('goalDeadline').value;
+    const reward = document.getElementById('goalReward').value.trim();
+    const why = document.getElementById('goalWhy').value.trim();
+
+    if (!name) { document.getElementById('goalName').focus(); document.getElementById('goalName').style.borderColor = 'var(--pink)'; return; }
+    if (!target || target <= 0) { document.getElementById('goalTarget').focus(); document.getElementById('goalTarget').style.borderColor = 'var(--pink)'; return; }
+
+    const tagLabels = { save: 'Save', invest: 'Invest', debt: 'Pay off debt', fun: 'Spend on purpose' };
+
+    const newGoal = {
+      tag: selectedTag,
+      tagLabel: tagLabels[selectedTag],
+      title: name,
+      desc: why || 'Goal added by you.',
+      current: current,
+      target: target,
+      deadline: deadline ? formatDate(deadline) : null,
+      reward: reward || 'A treat (decide later)',
+      rewardDetail: reward ? 'A pre-promised reward to keep you honest.' : 'You can fill this in later.',
+      user: true
+    };
+    userGoals.unshift(newGoal);
+    renderGoals();
+    updateStatsFromGoals();
+    addCoins(10);
+    showToast('Goal added · +10¢');
+    card.classList.remove('open');
+    resetGoalForm();
+  });
+
+  function resetGoalForm() {
+    ['goalName','goalTarget','goalCurrent','goalDeadline','goalReward','goalWhy'].forEach(id => {
+      document.getElementById(id).value = '';
+      document.getElementById(id).style.borderColor = '';
+    });
+    document.querySelectorAll('#goalChips .chip').forEach(c => c.classList.remove('selected'));
+    document.querySelector('#goalChips .chip[data-tag="save"]').classList.add('selected');
+    selectedTag = 'save';
+  }
+
+  function formatDate(iso) {
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+    } catch (e) { return iso; }
+  }
+
+  // ============ RENDER GOALS ============
+  function renderGoals() {
+    const list = document.getElementById('goalsList');
+    list.innerHTML = '';
+    const all = [...userGoals, ...SEED_GOALS];
+    all.forEach((g, idx) => {
+      const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+      const el = document.createElement('div');
+      el.className = 'goal-card';
+      el.innerHTML = `
+        <div class="goal-info">
+          <span class="goal-tag ${g.tag}">${g.tagLabel}</span>
+          <div class="goal-title">${escapeHTML(g.title)}</div>
+          <div class="goal-desc">${escapeHTML(g.desc)}</div>
+          ${g.deadline ? `<div class="goal-deadline">Target: ${g.deadline}</div>` : ''}
+          <div class="goal-actions">
+            <button class="goal-action-btn add-progress" data-i="${idx}">+ Log progress</button>
+            <button class="goal-action-btn delete" data-i="${idx}">Remove</button>
+          </div>
+        </div>
+        <div class="goal-progress-wrap">
+          <div class="goal-progress-nums">
+            <span class="goal-current">$${g.current.toLocaleString()}</span>
+            <span class="goal-target">of $${g.target.toLocaleString()} · ${pct}%</span>
+          </div>
+          <div class="pbar"><div class="pbar-fill ${g.tag}" style="width: 0%"></div></div>
+        </div>
+        <div class="goal-reward">
+          <div class="goal-reward-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Reward at finish
+          </div>
+          <div class="goal-reward-name">${escapeHTML(g.reward)}</div>
+          <div class="goal-reward-detail">${escapeHTML(g.rewardDetail)}</div>
+        </div>
+      `;
+      list.appendChild(el);
+      requestAnimationFrame(() => {
+        setTimeout(() => { el.querySelector('.pbar-fill').style.width = pct + '%'; }, 200 + (idx * 100));
+      });
+    });
+
+    // Wire up actions
+    list.querySelectorAll('.add-progress').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.i);
+        const amount = '50'; // Fixed amount for testing
+        const a = parseFloat(amount);
+        if (a > 0) {
+          if (i < userGoals.length) {
+            // User goal
+            userGoals[i].current = Math.min(userGoals[i].target, userGoals[i].current + a);
+          } else {
+            // Seed goal - modify SEED_GOALS (make it mutable)
+            const seedIndex = i - userGoals.length;
+            SEED_GOALS[seedIndex].current = Math.min(SEED_GOALS[seedIndex].target, SEED_GOALS[seedIndex].current + a);
+          }
+          renderGoals();
+          updateStatsFromGoals();
+          showToast(`+$${a} logged · keep going.`);
+        }
+      });
+    });
+    list.querySelectorAll('.delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.i);
+        if (i < userGoals.length) {
+          // Only allow deleting user goals
+          userGoals.splice(i, 1);
+          renderGoals();
+          updateStatsFromGoals();
+        } else {
+          // For seed goals, maybe just hide or show a message
+          showToast('Seed goals cannot be deleted.');
+        }
+      });
+    });
+  }
+
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  renderGoals();
+  updateStatsFromGoals();
+  makeFinanceEditable();
 
   // ============ NAV ============
   const navItems = document.querySelectorAll('.nav-item');
@@ -1835,23 +2549,19 @@
     navItems.forEach(n => n.classList.toggle('active', n.dataset.view === view));
     document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // re-animate progress bars when entering dashboard
     if (view === 'dashboard') {
       document.querySelectorAll('.pbar-fill').forEach((bar, i) => {
         const w = bar.style.width;
         bar.style.width = '0%';
-        setTimeout(() => bar.style.width = w, 100 + (i * 120));
+        setTimeout(() => bar.style.width = w, 100 + (i * 100));
       });
     }
   }
 
-  // ============ COIN HELPERS ============
+  // ============ COINS / TOAST ============
   function addCoins(n) {
     coins += n;
     document.getElementById('coinCount').textContent = coins;
-
-    // Float coin indicator from header
     const pill = document.querySelector('.coin-pill');
     const r = pill.getBoundingClientRect();
     const fc = document.createElement('div');
@@ -1863,18 +2573,15 @@
     setTimeout(() => fc.remove(), 1300);
   }
 
-  // ============ JOURNEY: HURDLE CLICKS ============
-  const HURDLES = {
-    1: { stage: 'Hurdle 1 of 8 · cleared', title: 'Your <em>first lesson.</em>', desc: 'Just by showing up and clicking play, you joined the 12% of college first-years who proactively learn personal finance. That\'s the hardest hurdle there is — and you cleared it.', tasks: [['Watch the intro lesson', true], ['Set your first weekly goal', true]], reward: '50 starter coins', detail: 'Your welcome bonus, banked.', amount: '50¢', isCoin: true },
-    2: { stage: 'Hurdle 2 of 8 · cleared', title: 'A <em>savings account,</em> for real.', desc: 'Most college students still keep all their money in one checking account. By opening a real savings account — ideally HYSA — you separated emotional spending money from your future.', tasks: [['Pick a high-yield bank', true], ['Open the account', true], ['Set up first auto-transfer', true]], reward: '$5 starter deposit', detail: 'We seeded your savings.', amount: '$5.00' },
-    3: { stage: 'Hurdle 3 of 8 · cleared', title: 'Your $500 <em>buffer fund.</em>', desc: 'Half of Americans can\'t cover a $400 emergency. You — at 19 — already can. This is the line between financially fragile and financially secure.', tasks: [['Save first $100', true], ['Save first $250', true], ['Save first $500', true]], reward: '$25 Target gift card', detail: 'Use it on dorm essentials or treat yourself.', amount: '$25.00' },
-    4: { stage: 'Hurdle 4 of 8 · in progress', title: 'Open your first <em>Roth IRA.</em>', desc: 'Future you wants to thank present you for this one. A Roth IRA at 19 means decades of tax-free compound growth — even with just $25/month, this single move could be worth $80,000+ at retirement.', tasks: [['Complete the "Roth IRA basics" lesson', true], ['Compare Fidelity, Vanguard, and Schwab', true], ['Open an account and link your bank', false], ['Make your first contribution ($25+)', false]], reward: 'A little Sephora spree', detail: 'A gift to celebrate, matched to a goal you set in your dashboard.', amount: '$20.00' },
-    5: { stage: 'Hurdle 5 of 8 · locked', title: 'Make your <em>first investment.</em>', desc: 'Your Roth is open — now actually buy something in it. Most first-time investors freeze here. The simplest move (an S&P 500 index fund) is also the move most billionaires recommend.', tasks: [['Choose a target-date or index fund', false], ['Place your first buy order', false], ['Set up automatic monthly investing', false]], reward: '$30 Amazon credit', detail: 'A treat to mark the moment.', amount: '$30.00' },
-    6: { stage: 'Hurdle 6 of 8 · locked', title: 'Negotiate a <em>raise</em> or rate.', desc: 'Women who negotiate their first job offer earn $500K+ more over their lifetime. We\'ll script the email, rehearse the conversation, and celebrate the win.', tasks: [['Research market rate for your role', false], ['Draft your negotiation script', false], ['Have the conversation', false], ['Get the yes (or counter)', false]], reward: '$50 shopping spree', detail: 'A real reward for a hard ask.', amount: '$50.00' },
-    7: { stage: 'Hurdle 7 of 8 · locked', title: 'Master your <em>credit card.</em>', desc: 'Get a card, use it, pay it off in full every month for six months straight. This is how you build a 750+ credit score before graduation — and unlock cheaper everything for life.', tasks: [['Get your first credit card', false], ['Use it on planned expenses only', false], ['Pay in full 6 months running', false]], reward: '$25 reward', detail: 'A milestone gift on us.', amount: '$25.00' },
-    8: { stage: 'Hurdle 8 of 8 · the big one', title: '<em>$5,000 saved</em> — you graduated.', desc: 'When you cross this line, you\'ll be in the top 10% of your age group financially. You\'ll have an emergency fund, retirement started, debt managed, credit built, and a real career money mindset.', tasks: [['Build $5K total across accounts', false], ['Maintain 12-month streak', false], ['Complete the capstone lesson', false]], reward: '$100 shopping spree', detail: 'You earned every dollar of this. Spend it on whatever future-you would high-five present-you for.', amount: '$100.00' }
-  };
+  function showToast(text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastText').textContent = text;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), 2400);
+  }
 
+  // ============ JOURNEY: HURDLE CLICKS ============
   function renderHurdle(id) {
     const h = HURDLES[id];
     if (!h) return;
@@ -1903,15 +2610,17 @@
     detail.style.animation = 'none';
     void detail.offsetWidth;
     detail.style.animation = 'fadeUp 0.4s ease both';
+    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+  // Show hurdle 4 by default
+  renderHurdle(4);
 
-  // Attach hurdle click handlers
   document.querySelectorAll('.hurdle').forEach(h => {
     h.style.cursor = 'pointer';
     h.addEventListener('click', () => renderHurdle(h.dataset.id));
   });
 
-  // dots animation for loading
+  // dots animation
   setInterval(() => {
     const d = document.getElementById('dots');
     if (!d) return;
