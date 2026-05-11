@@ -1550,8 +1550,8 @@
         <!-- Shadow -->
         <ellipse cx="0" cy="22" rx="35" ry="5" fill="#1F0B17" opacity="0.18"/>
 
-        <!-- Car body -->
-        <g>
+        <!-- Car body (flipped horizontally to face right) -->
+          <g transform="scale(-1,1)">
           <!-- Lower body -->
           <path d="M -38 8 L -32 -4 L -22 -10 L 12 -10 L 22 -18 L 30 -18 L 36 -4 L 38 8 Z"
                 fill="#EC4899" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
@@ -1570,8 +1570,8 @@
           <path d="M -10 -4 L -7 -7 L -4 -4 L -1 -7 L 2 -4 L -4 1 Z" fill="#F472B6" opacity="0.7"/>
         </g>
 
-        <!-- Wheels -->
-        <g>
+  <!-- Wheels (flip to match body) -->
+  <g transform="scale(-1,1)">
           <circle cx="-22" cy="10" r="8" fill="#1F0B17"/>
           <circle cx="-22" cy="10" r="3.5" fill="#FCE7F3"/>
           <circle cx="22" cy="10" r="8" fill="#1F0B17"/>
@@ -2252,20 +2252,51 @@
       const val = parseFloat(input.value) || 0;
       if (val <= 0) { input.focus(); return; }
       const all = [...userGoals, ...SEED_GOALS];
+      let completed = false;
       if (i < userGoals.length) {
         userGoals[i].current = Math.min(userGoals[i].target, userGoals[i].current + val);
-        if (userGoals[i].current >= userGoals[i].target) handleGoalCompletionByIndex(i);
+        if (userGoals[i].current >= userGoals[i].target) { completed = true; handleGoalCompletionByIndex(i); }
       } else {
         const seedIndex = i - userGoals.length;
         SEED_GOALS[seedIndex].current = Math.min(SEED_GOALS[seedIndex].target, SEED_GOALS[seedIndex].current + val);
-        if (SEED_GOALS[seedIndex].current >= SEED_GOALS[seedIndex].target) handleGoalCompletionByIndex(i);
+        if (SEED_GOALS[seedIndex].current >= SEED_GOALS[seedIndex].target) { completed = true; handleGoalCompletionByIndex(i); }
       }
-      renderGoals();
-      updateStatsFromGoals();
-      showToast(`+$${val} logged · keep going.`);
+      // If the goal completed, the deletion flow will call renderGoals(); otherwise update only that goal in-place
+      if (!completed) {
+        updateGoalAtIndex(i);
+        updateStatsFromGoals();
+        showToast(`+$${val} logged · keep going.`);
+      }
       close();
     });
     input.focus();
+  }
+
+  // Update a single goal card in-place (no full re-render) to avoid flicker
+  function updateGoalAtIndex(i) {
+    const all = [...userGoals, ...SEED_GOALS];
+    if (i < 0 || i >= all.length) return;
+    const g = all[i];
+    const list = document.getElementById('goalsList');
+    if (!list) return;
+    const cards = Array.from(list.querySelectorAll('.goal-card'));
+    const card = cards[i];
+    if (!card) return;
+    // Update numeric texts
+    const currentEl = card.querySelector('.goal-current');
+    const targetEl = card.querySelector('.goal-target');
+    const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+    if (currentEl) currentEl.textContent = `$${g.current.toLocaleString()}`;
+    if (targetEl) targetEl.textContent = `of $${g.target.toLocaleString()} · ${pct}%`;
+    // Animate the progress bar smoothly from its current width
+    const bar = card.querySelector('.pbar-fill');
+    if (bar) {
+      // Ensure transition is enabled (CSS handles it)
+      // Set to the new width — CSS transition will animate it
+      requestAnimationFrame(() => {
+        bar.style.width = pct + '%';
+      });
+    }
   }
 
   // Make finance values editable
@@ -2658,9 +2689,17 @@
       btn.addEventListener('click', () => {
         const i = parseInt(btn.dataset.i);
         if (i < userGoals.length) {
-          // Only allow deleting user goals
+          // Only allow deleting user goals — remove from data and DOM without full re-render
           userGoals.splice(i, 1);
-          renderGoals();
+          const cards = Array.from(list.querySelectorAll('.goal-card'));
+          const card = cards[i];
+          if (card && card.parentNode) card.parentNode.removeChild(card);
+          // Reindex remaining buttons' data-i
+          const remaining = Array.from(list.querySelectorAll('.goal-card'));
+          remaining.forEach((c, idx) => {
+            const add = c.querySelector('.add-progress'); if (add) add.dataset.i = idx;
+            const del = c.querySelector('.delete'); if (del) del.dataset.i = idx;
+          });
           updateStatsFromGoals();
         } else {
           // For seed goals, maybe just hide or show a message
@@ -2753,6 +2792,31 @@
   }
   // Show hurdle 4 by default
   renderHurdle(4);
+
+  // Position hurdles evenly along the road path so they are spaced consistently
+  function positionHurdlesEvenly() {
+    const path = document.getElementById('roadPath');
+    const hurdles = Array.from(document.querySelectorAll('.hurdle'));
+    if (!path || hurdles.length === 0) return;
+    // Use total length and place hurdles evenly from start to near the end with small padding
+    let total = 0;
+    try { total = path.getTotalLength(); } catch (e) { return; }
+    const pad = Math.min(80, total * 0.04); // small padding from ends
+    const usable = Math.max(0, total - pad * 2);
+    const n = hurdles.length;
+    hurdles.forEach((h, idx) => {
+      // Distribute from 0..1
+      const t = n === 1 ? 0.5 : idx / (n - 1);
+      const len = pad + t * usable;
+      const pt = path.getPointAtLength(len);
+      // Set the group's transform to the computed point
+      h.setAttribute('transform', `translate(${pt.x}, ${pt.y})`);
+    });
+  }
+
+  // Initial positioning and responsive updates
+  positionHurdlesEvenly();
+  window.addEventListener('resize', () => { positionHurdlesEvenly(); });
 
   document.querySelectorAll('.hurdle').forEach(h => {
     h.style.cursor = 'pointer';
