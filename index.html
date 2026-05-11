@@ -71,6 +71,10 @@
     background-size: 180px;
   }
 
+  /* Confetti and reward popup styles */
+  .confetti-container { pointer-events: none; }
+  .reward-popup { font-family: inherit; }
+
   h1, h2, h3, h4 {
     font-family: 'Fraunces', serif;
     font-weight: 500;
@@ -2120,6 +2124,150 @@
     updateDashboardStats();
   }
 
+  // ============ GOAL COMPLETION HELPERS ============
+  function createConfettiBurst() {
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    container.style.position = 'fixed';
+    container.style.left = 0;
+    container.style.top = 0;
+    container.style.right = 0;
+    container.style.bottom = 0;
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = 2000;
+    document.body.appendChild(container);
+    const colors = ['#F472B6', '#8B1E5C', '#60A5FA', '#10B981', '#FCD34D'];
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement('div');
+      const size = Math.floor(Math.random() * 10) + 6;
+      c.style.width = size + 'px';
+      c.style.height = size + 'px';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.position = 'absolute';
+      c.style.left = (Math.random() * 100) + '%';
+      c.style.top = '-10%';
+      c.style.opacity = '' + (0.9 - Math.random() * 0.5);
+      c.style.transform = `rotate(${Math.random() * 360}deg)`;
+      c.style.borderRadius = Math.random() > 0.5 ? '3px' : '50%';
+      c.style.transition = 'transform 1.6s linear, top 1.6s cubic-bezier(.2,.9,.2,1), opacity 1.6s ease';
+      container.appendChild(c);
+      setTimeout(() => {
+        c.style.top = (60 + Math.random() * 40) + '%';
+        c.style.transform = `translateY(${200 + Math.random() * 200}px) rotate(${Math.random() * 720}deg)`;
+        c.style.opacity = '0.95';
+      }, Math.random() * 120);
+    }
+    setTimeout(() => container.remove(), 2200);
+  }
+
+  function showRewardPopup(goal) {
+    const id = 'reward-popup-' + Date.now();
+    const popup = document.createElement('div');
+    popup.id = id;
+    popup.className = 'reward-popup';
+  popup.style.position = 'fixed';
+  popup.style.left = '50%';
+  popup.style.top = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.zIndex = 2200;
+    popup.style.background = 'white';
+    popup.style.border = '1px solid rgba(0,0,0,0.06)';
+    popup.style.borderRadius = '12px';
+    popup.style.boxShadow = '0 8px 24px rgba(18,18,18,0.08)';
+    popup.style.padding = '14px 16px';
+    popup.style.maxWidth = '320px';
+    popup.innerHTML = `
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#F472B6,#8B1E5C);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">🎉</div>
+        <div style="flex:1">
+          <div style="font-weight:600">Goal complete</div>
+          <div style="font-size:13px;color:#6b6b6b;margin-top:4px">${escapeHTML(goal.title)}</div>
+          <div style="margin-top:8px;font-weight:700">${escapeHTML(goal.reward)}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button class="reward-dismiss" style="background:transparent;padding:8px;border-radius:8px">Close</button>
+        <button class="reward-claim" style="background:linear-gradient(135deg,#8B1E5C,#F472B6);color:white;padding:8px 12px;border-radius:8px;font-weight:700">Claim</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    popup.querySelector('.reward-dismiss').addEventListener('click', () => popup.remove());
+    popup.querySelector('.reward-claim').addEventListener('click', () => { addCoins(10); popup.remove(); });
+    setTimeout(() => { if (document.getElementById(id)) document.getElementById(id).remove(); }, 12000);
+  }
+
+  function handleGoalCompletionByIndex(i) {
+    // i is index in combined all = [...userGoals, ...SEED_GOALS]
+    const all = [...userGoals, ...SEED_GOALS];
+    if (i < 0 || i >= all.length) return;
+    const goal = all[i];
+    try { createConfettiBurst(); } catch (e) {}
+    try { showRewardPopup(goal); } catch (e) {}
+    // Delete the goal from its source array after a short delay
+    setTimeout(() => {
+      if (i < userGoals.length) {
+        userGoals.splice(i, 1);
+      } else {
+        const seedIndex = i - userGoals.length;
+        SEED_GOALS.splice(seedIndex, 1);
+      }
+      renderGoals();
+      updateStatsFromGoals();
+    }, 900);
+  }
+
+  // Prompt the user for an amount to log against a goal (centered modal)
+  function promptLogAmount(i) {
+    const id = 'log-amount-' + Date.now();
+    const modal = document.createElement('div');
+    modal.id = id;
+    modal.style.position = 'fixed';
+    modal.style.left = '50%';
+    modal.style.top = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+    modal.style.zIndex = 2300;
+    modal.style.background = 'white';
+    modal.style.border = '1px solid rgba(0,0,0,0.06)';
+    modal.style.borderRadius = '12px';
+    modal.style.padding = '18px';
+    modal.style.boxShadow = '0 12px 40px rgba(8,8,8,0.12)';
+    modal.innerHTML = `
+      <div style="font-weight:700;margin-bottom:8px">Log progress</div>
+      <div style="margin-bottom:10px">Enter amount to add to this goal.</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="number" min="0" step="1" placeholder="Amount" style="flex:1;padding:8px;border:1px solid #eee;border-radius:8px" id="${id}-input" />
+        <button id="${id}-ok" style="background:linear-gradient(135deg,#8B1E5C,#F472B6);color:white;padding:8px 12px;border-radius:8px;font-weight:700">Add</button>
+      </div>
+      <div style="text-align:right;margin-top:8px"><button id="${id}-cancel" style="background:transparent;padding:6px;border-radius:6px">Cancel</button></div>
+    `;
+    document.body.appendChild(modal);
+
+    const input = modal.querySelector('#' + id + '-input');
+    const ok = modal.querySelector('#' + id + '-ok');
+    const cancel = modal.querySelector('#' + id + '-cancel');
+
+    function close() { if (modal && modal.parentNode) modal.parentNode.removeChild(modal); }
+    cancel.addEventListener('click', close);
+    ok.addEventListener('click', () => {
+      const val = parseFloat(input.value) || 0;
+      if (val <= 0) { input.focus(); return; }
+      const all = [...userGoals, ...SEED_GOALS];
+      if (i < userGoals.length) {
+        userGoals[i].current = Math.min(userGoals[i].target, userGoals[i].current + val);
+        if (userGoals[i].current >= userGoals[i].target) handleGoalCompletionByIndex(i);
+      } else {
+        const seedIndex = i - userGoals.length;
+        SEED_GOALS[seedIndex].current = Math.min(SEED_GOALS[seedIndex].target, SEED_GOALS[seedIndex].current + val);
+        if (SEED_GOALS[seedIndex].current >= SEED_GOALS[seedIndex].target) handleGoalCompletionByIndex(i);
+      }
+      renderGoals();
+      updateStatsFromGoals();
+      showToast(`+$${val} logged · keep going.`);
+      close();
+    });
+    input.focus();
+  }
+
   // Make finance values editable
   function makeFinanceEditable() {
     const cells = document.querySelectorAll('.finance-cell');
@@ -2433,6 +2581,11 @@
     showToast('Goal added · +10¢');
     card.classList.remove('open');
     resetGoalForm();
+    // If the newly added goal already meets its target, handle completion immediately
+    if (newGoal.current >= newGoal.target) {
+      // it's at index 0 in the combined list
+      handleGoalCompletionByIndex(0);
+    }
   });
 
   function resetGoalForm() {
@@ -2498,21 +2651,7 @@
     list.querySelectorAll('.add-progress').forEach(btn => {
       btn.addEventListener('click', () => {
         const i = parseInt(btn.dataset.i);
-        const amount = '50'; // Fixed amount for testing
-        const a = parseFloat(amount);
-        if (a > 0) {
-          if (i < userGoals.length) {
-            // User goal
-            userGoals[i].current = Math.min(userGoals[i].target, userGoals[i].current + a);
-          } else {
-            // Seed goal - modify SEED_GOALS (make it mutable)
-            const seedIndex = i - userGoals.length;
-            SEED_GOALS[seedIndex].current = Math.min(SEED_GOALS[seedIndex].target, SEED_GOALS[seedIndex].current + a);
-          }
-          renderGoals();
-          updateStatsFromGoals();
-          showToast(`+$${a} logged · keep going.`);
-        }
+        promptLogAmount(i);
       });
     });
     list.querySelectorAll('.delete').forEach(btn => {
