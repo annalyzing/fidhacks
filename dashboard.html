@@ -1,0 +1,2960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Miss Manual — Money Habits and Career Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,500;1,9..144,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Background tones */
+    --bg: #FBF1F4;
+    --bg-2: #F4E2E8;
+    --bg-3: #EBD2DC;
+    --bg-card: #FFFFFF;
+
+    /* Primary: deep magenta */
+    --magenta: #8B1E5C;
+    --magenta-dark: #5F1041;
+    --magenta-deep: #3A0524;
+
+    /* Hot pink accent */
+    --pink: #EC4899;
+    --pink-bright: #F472B6;
+    --pink-soft: #FCE7F3;
+
+    /* Green for growth/positive */
+    --green: #059669;
+    --green-bright: #10B981;
+    --green-soft: #D1FAE5;
+
+    /* Blue for trust/info/learning */
+    --blue: #2563EB;
+    --blue-bright: #60A5FA;
+    --blue-soft: #DBEAFE;
+
+    /* Ink + lines */
+    --ink: #1F0B17;
+    --ink-2: #4B1C36;
+    --ink-muted: #8B5A75;
+    --line: rgba(139, 30, 92, 0.14);
+    --line-strong: rgba(139, 30, 92, 0.32);
+
+    --shadow-1: 0 1px 0 rgba(58,5,36,0.06), 0 8px 24px -12px rgba(58,5,36,0.18);
+    --shadow-2: 0 1px 0 rgba(58,5,36,0.08), 0 20px 40px -20px rgba(58,5,36,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32 0 0 0 0 0.05 0 0 0 0 0.18 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 180px;
+  }
+
+  /* Confetti and reward popup styles */
+  .confetti-container { pointer-events: none; }
+  .reward-popup { font-family: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--magenta);
+    line-height: 1.05;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum'; }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  input, textarea, select { font: inherit; color: inherit; }
+
+  /* ============ HEADER ============ */
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(251, 241, 244, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.03em;
+    color: var(--magenta);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .logo-mark { display: inline-block; width: 100px; height: 100px; margin-right: 4px; transform: translateY(1px); object-fit: contain; border-radius: 8px; }
+  .logo em { font-style: italic; font-weight: 500; color: var(--pink); }
+  .nav {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 4px;
+  }
+  .nav-item {
+    padding: 9px 20px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-2);
+    transition: all 0.2s ease;
+    letter-spacing: -0.005em;
+  }
+  .nav-item:hover { color: var(--magenta); }
+  .nav-item.active {
+    background: var(--magenta);
+    color: white;
+  }
+  .header-right { display: flex; align-items: center; gap: 14px; }
+  .coin-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px 8px 10px;
+    background: linear-gradient(135deg, var(--pink) 0%, var(--magenta) 100%);
+    border: 1px solid var(--magenta-dark);
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    box-shadow: 0 4px 12px -4px rgba(139, 30, 92, 0.4);
+  }
+  .coin-pill .coin-icon {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FFE5F0, var(--pink-bright) 60%, var(--pink));
+    border: 1.5px solid var(--magenta-dark);
+    box-shadow: inset 0 -2px 4px rgba(94, 16, 65, 0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: white; font-weight: 700;
+  }
+  .avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--magenta));
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    border: 1.5px solid var(--magenta-dark);
+  }
+
+  /* ============ PAGE STRUCTURE ============ */
+  .view { display: none; animation: fadeUp 0.5s ease both; }
+  .view.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  main { max-width: 1400px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ============ LEARN PAGE ============ */
+  .hero { padding: 80px 0 60px; position: relative; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 24px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--magenta); }
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 92px);
+    font-weight: 500;
+    max-width: 1100px;
+    color: var(--magenta);
+    margin-bottom: 28px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--pink);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 10px;
+    background: var(--green-soft);
+    z-index: -1;
+    opacity: 0.9;
+    transform: skewX(-8deg);
+  }
+  .hero-sub {
+    font-size: 19px;
+    max-width: 600px;
+    color: var(--ink-2);
+    margin-bottom: 36px;
+    line-height: 1.55;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    max-width: 780px;
+  }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--magenta);
+    display: block;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .hero-flourish {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    width: 200px;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  @media (max-width: 1000px) { .hero-flourish { display: none; } }
+
+  /* ============ TOPICS ============ */
+  .section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin: 60px 0 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    gap: 40px;
+  }
+  .section-head h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 500; }
+  .section-head h2 em { font-style: italic; color: var(--pink); }
+  .section-head p { color: var(--ink-muted); font-size: 15px; max-width: 420px; text-align: right; }
+
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 1000px) { .topic-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .topic-grid { grid-template-columns: 1fr; } }
+
+  .topic {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+  .topic:hover {
+    background: var(--bg-3);
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+  }
+  .topic.open {
+    background: #fff;
+    border-color: var(--magenta);
+    box-shadow: var(--shadow-1);
+  }
+  .topic-head { padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+  .topic-head-left { display: flex; align-items: center; gap: 16px; }
+  .topic-icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+  }
+  .topic.open .topic-icon { background: var(--pink-soft); border-color: var(--pink-bright); }
+  .topic-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--magenta); }
+  .topic-sub { font-size: 12.5px; color: var(--ink-muted); margin-top: 2px; }
+  .topic-chevron {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.25s;
+    color: var(--magenta);
+    flex-shrink: 0;
+  }
+  .topic.open .topic-chevron { transform: rotate(180deg); background: var(--magenta); color: white; border-color: var(--magenta); }
+  .topic-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+  .topic.open .topic-body { max-height: 500px; }
+  .topic-body-inner { padding: 0 24px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .subtopic {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .subtopic:hover { background: var(--bg-2); border-color: var(--line-strong); }
+  .subtopic.selected { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .subtopic .check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .subtopic.selected .check { background: var(--pink); border-color: var(--pink); }
+  .subtopic.selected .check svg { opacity: 1; }
+  .subtopic .check svg { opacity: 0; transition: opacity 0.15s; }
+  .subtopic-label { font-size: 14px; font-weight: 500; flex: 1; }
+  .subtopic-time { font-size: 11.5px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; }
+  .subtopic.selected .subtopic-time { color: rgba(255,255,255,0.7); }
+
+  /* ============ GENERATE COURSE BAR ============ */
+  .generate-bar {
+    position: sticky;
+    bottom: 24px;
+    margin: 40px auto 0;
+    background: var(--magenta);
+    color: white;
+    border-radius: 100px;
+    padding: 12px 14px 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-shadow: 0 20px 50px -20px rgba(58, 5, 36, 0.6);
+    max-width: 720px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+    z-index: 50;
+  }
+  .generate-bar.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .generate-bar-info { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+  .gen-count { font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; font-style: italic; color: var(--pink-bright); }
+  .gen-btn {
+    background: var(--pink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .gen-btn:hover { background: var(--pink-bright); transform: translateX(2px); }
+
+  /* ============ MODAL ============ */
+  .modal-bg {
+    position: fixed; inset: 0;
+    background: rgba(58, 5, 36, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-bg.show { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    max-width: 720px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.4);
+    animation: popIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+  }
+  @keyframes popIn { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  .modal-inner { padding: 36px 36px 30px; }
+  .modal-close {
+    float: right;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    color: var(--magenta);
+  }
+  .modal-close:hover { background: var(--bg-3); transform: rotate(90deg); }
+
+  /* AI loader */
+  .ai-loading { text-align: center; padding: 40px 20px; }
+  .ai-loader { width: 60px; height: 60px; margin: 0 auto 24px; position: relative; }
+  .ai-loader-ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--pink);
+    animation: spin 1s linear infinite;
+  }
+  .ai-loader-ring:nth-child(2) {
+    inset: 8px;
+    border-top-color: var(--blue);
+    animation-duration: 1.4s;
+    animation-direction: reverse;
+  }
+  .ai-loader-ring:nth-child(3) {
+    inset: 16px;
+    border-top-color: var(--green);
+    animation-duration: 0.7s;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ai-loading h3 { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; margin-bottom: 8px; }
+  .ai-loading-status { font-size: 14px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; animation: fadeIn 0.4s ease; }
+
+  .course-result h3 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; margin-bottom: 6px; }
+  .course-result h3 em { font-style: italic; color: var(--pink); }
+  .course-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .course-meta span { display: flex; align-items: center; gap: 6px; }
+  .module { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+  .module:last-child { border-bottom: none; }
+  .module-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    flex-shrink: 0;
+    color: var(--magenta);
+  }
+  .module-body { flex: 1; }
+  .module-title { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin-bottom: 4px; color: var(--magenta); }
+  .module-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.5; }
+  .module-meta { display: flex; gap: 12px; margin-top: 8px; font-size: 11.5px; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; }
+  .module-meta .coin-mini { color: var(--pink); font-weight: 600; }
+  .course-cta {
+    margin-top: 24px;
+    background: var(--magenta);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+  }
+  .course-cta:hover { background: var(--magenta-dark); }
+
+  /* ============ DASHBOARD ============ */
+  .dash-greet { padding: 60px 0 30px; }
+  .dash-greet h1 { font-size: clamp(40px, 5.5vw, 68px); font-weight: 500; margin-bottom: 10px; }
+  .dash-greet h1 em { font-style: italic; color: var(--pink); }
+  .dash-greet p { font-size: 17px; color: var(--ink-2); }
+
+  .finance-strip {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 0;
+    background: var(--magenta);
+    color: white;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  @media (max-width: 900px) { .finance-strip { grid-template-columns: 1fr 1fr; } }
+  .finance-cell {
+    padding: 28px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .finance-cell:last-child { border-right: none; }
+  .finance-cell.big { background: var(--magenta-dark); position: relative; }
+  .finance-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+  .finance-value { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 500; line-height: 1; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .finance-cell.big .finance-value { font-size: 56px; }
+  .finance-delta { font-size: 12.5px; color: var(--green-bright); font-family: 'JetBrains Mono', monospace; display: inline-flex; align-items: center; gap: 4px; }
+  .finance-delta.down { color: var(--pink-bright); }
+  .finance-input {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .finance-input:focus { outline: none; border-color: var(--pink-bright); }
+
+  .finance-editor-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 24px 28px;
+    margin: -18px 0 40px;
+    box-shadow: var(--shadow-1);
+  }
+  .finance-editor-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .finance-editor-head h3 {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+  .finance-editor-head p {
+    color: var(--ink-muted);
+    font-size: 13.5px;
+  }
+  .finance-edit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px) { .finance-edit-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .finance-edit-grid { grid-template-columns: 1fr; } }
+  .finance-edit-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 7px;
+  }
+  .finance-edit-field input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    outline: none;
+  }
+  .finance-edit-field input:focus {
+    border-color: var(--pink);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+  }
+  .finance-editor-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .finance-save-btn {
+    background: var(--magenta);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .finance-save-btn:hover { background: var(--magenta-dark); }
+  .finance-reset-btn {
+    color: var(--magenta);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .finance-editor-note {
+    color: var(--ink-muted);
+    font-size: 12.5px;
+  }
+
+  /* GOALS */
+  .goals-row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+  }
+  .goals-row h2 { font-size: clamp(28px, 3.6vw, 42px); font-weight: 500; }
+  .goals-row h2 em { font-style: italic; color: var(--pink); }
+  .goals-row > div:last-child { color: var(--ink-muted); font-size: 14px; max-width: 360px; text-align: right; }
+
+  /* ============ ADD GOAL CARD ============ */
+  .add-goal-card {
+    background: linear-gradient(135deg, var(--blue-soft) 0%, var(--pink-soft) 100%);
+    border: 1.5px dashed var(--magenta);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+  }
+  .add-goal-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 20px;
+  }
+  .add-goal-trigger-left { display: flex; align-items: center; gap: 16px; }
+  .add-goal-icon {
+    width: 46px; height: 46px;
+    border-radius: 14px;
+    background: var(--magenta);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .add-goal-text-prompt {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--magenta);
+  }
+  .add-goal-text-prompt + p { font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+  .add-goal-cta-btn {
+    background: var(--magenta);
+    color: white;
+    padding: 11px 20px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .add-goal-cta-btn:hover { background: var(--magenta-dark); }
+
+  .add-goal-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .add-goal-card.open .add-goal-form { max-height: 700px; }
+  .add-goal-card.open { background: #fff; border-style: solid; }
+  .add-goal-form-inner {
+    padding-top: 22px;
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 600px) { .form-row.grid { grid-template-columns: 1fr; } }
+  .form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--magenta);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 15px;
+    color: var(--ink);
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--pink);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+  }
+  .form-input.mono-input { font-family: 'JetBrains Mono', monospace; }
+  .form-textarea { min-height: 70px; resize: vertical; font-family: 'DM Sans', sans-serif; }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-muted); }
+  .form-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 8px 14px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip:hover { border-color: var(--line-strong); }
+  .chip.selected { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .form-submit-row { display: flex; gap: 12px; align-items: center; }
+  .form-submit-btn {
+    background: var(--pink);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s;
+  }
+  .form-submit-btn:hover { background: var(--pink-bright); }
+  .form-cancel-btn { color: var(--ink-muted); font-size: 14px; padding: 12px 18px; }
+  .form-cancel-btn:hover { color: var(--magenta); }
+  .form-hint { font-size: 12px; color: var(--ink-muted); margin-left: auto; }
+
+  .goals-list { display: flex; flex-direction: column; gap: 16px; }
+  .goal-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 28px;
+    display: grid;
+    grid-template-columns: 1fr 200px 220px;
+    gap: 32px;
+    align-items: center;
+    transition: all 0.25s;
+    animation: slideIn 0.5s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+  }
+  @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 900px) { .goal-card { grid-template-columns: 1fr; gap: 18px; } }
+  .goal-card:hover { box-shadow: var(--shadow-1); border-color: var(--line-strong); }
+
+  .goal-info { min-width: 0; }
+  .goal-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .goal-tag.save { background: var(--green-soft); color: var(--green); }
+  .goal-tag.invest { background: var(--blue-soft); color: var(--blue); }
+  .goal-tag.debt { background: var(--pink-soft); color: var(--magenta); }
+  .goal-tag.fun { background: rgba(244, 114, 182, 0.18); color: var(--pink); }
+  .goal-tag.career { background: var(--blue-soft); color: var(--blue); }
+  .goal-title { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--magenta); margin-bottom: 4px; }
+  .goal-desc { font-size: 13.5px; color: var(--ink-muted); }
+  .goal-deadline { font-size: 11.5px; color: var(--ink-muted); margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
+
+  .goal-progress-wrap { display: flex; flex-direction: column; gap: 10px; }
+  .goal-progress-nums { display: flex; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .goal-current { font-size: 18px; font-weight: 600; color: var(--magenta); }
+  .goal-target { color: var(--ink-muted); }
+  .pbar { height: 10px; background: var(--bg-2); border-radius: 100px; overflow: hidden; position: relative; }
+  .pbar-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--pink), var(--magenta));
+    position: relative;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.3);
+  }
+  .pbar-fill.save { background: linear-gradient(90deg, var(--green), var(--green-bright)); box-shadow: 0 0 12px rgba(5, 150, 105, 0.3); }
+  .pbar-fill.invest { background: linear-gradient(90deg, var(--blue), var(--blue-bright)); box-shadow: 0 0 12px rgba(37, 99, 235, 0.3); }
+  .pbar-fill.debt { background: linear-gradient(90deg, var(--magenta), var(--pink)); box-shadow: 0 0 12px rgba(139, 30, 92, 0.3); }
+  .pbar-fill.fun { background: linear-gradient(90deg, var(--pink), var(--pink-bright)); box-shadow: 0 0 12px rgba(236, 72, 153, 0.3); }
+
+  .goal-reward { border-left: 1px solid var(--line); padding-left: 24px; }
+  @media (max-width: 900px) { .goal-reward { border-left: none; border-top: 1px solid var(--line); padding-left: 0; padding-top: 16px; } }
+  .goal-reward-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-muted); margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .goal-reward-name { font-family: 'Fraunces', serif; font-style: italic; font-size: 16px; color: var(--magenta); margin-bottom: 4px; }
+  .goal-reward-detail { font-size: 12.5px; color: var(--ink-muted); }
+
+  .goal-actions { display: flex; gap: 6px; margin-top: 12px; }
+  .goal-action-btn {
+    font-size: 11.5px;
+    padding: 6px 10px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--ink-2);
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .goal-action-btn:hover { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .goal-action-btn.delete:hover { background: var(--pink); border-color: var(--pink); }
+
+  /* STREAK */
+  .streak-callout {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--magenta) 100%);
+    color: white;
+    border: 1px solid var(--magenta-dark);
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: space-between;
+  }
+  .streak-callout-text { display: flex; align-items: center; gap: 20px; }
+  .streak-flame { width: 56px; height: 56px; flex-shrink: 0; }
+  .streak-callout h3 { font-family: 'Fraunces', serif; font-size: 22px; font-style: italic; color: white; margin-bottom: 2px; }
+  .streak-callout p { font-size: 14px; color: rgba(255,255,255,0.85); }
+  .streak-num { font-family: 'Fraunces', serif; font-size: 54px; font-weight: 600; color: white; line-height: 1; }
+
+  /* ============ JOURNEY PAGE ============ */
+  .journey-head { padding: 60px 0 40px; text-align: center; }
+  .journey-head h1 { font-size: clamp(40px, 6vw, 80px); font-weight: 500; margin-bottom: 18px; }
+  .journey-head h1 em { font-style: italic; color: var(--pink); }
+  .journey-head p { font-size: 18px; color: var(--ink-2); max-width: 580px; margin: 0 auto; }
+
+  .journey-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 40px 0 30px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  .journey-stat { text-align: center; }
+  .journey-stat-num { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; color: var(--magenta); line-height: 1; }
+  .journey-stat-num em { font-style: italic; color: var(--pink); }
+  .journey-stat-label { font-size: 12px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 0.04em; }
+
+  /* Road */
+  .road-wrap { position: relative; margin: 20px 0 60px; padding: 40px 20px; }
+  .road-svg { width: 100%; height: auto; display: block; }
+
+  /* Hurdle detail */
+  .hurdle-detail {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 36px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: center;
+    box-shadow: var(--shadow-1);
+  }
+  @media (max-width: 800px) { .hurdle-detail { grid-template-columns: 1fr; } }
+  .hurdle-detail-info { display: flex; flex-direction: column; gap: 14px; }
+  .hurdle-stage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); }
+  .hurdle-detail h3 { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; }
+  .hurdle-detail h3 em { font-style: italic; }
+  .hurdle-detail p { color: var(--ink-2); line-height: 1.55; }
+  .hurdle-tasks { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .hurdle-task { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--ink-2); }
+  .hurdle-task .dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid var(--line-strong);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hurdle-task.done .dot { background: var(--green); border-color: var(--green); }
+  .hurdle-task.done .dot svg { opacity: 1; color: white; }
+  .hurdle-task .dot svg { opacity: 0; color: white; }
+  .hurdle-task.done { text-decoration: line-through; color: var(--ink-muted); }
+
+  .reward-card {
+    background: linear-gradient(160deg, var(--pink) 0%, var(--magenta) 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 26px;
+    position: relative;
+    overflow: hidden;
+  }
+  .reward-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 140px; height: 140px;
+    background: radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, transparent 60%);
+  }
+  .reward-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.85; margin-bottom: 8px; }
+  .reward-card-title { font-family: 'Fraunces', serif; font-style: italic; font-size: 26px; line-height: 1.1; margin-bottom: 10px; }
+  .reward-card-detail { font-size: 13px; opacity: 0.9; margin-bottom: 16px; }
+  .reward-amount { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 600; display: flex; align-items: baseline; gap: 6px; }
+
+  /* GARAGE */
+  .garage-section { margin-top: 80px; }
+  .garage-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line);
+    gap: 24px;
+  }
+  .garage-head h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 500; }
+  .garage-head h2 em { font-style: italic; color: var(--pink); }
+  .garage-head p { font-size: 14px; color: var(--ink-muted); max-width: 380px; text-align: right; }
+  .garage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 900px) { .garage-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 500px) { .garage-grid { grid-template-columns: 1fr; } }
+  .car-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s;
+  }
+  .car-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-1); }
+  .car-card.current { background: linear-gradient(135deg, var(--pink-soft) 0%, #fff 60%); border: 1.5px solid var(--pink); }
+  .car-card.locked { opacity: 0.6; }
+  .car-card-tag {
+    position: absolute;
+    top: 12px; right: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 100px;
+  }
+  .car-card-tag.equipped { background: var(--green); color: white; }
+  .car-card-tag.locked { background: var(--bg-2); color: var(--ink-muted); }
+  .car-display {
+    height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 12px;
+  }
+  .car-display svg { max-width: 100%; height: auto; }
+  .car-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--magenta); margin-bottom: 2px; }
+  .car-desc { font-size: 12.5px; color: var(--ink-muted); line-height: 1.4; }
+  .car-price {
+    margin-top: 10px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 14px; font-weight: 600; color: var(--magenta);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .car-price-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-bright), var(--pink));
+    color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+  }
+
+  /* ============ LESSON VIEW ============ */
+  .lesson-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .lesson-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--ink-2); font-size: 14px; font-weight: 500;
+    padding: 8px 16px 8px 12px;
+    background: var(--bg-2);
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+  .lesson-back:hover { background: var(--bg-3); color: var(--magenta); }
+  .lesson-pos { font-size: 13px; color: var(--ink-muted); }
+  .lesson-pos strong { color: var(--magenta); font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; }
+  .lesson-progress-bar {
+    height: 5px;
+    background: var(--bg-2);
+    border-radius: 100px;
+    width: 240px;
+    overflow: hidden;
+  }
+  .lesson-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue), var(--magenta));
+    border-radius: 100px;
+    transition: width 0.6s ease;
+  }
+
+  .lesson-content {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .lesson-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 16px;
+  }
+  .lesson-content h1 {
+    font-size: clamp(38px, 5vw, 56px);
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.05;
+  }
+  .lesson-content h1 em { font-style: italic; color: var(--pink); }
+  .lesson-intro { font-size: 19px; line-height: 1.55; color: var(--ink-2); margin-bottom: 36px; }
+  .lesson-meta {
+    display: flex; gap: 18px;
+    padding: 16px 20px;
+    background: var(--bg-2);
+    border-radius: 14px;
+    margin-bottom: 40px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .lesson-meta span { display: flex; align-items: center; gap: 6px; }
+  .lesson-meta strong { color: var(--magenta); font-weight: 600; }
+  .lesson-content h2 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 16px;
+  }
+  .lesson-content h2 em { font-style: italic; color: var(--pink); }
+  .lesson-content p { font-size: 16px; line-height: 1.65; color: var(--ink-2); margin-bottom: 16px; }
+  .lesson-content p strong { color: var(--magenta); font-weight: 600; }
+  .lesson-content ul, .lesson-content ol { margin: 0 0 16px 22px; }
+  .lesson-content li { font-size: 16px; line-height: 1.65; color: var(--ink-2); margin-bottom: 8px; }
+  .lesson-content li::marker { color: var(--pink); }
+
+  .callout {
+    background: linear-gradient(135deg, var(--blue-soft) 0%, var(--pink-soft) 100%);
+    border-left: 4px solid var(--pink);
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 28px 0;
+  }
+  .callout-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .callout p { color: var(--magenta); font-size: 16px; line-height: 1.55; margin: 0; }
+  .callout p strong { color: var(--magenta-dark); }
+
+  .formula-box {
+    background: var(--magenta);
+    color: white;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .formula-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+  .formula-text { font-family: 'Fraunces', serif; font-size: 26px; font-style: italic; line-height: 1.3; }
+  .formula-text em { color: var(--pink-bright); font-style: normal; font-weight: 600; }
+
+  .quiz-block {
+    background: var(--bg-card);
+    border: 1.5px solid var(--magenta);
+    border-radius: 18px;
+    padding: 28px;
+    margin: 40px 0;
+  }
+  .quiz-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink); margin-bottom: 8px;
+  }
+  .quiz-block h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; margin-bottom: 18px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    padding: 14px 18px;
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 15px;
+    color: var(--ink-2);
+    display: flex; align-items: center; gap: 12px;
+    text-align: left;
+  }
+  .quiz-option:hover { background: var(--bg-2); border-color: var(--line-strong); }
+  .quiz-option .opt-letter {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    color: var(--magenta);
+    font-weight: 700;
+    font-size: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .quiz-option.correct { background: var(--green-soft); border-color: var(--green); color: var(--green); }
+  .quiz-option.correct .opt-letter { background: var(--green); color: white; }
+  .quiz-option.wrong { background: var(--pink-soft); border-color: var(--pink); color: var(--pink); }
+  .quiz-option.wrong .opt-letter { background: var(--pink); color: white; }
+  .quiz-feedback {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: var(--green-soft);
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--green);
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+
+  .complete-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0 0;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    gap: 24px;
+  }
+  .complete-info { font-size: 13px; color: var(--ink-muted); }
+  .complete-info strong { color: var(--pink); }
+  .complete-btn {
+    background: var(--magenta);
+    color: white;
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: all 0.2s;
+  }
+  .complete-btn:hover { background: var(--magenta-dark); }
+  .complete-btn.done { background: var(--green); pointer-events: none; }
+
+  /* Footer */
+  .footer {
+    margin-top: 80px;
+    padding: 40px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 13px;
+  }
+  .footer em { font-family: 'Fraunces', serif; font-style: italic; color: var(--magenta); }
+
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 100px; border: 3px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--magenta); }
+
+  /* Coin earn anim */
+  @keyframes coinFly {
+    0% { opacity: 1; transform: scale(1) translateY(0); }
+    100% { opacity: 0; transform: scale(0.4) translateY(-80px); }
+  }
+  .floating-coin {
+    position: fixed;
+    z-index: 2000;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: white;
+    pointer-events: none;
+    animation: coinFly 1.2s ease-out forwards;
+    font-size: 22px;
+    background: linear-gradient(135deg, var(--pink), var(--magenta));
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--magenta-dark);
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--magenta);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s;
+    z-index: 1500;
+    box-shadow: 0 12px 30px -10px rgba(58, 5, 36, 0.5);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <img src="logo.png" alt="Miss Manual logo" class="logo-mark">
+      Miss <em>Manual</em>
+    </a>
+    <nav class="nav">
+      <button class="nav-item active" data-view="dashboard">Dashboard</button>
+      <button class="nav-item" data-view="learn">Learn</button>
+      <button class="nav-item" data-view="journey">Journey</button>
+    </nav>
+    <div class="header-right">
+      <div class="coin-pill">
+        <span class="coin-icon">¢</span>
+        <span id="coinCount">240</span>
+      </div>
+      <div class="avatar" id="userAvatar">PK</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!--                       VIEW 1: LEARN                          -->
+<!-- ============================================================ -->
+<section class="view" id="view-learn">
+
+  <div class="hero">
+    <div class="eyebrow">For first-year founders of their own future</div>
+    <h1>Make your first <em>money move.</em><br/>Then a few more.</h1>
+    <p class="hero-sub">A pocket-sized financial coach for women learning to earn, save, invest, and negotiate — without the lecture or the lingo.</p>
+
+    <svg class="hero-flourish" viewBox="0 0 200 200" fill="none">
+      <path d="M30 130 Q 60 60, 120 80 T 180 50" stroke="#8B1E5C" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M170 45 L180 50 L175 60" stroke="#8B1E5C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="30" cy="130" r="5" fill="#EC4899"/>
+      <text x="38" y="155" font-family="Fraunces" font-style="italic" font-size="14" fill="#8B1E5C">today</text>
+      <text x="135" y="38" font-family="Fraunces" font-style="italic" font-size="14" fill="#EC4899">future you</text>
+    </svg>
+
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">12,400+</span>
+        <span class="stat-label">young women who need financial literacy advice</span>
+      </div>
+      <div>
+        <span class="stat-num">$1.8M</span>
+        <span class="stat-label"> collectively saved and invested by women ages 15–20 in 2025</span>
+      </div>
+      <div>
+        <span class="stat-num">18 min</span>
+        <span class="stat-label">average daily commitment to Miss Manual</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Pick what you actually want to <em>figure out.</em></h2>
+    <p>Choose any subtopics that feel relevant. We'll braid them into a course built for where you are right now.</p>
+  </div>
+
+  <div class="topic-grid" id="topicGrid"></div>
+
+  <div class="generate-bar" id="generateBar">
+    <div class="generate-bar-info">
+      <span class="gen-count" id="selectCount">0</span>
+      <span>topics selected — ready when you are.</span>
+    </div>
+    <button class="gen-btn" id="generateBtn">
+      Generate my course
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!--                    VIEW 2: DASHBOARD                         -->
+<!-- ============================================================ -->
+<section class="view active" id="view-dashboard">
+
+  <div class="dash-greet">
+    <div class="eyebrow">Tuesday, May 12 · welcome back</div>
+    <h1>Hey <em>Palak</em>—<br/>here's where you stand.</h1>
+    <p>Track your money goals, career goals, lessons, coins, and roadmap progress all in one place.</p>
+  </div>
+
+  <div class="finance-strip">
+    <div class="finance-cell big">
+      <div class="finance-label">Net worth</div>
+      <div class="finance-value mono">$2,847</div>
+      <input type="number" class="finance-input mono" id="netWorthInput" placeholder="Enter net worth" style="display: none;">
+    </div>
+    <div class="finance-cell">
+      <div class="finance-label">Checking</div>
+      <div class="finance-value mono">$642</div>
+      <input type="number" class="finance-input mono" id="checkingInput" placeholder="Enter checking" style="display: none;">
+    </div>
+    <div class="finance-cell">
+      <div class="finance-label">Savings</div>
+      <div class="finance-value mono">$1,580</div>
+      <input type="number" class="finance-input mono" id="savingsInput" placeholder="Enter savings" style="display: none;">
+    </div>
+    <div class="finance-cell">
+      <div class="finance-label">Invested</div>
+      <div class="finance-value mono">$625</div>
+      <input type="number" class="finance-input mono" id="investedInput" placeholder="Enter invested" style="display: none;">
+    </div>
+  </div>
+
+  <div class="finance-editor-card">
+    <div class="finance-editor-head">
+      <div>
+        <h3>Update your <em>money numbers.</em></h3>
+        <p>Edit checking, savings, invested money, and net worth from the dashboard.</p>
+      </div>
+    </div>
+
+    <div class="finance-edit-grid">
+      <div class="finance-edit-field">
+        <label for="financeChecking">Checking</label>
+        <input id="financeChecking" type="number" min="0" step="1" placeholder="642">
+      </div>
+      <div class="finance-edit-field">
+        <label for="financeSavings">Savings</label>
+        <input id="financeSavings" type="number" min="0" step="1" placeholder="1580">
+      </div>
+      <div class="finance-edit-field">
+        <label for="financeInvested">Invested</label>
+        <input id="financeInvested" type="number" min="0" step="1" placeholder="625">
+      </div>
+      <div class="finance-edit-field">
+        <label for="financeNetWorth">Net worth</label>
+        <input id="financeNetWorth" type="number" step="1" placeholder="Optional override">
+      </div>
+    </div>
+
+    <div class="finance-editor-actions">
+      <button class="finance-save-btn" id="saveFinanceBtn" type="button">Save finance changes</button>
+      <button class="finance-reset-btn" id="useCalculatedNetWorthBtn" type="button">Use calculated net worth</button>
+      <span class="finance-editor-note">Net worth can be typed manually, or calculated from checking + savings + invested - debt.</span>
+    </div>
+  </div>
+
+  <div class="goals-row">
+    <h2>Your <em>money + career moves,</em> in motion.</h2>
+    <div>Add money goals and career goals here. Career goals can become personalized hurdles on your roadmap.</div>
+  </div>
+
+  <!-- ADD GOAL: real form -->
+  <div class="add-goal-card" id="addGoalCard">
+    <div class="add-goal-trigger" id="addGoalTrigger">
+      <div class="add-goal-trigger-left">
+        <div class="add-goal-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="add-goal-text-prompt">What's a money or career goal you're working on?</div>
+          <p>Save for a trip · build a $2K cushion · land an internship · create a portfolio — whatever it is, tell us.</p>
+        </div>
+      </div>
+      <button class="add-goal-cta-btn">
+        Add a goal
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="add-goal-form">
+      <div class="add-goal-form-inner">
+        <div class="form-row">
+          <label class="form-label">What goal are you working toward?</label>
+          <input class="form-input" id="goalName" type="text" placeholder="e.g. Save $1,200, land a summer internship, build my portfolio…" />
+        </div>
+
+        <div class="form-row grid career-fields">
+          <div>
+            <label class="form-label">Career path / interest</label>
+            <input class="form-input" id="careerPath" type="text" placeholder="e.g. UX designer, software engineer, marketing analyst…" />
+          </div>
+          <div>
+            <label class="form-label">Career milestone</label>
+            <input class="form-input" id="careerMilestone" type="text" placeholder="e.g. apply to 5 internships, finish resume, build portfolio…" />
+          </div>
+        </div>
+
+        <div class="form-row grid">
+          <div>
+            <label class="form-label">Target amount / target number</label>
+            <input class="form-input mono-input" id="goalTarget" type="number" placeholder="$1,200 or 5 applications" min="0" />
+          </div>
+          <div>
+            <label class="form-label">Current progress (optional)</label>
+            <input class="form-input mono-input" id="goalCurrent" type="number" placeholder="$0 or 1 completed" min="0" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">What kind of goal?</label>
+          <div class="form-chips" id="goalChips">
+            <span class="chip selected" data-tag="save">Save</span>
+            <span class="chip" data-tag="invest">Invest</span>
+            <span class="chip" data-tag="debt">Pay off debt</span>
+            <span class="chip" data-tag="fun">Spend on purpose</span>
+            <span class="chip" data-tag="career">Career goal</span>
+          </div>
+        </div>
+
+        <div class="form-row grid">
+          <div>
+            <label class="form-label">By when? (optional)</label>
+            <input class="form-input" id="goalDeadline" type="date" />
+          </div>
+          <div>
+            <label class="form-label">Reward when you hit it</label>
+            <input class="form-input" id="goalReward" type="text" placeholder="A Sephora haul, sushi dinner, concert ticket…" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label class="form-label">Why does this matter to you? (optional)</label>
+          <textarea class="form-textarea" id="goalWhy" placeholder="Future-you will read this when motivation runs low. Be honest."></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button class="form-submit-btn" id="submitGoalBtn">
+            Add this goal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="form-cancel-btn" id="cancelGoalBtn">Cancel</button>
+          <span class="form-hint">+10¢ for every goal you set · career goals become roadmap hurdles</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="goals-list" id="goalsList"></div>
+
+  <!-- Streak -->
+  <div class="streak-callout">
+    <div class="streak-callout-text">
+      <svg class="streak-flame" viewBox="0 0 56 56" fill="none">
+        <path d="M28 8 C 20 18, 16 22, 16 32 C 16 42, 22 48, 28 48 C 34 48, 40 42, 40 32 C 40 22, 36 18, 28 8 Z" fill="#F472B6"/>
+        <path d="M28 20 C 24 26, 22 28, 22 34 C 22 40, 25 44, 28 44 C 31 44, 34 40, 34 34 C 34 28, 32 26, 28 20 Z" fill="#FCE7F3"/>
+      </svg>
+      <div>
+        <h3>0 days in a row.</h3>
+        <p>Consistency is your superpower. Don't break the chain.</p>
+      </div>
+    </div>
+    <div class="streak-num">0<span style="font-size: 22px; opacity: 0.6; font-style: italic;"> days</span></div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!--                     VIEW 3: JOURNEY                          -->
+<!-- ============================================================ -->
+<section class="view" id="view-journey">
+
+  <div class="journey-head">
+    <div class="eyebrow">The long game · one hurdle at a time</div>
+    <h1>The road ahead, in <em>plain view.</em></h1>
+    <p>Your roadmap turns lessons, money goals, and career goals into personalized hurdles. Clear them to earn coins and unlock car upgrades.</p>
+  </div>
+
+  <div class="journey-stats">
+    <div class="journey-stat">
+      <div class="journey-stat-num"><em id="hurdlesCleared">3</em>/<span id="totalHurdles">8</span></div>
+      <div class="journey-stat-label">Hurdles cleared</div>
+    </div>
+    <div class="journey-stat">
+      <div class="journey-stat-num">$55</div>
+      <div class="journey-stat-label">Rewards earned</div>
+    </div>
+    <div class="journey-stat">
+      <div class="journey-stat-num"><span id="journeyCoinCount">240</span><span style="color: var(--pink);">¢</span></div>
+      <div class="journey-stat-label">Coins banked</div>
+    </div>
+    <div class="journey-stat">
+      <div class="journey-stat-num">Apr <em>'27</em></div>
+      <div class="journey-stat-label">Projected finish</div>
+    </div>
+  </div>
+
+  <div class="road-wrap">
+    <svg class="road-svg" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid meet" id="roadSvg">
+      <defs>
+        <linearGradient id="roadGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#10B981"/>
+          <stop offset="40%" stop-color="#2563EB"/>
+          <stop offset="80%" stop-color="#8B1E5C"/>
+          <stop offset="100%" stop-color="#EC4899"/>
+        </linearGradient>
+        <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="4" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Road base -->
+      <path id="roadPath" d="
+        M 200 100
+        L 1000 100
+        Q 1100 100 1100 200
+        L 1100 280
+        Q 1100 380 1000 380
+        L 200 380
+        Q 100 380 100 480
+        L 100 560
+        Q 100 660 200 660
+        L 1000 660
+        Q 1100 660 1100 760
+        L 1100 840
+        Q 1100 940 1000 940
+        L 200 940
+        Q 100 940 100 1040
+        L 100 1120
+        Q 100 1220 200 1220
+        L 1000 1220
+        Q 1100 1220 1100 1320
+        L 1100 1400
+        Q 1100 1500 1000 1500
+        L 600 1500
+      "
+      fill="none"
+      stroke="#EBD2DC"
+      stroke-width="60"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      />
+
+      <!-- Dashed center -->
+      <path d="
+        M 200 100
+        L 1000 100
+        Q 1100 100 1100 200
+        L 1100 280
+        Q 1100 380 1000 380
+        L 200 380
+        Q 100 380 100 480
+        L 100 560
+        Q 100 660 200 660
+        L 1000 660
+        Q 1100 660 1100 760
+        L 1100 840
+        Q 1100 940 1000 940
+        L 200 940
+        Q 100 940 100 1040
+        L 100 1120
+        Q 100 1220 200 1220
+        L 1000 1220
+        Q 1100 1220 1100 1320
+        L 1100 1400
+        Q 1100 1500 1000 1500
+        L 600 1500
+      "
+      fill="none"
+      stroke="#C58FA6"
+      stroke-width="2"
+      stroke-dasharray="8 14"
+      stroke-linecap="round"
+      />
+
+      <!-- Progress overlay -->
+      <path d="
+        M 200 100
+        L 1000 100
+        Q 1100 100 1100 200
+        L 1100 280
+        Q 1100 380 1000 380
+        L 200 380
+        Q 100 380 100 480
+        L 100 560
+        Q 100 660 200 660
+        L 350 660
+      "
+      fill="none"
+      stroke="url(#roadGrad)"
+      stroke-width="62"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      opacity="0.95"
+      />
+
+      <!-- Decorative scribbles -->
+      <g opacity="0.5">
+        <path d="M 50 200 Q 70 190 85 210" stroke="#8B1E5C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <circle cx="1150" cy="500" r="3" fill="#EC4899"/>
+        <path d="M 1140 540 L 1160 560" stroke="#8B1E5C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M 1160 540 L 1140 560" stroke="#8B1E5C" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="50" y="1300" font-family="Fraunces" font-style="italic" font-size="20" fill="#8B5A75">almost there</text>
+        <path d="M 130 1320 Q 145 1310 160 1325" stroke="#8B5A75" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M 155 1320 L 162 1325 L 158 1332" stroke="#8B5A75" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+
+      <!-- Dynamic goal-based hurdles are inserted here by JavaScript. -->
+      <g id="goalHurdleLayer"></g>
+      <g id="roadCarLayer"></g>
+    </svg>
+  </div>
+
+  <!-- Hurdle detail -->
+  <div class="hurdle-detail" id="hurdleDetail"></div>
+
+  <!-- GARAGE -->
+  <div class="garage-section">
+    <div class="garage-head">
+      <h2>Your <em>garage.</em></h2>
+      <p>Trade coins for upgrades. The further you go, the cooler your ride. <em>Honk.</em></p>
+    </div>
+    <div class="garage-grid">
+
+      <div class="car-card current">
+        <span class="car-card-tag equipped">Equipped</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="38" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 18 38 L 26 24 L 38 18 L 76 18 L 86 8 L 96 8 L 104 24 L 108 38 Z" fill="#EC4899" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 38 22 L 46 10 L 76 10 L 86 22 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="10" x2="62" y2="22" stroke="#1F0B17" stroke-width="1.5"/>
+            <circle cx="36" cy="48" r="9" fill="#1F0B17"/>
+            <circle cx="36" cy="48" r="4" fill="#FCE7F3"/>
+            <circle cx="90" cy="48" r="9" fill="#1F0B17"/>
+            <circle cx="90" cy="48" r="4" fill="#FCE7F3"/>
+            <path d="M 54 30 L 58 26 L 62 30 L 66 26 L 70 30 L 62 36 Z" fill="#F472B6" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="car-name">First-year hatchback</div>
+        <div class="car-desc">Cute, reliable, gets you started. The classic.</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="42" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 12 40 L 22 22 L 36 14 L 88 14 L 100 22 L 108 30 L 110 40 Z" fill="#2563EB" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 36 18 L 44 8 L 80 8 L 90 18 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="8" x2="62" y2="18" stroke="#1F0B17" stroke-width="1.5"/>
+            <circle cx="34" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="4" fill="#DBEAFE"/>
+            <circle cx="92" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="92" cy="48" r="4" fill="#DBEAFE"/>
+          </svg>
+        </div>
+        <div class="car-name">Cruiser sedan</div>
+        <div class="car-desc">A grown-up upgrade. Comfortable, capable.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 500</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="44" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 10 42 L 18 28 L 34 22 L 92 22 L 104 28 L 110 42 Z" fill="#10B981" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 36 22 L 50 14 L 82 14 L 90 22" fill="none" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <ellipse cx="63" cy="22" rx="28" ry="2" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="34" cy="48" r="4" fill="#D1FAE5"/>
+            <circle cx="92" cy="48" r="10" fill="#1F0B17"/>
+            <circle cx="92" cy="48" r="4" fill="#D1FAE5"/>
+            <path d="M 48 32 L 76 32" stroke="#1F0B17" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+        <div class="car-name">Mint convertible</div>
+        <div class="car-desc">Top-down, sun out. Mood: post-internship.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 1,200</div>
+      </div>
+
+      <div class="car-card locked">
+        <span class="car-card-tag locked">Locked</span>
+        <div class="car-display">
+          <svg viewBox="0 0 120 70" width="120">
+            <ellipse cx="60" cy="58" rx="46" ry="4" fill="#1F0B17" opacity="0.15"/>
+            <path d="M 8 42 L 14 28 L 24 22 L 38 12 L 86 12 L 100 22 L 110 28 L 114 42 Z" fill="#8B1E5C" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M 38 14 L 50 5 L 78 5 L 86 14" fill="#3A0524" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="62" y1="5" x2="62" y2="14" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="32" cy="48" r="11" fill="#1F0B17"/>
+            <circle cx="32" cy="48" r="5" fill="#EC4899"/>
+            <circle cx="94" cy="48" r="11" fill="#1F0B17"/>
+            <circle cx="94" cy="48" r="5" fill="#EC4899"/>
+            <path d="M 22 28 L 102 28" stroke="#F472B6" stroke-width="1" opacity="0.6"/>
+            <text x="60" y="36" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="7" fill="#F472B6">CEO ENERGY</text>
+          </svg>
+        </div>
+        <div class="car-name">Boss coupe</div>
+        <div class="car-desc">Final form. Compound queen status.</div>
+        <div class="car-price"><span class="car-price-icon">¢</span> 3,000</div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================ -->
+<!--                     VIEW 4: LESSON                           -->
+<!-- ============================================================ -->
+<section class="view" id="view-lesson">
+
+  <div class="lesson-topbar">
+    <button class="lesson-back" id="lessonBackBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to my courses
+    </button>
+    <div style="display: flex; align-items: center; gap: 24px;">
+      <div class="lesson-pos">Lesson <strong>1</strong> of 5 · <span id="lessonCourseName">Your money primer</span></div>
+      <div class="lesson-progress-bar"><div class="lesson-progress-fill" style="width: 20%"></div></div>
+    </div>
+  </div>
+
+  <div class="lesson-content" id="lessonContent">
+    <div class="lesson-eyebrow">📚 Lesson 1</div>
+    <h1 id="lessonTitle">Build your first <em>real budget.</em></h1>
+    <p class="lesson-intro" id="lessonIntro">A budget isn't a punishment — it's permission. It's the difference between checking your balance and praying, vs knowing exactly what you have, what's coming, and what you can actually spend without guilt.</p>
+
+    <div class="lesson-meta">
+      <span>⏱ <strong>8 min</strong> read</span>
+      <span>💎 Earn <strong>25¢</strong></span>
+      <span>📈 Beginner</span>
+      <span>🎯 First-time budgeters</span>
+    </div>
+
+    <h2>The <em>50/30/20</em> rule (your training wheels)</h2>
+    <p>Forget complicated spreadsheets. The 50/30/20 rule is the most common starting framework — and it actually works. You take your <strong>after-tax</strong> income (what hits your account) and divide it three ways:</p>
+
+    <div class="formula-box">
+      <div class="formula-label">The split</div>
+      <div class="formula-text"><em>50%</em> needs · <em>30%</em> wants · <em>20%</em> savings + debt</div>
+    </div>
+
+    <p>Say your part-time campus job + freelance gigs net you <strong>$1,200/month</strong>. Here's how that breaks down:</p>
+
+    <ul>
+      <li><strong>$600 for needs</strong> — rent, groceries, your phone bill, gas, basic toiletries. Boring but non-negotiable.</li>
+      <li><strong>$360 for wants</strong> — coffee runs, going out, the occasional Sephora basket, Spotify Premium, that concert ticket.</li>
+      <li><strong>$240 for future-you</strong> — HYSA contributions, paying down debt, your Roth IRA (we'll get there).</li>
+    </ul>
+
+    <h2>How to actually do it <em>this week</em></h2>
+    <p>The framework is useless without a 20-minute action plan. Here's the move:</p>
+
+    <ol>
+      <li><strong>Pull your last 30 days of transactions.</strong> Open your bank app, screenshot or export. No judgment yet — just data.</li>
+      <li><strong>Categorize quickly.</strong> Three buckets: needs, wants, savings/debt. Don't agonize — if it took less than 3 seconds to want, it's a want.</li>
+      <li><strong>Compare against 50/30/20.</strong> Where are you actually? If wants are at 50% and savings at 5%, you've found your leak.</li>
+      <li><strong>Pick ONE category to shift this month.</strong> Not all of them. Just one. Maybe wants drops from 45% → 35%. That's a win.</li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-label">💡 The honest part</div>
+      <p>The 50/30/20 rule is a <strong>starting point</strong>, not a religion. If you live in a high-rent city, your needs might genuinely be 65% and that's fine — adjust wants and savings around it. The goal is awareness and intentionality, not perfection.</p>
+    </div>
+
+    <h2>The common <em>traps</em></h2>
+    <p>Most first budgets fall apart in the same three places. Don't let yours:</p>
+
+    <ul>
+      <li><strong>Forgetting subscriptions.</strong> Spotify, Hulu, Netflix, gym, that meditation app, ChatGPT Plus — they add up to $80-150/month silently. Audit them <em>monthly</em>.</li>
+      <li><strong>"Treat yourself" creep.</strong> A $7 oat latte three times a week is $84/month — which is $1,000/year. That's a flight to Europe. Not saying don't get the latte. Saying know what it costs.</li>
+      <li><strong>Ignoring irregular costs.</strong> Birthdays, holidays, textbooks at the start of a semester. Build a small "annual stuff" line item (~$40/month) and you'll never be ambushed again.</li>
+    </ul>
+
+    <div class="quiz-block">
+      <div class="quiz-label">⚡ Quick check</div>
+      <h3>Your roommate takes home $1,000/month from her dorm job. Under the 50/30/20 rule, how much should she put toward savings + debt payoff?</h3>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">A</span>
+          <span>$100 — that's 10%, a good start.</span>
+        </button>
+        <button class="quiz-option" data-correct="true">
+          <span class="opt-letter">B</span>
+          <span>$200 — 20% of $1,000.</span>
+        </button>
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">C</span>
+          <span>$500 — half of her income, ambitious.</span>
+        </button>
+        <button class="quiz-option" data-correct="false">
+          <span class="opt-letter">D</span>
+          <span>$300 — that's the "wants" allocation.</span>
+        </button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback">
+        ✓ Exactly. 20% of $1,000 = $200. That's what the rule calls for, though she can always push higher if her needs are lower.
+      </div>
+    </div>
+
+    <div class="complete-section">
+      <div class="complete-info">
+        Lesson complete? You'll earn <strong>+25¢</strong> and unlock Lesson 2.
+      </div>
+      <button class="complete-btn" id="completeBtn">
+        Mark lesson complete
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+  Miss Manual — built with care for money movers and career builders.<br/>
+  Not actual financial advice. Just the friend who helps you plan smarter.
+</footer>
+
+<!-- AI Course Modal -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-inner">
+      <button class="modal-close" id="modalClose">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <div id="aiLoadingState" class="ai-loading">
+        <div class="ai-loader">
+          <div class="ai-loader-ring"></div>
+          <div class="ai-loader-ring"></div>
+          <div class="ai-loader-ring"></div>
+        </div>
+        <h3>Building your course<span id="dots">...</span></h3>
+        <div class="ai-loading-status" id="aiStatus">Reading what you picked…</div>
+      </div>
+
+      <div id="aiResultState" style="display: none;">
+        <h3 id="courseTitle">Your <em>money primer</em></h3>
+        <div class="course-meta">
+          <span>📚 <span id="moduleCount">5</span> modules</span>
+          <span>⏱ <span id="totalTime">42</span> min total</span>
+          <span style="color: var(--pink);">¢ <span id="totalCoins">120</span> coins to earn</span>
+        </div>
+        <div id="modulesList"></div>
+        <button class="course-cta" id="startCourseBtn">
+          Start the first lesson
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span id="toastText">Added!</span>
+</div>
+
+<script>
+  // ============ DATA ============
+  const TOPICS = [
+    {
+      id: 'budget', title: 'Budgeting & Saving',
+      sub: 'Make your money go further',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2" stroke="#8B1E5C" stroke-width="1.8"/><path d="M3 10h18" stroke="#8B1E5C" stroke-width="1.8"/><circle cx="17" cy="15" r="1.5" fill="#EC4899"/></svg>`,
+      items: [
+        { name: 'Build your first real budget', time: '8 min' },
+        { name: 'The 50/30/20 rule, decoded', time: '5 min' },
+        { name: 'Switching to a HYSA (4.5%+ interest)', time: '6 min' },
+        { name: 'The subscription audit', time: '4 min' }
+      ]
+    },
+    {
+      id: 'invest', title: 'Investing',
+      sub: 'Start while time is still on your side',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 18 L9 13 L13 16 L20 8" stroke="#8B1E5C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8 L20 8 L20 13" stroke="#EC4899" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+      items: [
+        { name: 'What is a Roth IRA, really', time: '9 min' },
+        { name: 'Index funds vs. picking stocks', time: '8 min' },
+        { name: 'The magic of compound interest', time: '6 min' },
+        { name: 'Opening your first brokerage', time: '10 min' }
+      ]
+    },
+    {
+      id: 'earn', title: 'Earning More',
+      sub: 'Get paid what you\'re worth',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#8B1E5C" stroke-width="1.8"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 2-1 2-3 2-3 .6-3 2 1.3 2 3 2 3-.6 3-2" stroke="#EC4899" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+      items: [
+        { name: 'Negotiate your first offer', time: '12 min' },
+        { name: 'How to ask for a raise', time: '8 min' },
+        { name: 'Side hustles that fit college', time: '7 min' },
+        { name: 'UGC, Depop, tutoring: pick yours', time: '9 min' }
+      ]
+    },
+    {
+      id: 'credit', title: 'Credit & Debt',
+      sub: 'Build a score, avoid the trap',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#8B1E5C" stroke-width="1.8"/><path d="M3 10h18M7 15h3" stroke="#8B1E5C" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="15" r="1.2" fill="#EC4899"/></svg>`,
+      items: [
+        { name: 'Your first credit card', time: '8 min' },
+        { name: 'Building credit from scratch', time: '7 min' },
+        { name: 'Student loans, demystified', time: '11 min' },
+        { name: 'Avoiding the 24% APR trap', time: '6 min' }
+      ]
+    },
+    {
+      id: 'career', title: 'Career Money',
+      sub: 'The paycheck is just the start',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h16v12H4z" stroke="#8B1E5C" stroke-width="1.8"/><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="#8B1E5C" stroke-width="1.8"/><circle cx="12" cy="14" r="1.5" fill="#EC4899"/></svg>`,
+      items: [
+        { name: 'Reading your first paystub', time: '6 min' },
+        { name: '401(k) matching = free money', time: '7 min' },
+        { name: 'Health insurance, simplified', time: '9 min' },
+        { name: 'Negotiating your full offer', time: '11 min' }
+      ]
+    },
+    {
+      id: 'adult', title: 'Adulting Money',
+      sub: 'The boring stuff that matters most',
+      icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12 L12 4 L21 12 V20 H3 Z" stroke="#8B1E5C" stroke-width="1.8" stroke-linejoin="round"/><rect x="10" y="14" width="4" height="6" fill="#EC4899"/></svg>`,
+      items: [
+        { name: 'First apartment, real costs', time: '8 min' },
+        { name: 'Splitting bills with roommates', time: '5 min' },
+        { name: 'Filing taxes for the first time', time: '12 min' },
+        { name: 'Renters insurance, do you need it', time: '5 min' }
+      ]
+    }
+  ];
+
+  // Pre-filled "Maya's" example goals
+  let SEED_GOALS = [
+    { tag: 'save', tagLabel: 'Save', title: 'Build a $1,000 emergency fund', desc: 'Three months of small disasters covered.', current: 620, target: 1000, deadline: 'Aug 2026', reward: 'Sunday brunch with the girls', rewardDetail: '$30 budget you\'ve pre-funded' },
+    { tag: 'invest', tagLabel: 'Invest', title: 'Open & fund a Roth IRA', desc: 'Future you will compound her way to thanks.', current: 175, target: 500, deadline: 'Jul 2026', reward: 'A Sephora spree', rewardDetail: '$20 set aside for the win' },
+    { tag: 'debt', tagLabel: 'Pay off debt', title: 'Clear the $300 credit balance', desc: 'Free yourself from the 24% APR drag.', current: 220, target: 300, deadline: 'Jun 2026', reward: 'New running shoes', rewardDetail: '$50 toward the splurge' }
+  ];
+
+  // Dynamic goal-based roadmap detail data.
+  // This is rebuilt from userGoals + SEED_GOALS every time goals change.
+  let HURDLES = {};
+
+  // ============ STATE ============
+  let coins = 240;
+  let lessonsCompleted = 0;
+  let careerHurdles = [];
+  let selected = new Set();
+  let userGoals = [
+    { tag: 'save', tagLabel: 'Save', title: 'Buy a new laptop', desc: 'Need a better computer for school.', current: 200, target: 1200, deadline: 'Dec 2026', reward: 'New laptop', rewardDetail: 'Finally get that MacBook', user: true },
+    { tag: 'career', tagLabel: 'Career goal', title: 'Build a portfolio project', desc: 'Career path: Product design · milestone: publish one polished case study.', current: 1, target: 3, deadline: 'May 2026', reward: 'New portfolio template', rewardDetail: 'This goal also appears as a roadmap hurdle.', user: true, careerPath: 'Product design', careerMilestone: 'Publish one polished case study', isCareer: true }
+  ];   // user-added goals (rendered alongside seed goals)
+  let selectedTag = 'save';
+  let currentCourse = null;
+
+  // Base finance numbers the user can edit from the dashboard.
+  let baseFinance = {
+    checking: 642,
+    savings: 1580,
+    invested: 625,
+    debt: 220,
+    manualNetWorth: null
+  };
+
+  // Dashboard stats update from base finance + goal progress.
+  let dashboardStats = { ...baseFinance };
+
+  // ============ DASHBOARD FUNCTIONS ============
+  function calculatedNetWorth() {
+    return dashboardStats.checking + dashboardStats.savings + dashboardStats.invested - dashboardStats.debt;
+  }
+
+  function displayMoney(n) {
+    return `$${Math.round(Number(n) || 0).toLocaleString()}`;
+  }
+
+  function updateDashboardStats() {
+    const netWorth = baseFinance.manualNetWorth !== null ? baseFinance.manualNetWorth : calculatedNetWorth();
+
+    document.querySelector('.finance-cell.big .finance-value').textContent = displayMoney(netWorth);
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[0].textContent = displayMoney(dashboardStats.checking);
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[1].textContent = displayMoney(dashboardStats.savings);
+    document.querySelectorAll('.finance-cell:not(.big) .finance-value')[2].textContent = displayMoney(dashboardStats.invested);
+  }
+
+  function updateStatsFromGoals() {
+    dashboardStats.checking = baseFinance.checking;
+    dashboardStats.savings = baseFinance.savings;
+    dashboardStats.invested = baseFinance.invested;
+    dashboardStats.debt = baseFinance.debt;
+
+    const allGoals = [...userGoals, ...SEED_GOALS];
+    allGoals.forEach(goal => {
+      if (goal.tag === 'save') {
+        dashboardStats.savings += Number(goal.current) || 0;
+      } else if (goal.tag === 'invest') {
+        dashboardStats.invested += Number(goal.current) || 0;
+      } else if (goal.tag === 'debt') {
+        dashboardStats.debt = Math.max(0, dashboardStats.debt - (Number(goal.current) || 0));
+      }
+    });
+
+    updateDashboardStats();
+  }
+
+  function syncFinanceEditorInputs() {
+    const checking = document.getElementById('financeChecking');
+    const savings = document.getElementById('financeSavings');
+    const invested = document.getElementById('financeInvested');
+    const netWorth = document.getElementById('financeNetWorth');
+    if (!checking || !savings || !invested || !netWorth) return;
+    checking.value = baseFinance.checking;
+    savings.value = baseFinance.savings;
+    invested.value = baseFinance.invested;
+    netWorth.value = baseFinance.manualNetWorth !== null ? baseFinance.manualNetWorth : calculatedNetWorth();
+  }
+
+  function setupFinanceEditor() {
+    syncFinanceEditorInputs();
+    const saveBtn = document.getElementById('saveFinanceBtn');
+    const calculatedBtn = document.getElementById('useCalculatedNetWorthBtn');
+    if (!saveBtn || !calculatedBtn) return;
+
+    saveBtn.addEventListener('click', () => {
+      baseFinance.checking = parseFloat(document.getElementById('financeChecking').value) || 0;
+      baseFinance.savings = parseFloat(document.getElementById('financeSavings').value) || 0;
+      baseFinance.invested = parseFloat(document.getElementById('financeInvested').value) || 0;
+      const netWorthValue = document.getElementById('financeNetWorth').value.trim();
+      baseFinance.manualNetWorth = netWorthValue === '' ? null : (parseFloat(netWorthValue) || 0);
+      updateStatsFromGoals();
+      syncFinanceEditorInputs();
+      showToast('Finance numbers updated.');
+    });
+
+    calculatedBtn.addEventListener('click', () => {
+      baseFinance.manualNetWorth = null;
+      updateStatsFromGoals();
+      syncFinanceEditorInputs();
+      showToast('Net worth is now calculated automatically.');
+    });
+  }
+
+  // ============ GOAL COMPLETION HELPERS ============
+  function createConfettiBurst() {
+    const container = document.createElement('div');
+    container.className = 'confetti-container';
+    container.style.position = 'fixed';
+    container.style.left = 0;
+    container.style.top = 0;
+    container.style.right = 0;
+    container.style.bottom = 0;
+    container.style.pointerEvents = 'none';
+    container.style.zIndex = 2000;
+    document.body.appendChild(container);
+    const colors = ['#F472B6', '#8B1E5C', '#60A5FA', '#10B981', '#FCD34D'];
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement('div');
+      const size = Math.floor(Math.random() * 10) + 6;
+      c.style.width = size + 'px';
+      c.style.height = size + 'px';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.position = 'absolute';
+      c.style.left = (Math.random() * 100) + '%';
+      c.style.top = '-10%';
+      c.style.opacity = '' + (0.9 - Math.random() * 0.5);
+      c.style.transform = `rotate(${Math.random() * 360}deg)`;
+      c.style.borderRadius = Math.random() > 0.5 ? '3px' : '50%';
+      c.style.transition = 'transform 1.6s linear, top 1.6s cubic-bezier(.2,.9,.2,1), opacity 1.6s ease';
+      container.appendChild(c);
+      setTimeout(() => {
+        c.style.top = (60 + Math.random() * 40) + '%';
+        c.style.transform = `translateY(${200 + Math.random() * 200}px) rotate(${Math.random() * 720}deg)`;
+        c.style.opacity = '0.95';
+      }, Math.random() * 120);
+    }
+    setTimeout(() => container.remove(), 2200);
+  }
+
+  function showRewardPopup(goal) {
+    const id = 'reward-popup-' + Date.now();
+    const popup = document.createElement('div');
+    popup.id = id;
+    popup.className = 'reward-popup';
+  popup.style.position = 'fixed';
+  popup.style.left = '50%';
+  popup.style.top = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.zIndex = 2200;
+    popup.style.background = 'white';
+    popup.style.border = '1px solid rgba(0,0,0,0.06)';
+    popup.style.borderRadius = '12px';
+    popup.style.boxShadow = '0 8px 24px rgba(18,18,18,0.08)';
+    popup.style.padding = '14px 16px';
+    popup.style.maxWidth = '320px';
+    popup.innerHTML = `
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#F472B6,#8B1E5C);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">🎉</div>
+        <div style="flex:1">
+          <div style="font-weight:600">Goal complete</div>
+          <div style="font-size:13px;color:#6b6b6b;margin-top:4px">${escapeHTML(goal.title)}</div>
+          <div style="margin-top:8px;font-weight:700">${escapeHTML(goal.reward)}</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button class="reward-dismiss" style="background:transparent;padding:8px;border-radius:8px">Close</button>
+        <button class="reward-claim" style="background:linear-gradient(135deg,#8B1E5C,#F472B6);color:white;padding:8px 12px;border-radius:8px;font-weight:700">Claim</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+    popup.querySelector('.reward-dismiss').addEventListener('click', () => popup.remove());
+    popup.querySelector('.reward-claim').addEventListener('click', () => { addCoins(10); popup.remove(); });
+    setTimeout(() => { if (document.getElementById(id)) document.getElementById(id).remove(); }, 12000);
+  }
+
+  function handleGoalCompletionByIndex(i) {
+    const all = [...userGoals, ...SEED_GOALS];
+    if (i < 0 || i >= all.length) return;
+    const goal = all[i];
+
+    if (!goal.completedAt) {
+      goal.completedAt = new Date().toISOString();
+      try { createConfettiBurst(); } catch (e) {}
+      try { showRewardPopup(goal); } catch (e) {}
+      addCoins(goal.tag === 'career' || goal.isCareer ? 25 : 10);
+      showToast('Goal completed — roadmap updated and car moved.');
+    }
+
+    // Keep completed goals instead of deleting them. This lets the hurdle count go up
+    // and lets the car move forward to the next unfinished goal.
+    renderGoals();
+    updateStatsFromGoals();
+    renderGoalRoadmap();
+    syncRoadmapStats();
+  }
+
+  // Prompt the user for an amount to log against a goal (centered modal)
+  function promptLogAmount(i) {
+    const id = 'log-amount-' + Date.now();
+    const modal = document.createElement('div');
+    modal.id = id;
+    modal.style.position = 'fixed';
+    modal.style.left = '50%';
+    modal.style.top = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+    modal.style.zIndex = 2300;
+    modal.style.background = 'white';
+    modal.style.border = '1px solid rgba(0,0,0,0.06)';
+    modal.style.borderRadius = '12px';
+    modal.style.padding = '18px';
+    modal.style.boxShadow = '0 12px 40px rgba(8,8,8,0.12)';
+    modal.innerHTML = `
+      <div style="font-weight:700;margin-bottom:8px">Log progress</div>
+      <div style="margin-bottom:10px">Enter progress to add to this goal. Use dollars for money goals or count for career tasks.</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="number" min="0" step="1" placeholder="Amount" style="flex:1;padding:8px;border:1px solid #eee;border-radius:8px" id="${id}-input" />
+        <button id="${id}-ok" style="background:linear-gradient(135deg,#8B1E5C,#F472B6);color:white;padding:8px 12px;border-radius:8px;font-weight:700">Add</button>
+      </div>
+      <div style="text-align:right;margin-top:8px"><button id="${id}-cancel" style="background:transparent;padding:6px;border-radius:6px">Cancel</button></div>
+    `;
+    document.body.appendChild(modal);
+
+    const input = modal.querySelector('#' + id + '-input');
+    const ok = modal.querySelector('#' + id + '-ok');
+    const cancel = modal.querySelector('#' + id + '-cancel');
+
+    function close() { if (modal && modal.parentNode) modal.parentNode.removeChild(modal); }
+    cancel.addEventListener('click', close);
+    ok.addEventListener('click', () => {
+      const val = parseFloat(input.value) || 0;
+      if (val <= 0) { input.focus(); return; }
+      const all = [...userGoals, ...SEED_GOALS];
+      let completed = false;
+      if (i < userGoals.length) {
+        userGoals[i].current = Math.min(userGoals[i].target, userGoals[i].current + val);
+        if (userGoals[i].current >= userGoals[i].target) { completed = true; handleGoalCompletionByIndex(i); }
+      } else {
+        const seedIndex = i - userGoals.length;
+        SEED_GOALS[seedIndex].current = Math.min(SEED_GOALS[seedIndex].target, SEED_GOALS[seedIndex].current + val);
+        if (SEED_GOALS[seedIndex].current >= SEED_GOALS[seedIndex].target) { completed = true; handleGoalCompletionByIndex(i); }
+      }
+      // If the goal completed, the deletion flow will call renderGoals(); otherwise update only that goal in-place
+      if (!completed) {
+        updateGoalAtIndex(i);
+        updateStatsFromGoals();
+        syncCareerHurdles();
+        showToast(`+${val} progress logged · keep going.`);
+      }
+      close();
+    });
+    input.focus();
+  }
+
+  // Update a single goal card in-place (no full re-render) to avoid flicker
+  function updateGoalAtIndex(i) {
+    const all = [...userGoals, ...SEED_GOALS];
+    if (i < 0 || i >= all.length) return;
+    const g = all[i];
+    const list = document.getElementById('goalsList');
+    if (!list) return;
+    const cards = Array.from(list.querySelectorAll('.goal-card'));
+    const card = cards[i];
+    if (!card) return;
+    // Update numeric texts
+    const currentEl = card.querySelector('.goal-current');
+    const targetEl = card.querySelector('.goal-target');
+    const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+    const isCareer = g.tag === 'career' || g.isCareer;
+    if (currentEl) currentEl.textContent = isCareer ? g.current.toLocaleString() : `$${g.current.toLocaleString()}`;
+    if (targetEl) targetEl.textContent = `of ${isCareer ? g.target.toLocaleString() : '$' + g.target.toLocaleString()} · ${pct}%`;
+    // Animate the progress bar smoothly from its current width
+    const bar = card.querySelector('.pbar-fill');
+    if (bar) {
+      // Ensure transition is enabled (CSS handles it)
+      // Set to the new width — CSS transition will animate it
+      requestAnimationFrame(() => {
+        bar.style.width = pct + '%';
+      });
+    }
+  }
+
+  // Optional quick-edit: click a number in the top strip to edit it.
+  function makeFinanceEditable() {
+    const cells = document.querySelectorAll('.finance-cell');
+    cells.forEach((cell, index) => {
+      const valueEl = cell.querySelector('.finance-value');
+      const inputEl = cell.querySelector('.finance-input');
+      if (!valueEl || !inputEl) return;
+
+      valueEl.addEventListener('click', () => {
+        valueEl.style.display = 'none';
+        inputEl.style.display = 'block';
+        inputEl.focus();
+        if (index === 0) inputEl.value = baseFinance.manualNetWorth !== null ? baseFinance.manualNetWorth : calculatedNetWorth();
+        if (index === 1) inputEl.value = baseFinance.checking;
+        if (index === 2) inputEl.value = baseFinance.savings;
+        if (index === 3) inputEl.value = baseFinance.invested;
+      });
+
+      inputEl.addEventListener('blur', () => {
+        const newValue = parseFloat(inputEl.value) || 0;
+        if (index === 0) baseFinance.manualNetWorth = newValue;
+        if (index === 1) baseFinance.checking = newValue;
+        if (index === 2) baseFinance.savings = newValue;
+        if (index === 3) baseFinance.invested = newValue;
+        updateStatsFromGoals();
+        syncFinanceEditorInputs();
+        inputEl.style.display = 'none';
+        valueEl.style.display = 'block';
+        showToast('Finance number updated.');
+      });
+
+      inputEl.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') inputEl.blur();
+      });
+    });
+  }
+
+  // ============ RENDER TOPICS ============
+  const grid = document.getElementById('topicGrid');
+  TOPICS.forEach(t => {
+    const el = document.createElement('div');
+    el.className = 'topic';
+    el.dataset.id = t.id;
+    el.innerHTML = `
+      <div class="topic-head">
+        <div class="topic-head-left">
+          <div class="topic-icon">${t.icon}</div>
+          <div>
+            <div class="topic-title">${t.title}</div>
+            <div class="topic-sub">${t.sub}</div>
+          </div>
+        </div>
+        <div class="topic-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="topic-body">
+        <div class="topic-body-inner">
+          ${t.items.map((it, i) => `
+            <div class="subtopic" data-key="${t.id}-${i}">
+              <div class="check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="subtopic-label">${it.name}</div>
+              <div class="subtopic-time">${it.time}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+
+  document.querySelectorAll('.topic').forEach(topic => {
+    topic.querySelector('.topic-head').addEventListener('click', () => topic.classList.toggle('open'));
+  });
+
+  document.querySelectorAll('.subtopic').forEach(sub => {
+    sub.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const key = sub.dataset.key;
+      if (selected.has(key)) selected.delete(key);
+      else selected.add(key);
+      sub.classList.toggle('selected');
+      updateGenerateBar();
+    });
+  });
+
+  function updateGenerateBar() {
+    const bar = document.getElementById('generateBar');
+    document.getElementById('selectCount').textContent = selected.size;
+    if (selected.size > 0) bar.classList.add('show');
+    else bar.classList.remove('show');
+  }
+
+  
+  const modal = document.getElementById('modalBg');
+  const loadingState = document.getElementById('aiLoadingState');
+  const resultState = document.getElementById('aiResultState');
+  const statusEl = document.getElementById('aiStatus');
+
+  const STATUSES = [
+    'Reading what you picked…',
+    'Mapping your starting point…',
+    'Sequencing modules for the best flow…',
+    'Calibrating reward coins…',
+    'Almost there — adding a few surprises…'
+  ];
+
+  document.getElementById('generateBtn').addEventListener('click', () => {
+    modal.classList.add('show');
+    loadingState.style.display = 'block';
+    resultState.style.display = 'none';
+
+    let i = 0;
+    statusEl.textContent = STATUSES[0];
+    const interval = setInterval(() => {
+      i++;
+      if (i < STATUSES.length) {
+        statusEl.style.animation = 'none';
+        void statusEl.offsetWidth;
+        statusEl.textContent = STATUSES[i];
+        statusEl.style.animation = 'fadeIn 0.4s ease';
+      }
+    }, 700);
+
+    setTimeout(() => {
+      clearInterval(interval);
+      buildCourseResult();
+      loadingState.style.display = 'none';
+      resultState.style.display = 'block';
+    }, 3600);
+  });
+
+  function buildCourseResult() {
+    const picks = [];
+    selected.forEach(k => {
+      const [topicId, idx] = k.split('-');
+      const topic = TOPICS.find(t => t.id === topicId);
+      if (topic) picks.push({ topic, item: topic.items[parseInt(idx)] });
+    });
+
+    const modules = picks.slice(0, 8);
+    const totalMin = modules.reduce((a, m) => a + parseInt(m.item.time), 0);
+    const totalCoins = modules.length * 25;
+
+    document.getElementById('moduleCount').textContent = modules.length;
+    document.getElementById('totalTime').textContent = totalMin;
+    document.getElementById('totalCoins').textContent = totalCoins;
+
+    const counts = {};
+    picks.forEach(p => counts[p.topic.id] = (counts[p.topic.id] || 0) + 1);
+    const top = Object.entries(counts).sort((a,b) => b[1]-a[1])[0][0];
+    const titleMap = {
+      budget: 'Your <em>budget basics</em> primer',
+      invest: 'Your <em>start investing</em> primer',
+      earn: 'Your <em>earn more</em> playbook',
+      credit: 'Your <em>credit confidence</em> course',
+      career: 'Your <em>career money</em> primer',
+      adult: 'Your <em>adulting</em> survival kit'
+    };
+    const titleHtml = titleMap[top] || 'Your <em>money primer</em>';
+    document.getElementById('courseTitle').innerHTML = titleHtml;
+
+    // Store current course
+    currentCourse = {
+      title: titleHtml,
+      titleText: titleHtml.replace(/<\/?em>/g, ''),
+      modules: modules,
+      firstModule: modules[0] || null
+    };
+
+    const list = document.getElementById('modulesList');
+    list.innerHTML = modules.map((m, i) => `
+      <div class="module">
+        <div class="module-num">${i + 1}</div>
+        <div class="module-body">
+          <div class="module-title">${m.item.name}</div>
+          <div class="module-desc">A focused lesson from <strong>${m.topic.title}</strong> — clear, fast, built for someone exactly where you are.</div>
+          <div class="module-meta">
+            <span>⏱ ${m.item.time}</span>
+            <span class="coin-mini">+25¢</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('show'));
+  modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+
+  // Open the actual lesson view when "Start course" is clicked
+  document.getElementById('startCourseBtn').addEventListener('click', () => {
+    modal.classList.remove('show');
+    openLesson();
+  });
+
+  function openLesson() {
+    // Update lesson view based on currentCourse
+    if (currentCourse && currentCourse.firstModule) {
+      const fm = currentCourse.firstModule;
+      document.getElementById('lessonCourseName').textContent = currentCourse.titleText;
+      // adapt title slightly — but keep the rich budget content as our flagship lesson
+      const itemName = fm.item.name;
+      // Wrap last word as emphasis
+      const parts = itemName.split(' ');
+      const head = parts.slice(0, -2).join(' ');
+      const tail = parts.slice(-2).join(' ');
+      document.getElementById('lessonTitle').innerHTML = head + (head ? ' ' : '') + `<em>${tail}.</em>`;
+    }
+    switchView('lesson');
+  }
+
+  // ============ LESSON: BACK + COMPLETE ============
+  document.getElementById('lessonBackBtn').addEventListener('click', () => switchView('dashboard'));
+
+  document.getElementById('completeBtn').addEventListener('click', (e) => {
+    if (e.target.closest('.complete-btn').classList.contains('done')) return;
+    addCoins(25);
+    lessonsCompleted += 1;
+    syncRoadmapStats();
+    const btn = document.getElementById('completeBtn');
+    btn.classList.add('done');
+    btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Lesson completed!`;
+    document.querySelector('.lesson-progress-fill').style.width = '40%';
+    showToast('+25¢ earned. Lesson 2 unlocked.');
+    setTimeout(() => switchView('dashboard'), 1800);
+  });
+
+  // Quiz interaction
+  document.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const isCorrect = opt.dataset.correct === 'true';
+      document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('correct', 'wrong'));
+      if (isCorrect) {
+        opt.classList.add('correct');
+        document.getElementById('quizFeedback').classList.add('show');
+      } else {
+        opt.classList.add('wrong');
+        const correct = document.querySelector('.quiz-option[data-correct="true"]');
+        setTimeout(() => correct.classList.add('correct'), 400);
+      }
+    });
+  });
+
+  // ============ DASHBOARD: GOAL FORM ============
+  const card = document.getElementById('addGoalCard');
+  document.getElementById('addGoalTrigger').addEventListener('click', (e) => {
+    if (card.classList.contains('open')) return;
+    card.classList.add('open');
+  });
+
+  document.querySelectorAll('#goalChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#goalChips .chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      selectedTag = chip.dataset.tag;
+    });
+  });
+
+  document.getElementById('cancelGoalBtn').addEventListener('click', () => {
+    card.classList.remove('open');
+    resetGoalForm();
+  });
+
+  document.getElementById('submitGoalBtn').addEventListener('click', () => {
+    const name = document.getElementById('goalName').value.trim();
+    const target = parseFloat(document.getElementById('goalTarget').value) || 0;
+    const current = parseFloat(document.getElementById('goalCurrent').value) || 0;
+    const deadline = document.getElementById('goalDeadline').value;
+    const reward = document.getElementById('goalReward').value.trim();
+    const why = document.getElementById('goalWhy').value.trim();
+    const careerPath = document.getElementById('careerPath').value.trim();
+    const careerMilestone = document.getElementById('careerMilestone').value.trim();
+
+    if (!name) { document.getElementById('goalName').focus(); document.getElementById('goalName').style.borderColor = 'var(--pink)'; return; }
+    if (!target || target <= 0) { document.getElementById('goalTarget').focus(); document.getElementById('goalTarget').style.borderColor = 'var(--pink)'; return; }
+
+    const careerWords = [
+      'internship', 'job', 'career', 'resume', 'portfolio', 'interview',
+      'application', 'applications', 'linkedin', 'offer', 'hire', 'hired'
+    ];
+    const goalText = `${name} ${careerPath} ${careerMilestone} ${why}`.toLowerCase();
+    const shouldBeCareer =
+      selectedTag === 'career' ||
+      careerPath.length > 0 ||
+      careerMilestone.length > 0 ||
+      careerWords.some(word => goalText.includes(word));
+    const finalTag = shouldBeCareer ? 'career' : selectedTag;
+
+    const tagLabels = { save: 'Save', invest: 'Invest', debt: 'Pay off debt', fun: 'Spend on purpose', career: 'Career goal' };
+
+    const newGoal = {
+      tag: finalTag,
+      tagLabel: tagLabels[finalTag],
+      title: name,
+      desc: why || (shouldBeCareer ? `Career path: ${careerPath || 'Not set yet'} · milestone: ${careerMilestone || name}` : 'Goal added by you.'),
+      current: current,
+      target: target,
+      deadline: deadline ? formatDate(deadline) : null,
+      reward: reward || 'A treat (decide later)',
+      rewardDetail: shouldBeCareer ? 'This goal also appears as a personalized roadmap hurdle.' : (reward ? 'A pre-promised reward to keep you honest.' : 'You can fill this in later.'),
+      user: true,
+      careerPath,
+      careerMilestone: careerMilestone || (shouldBeCareer ? name : ''),
+      isCareer: shouldBeCareer
+    };
+    userGoals.unshift(newGoal);
+    renderGoals();
+    updateStatsFromGoals();
+    addCoins(10);
+    showToast(newGoal.isCareer ? 'Career goal added to your roadmap · +10¢' : 'Goal added to your roadmap · +10¢');
+    renderGoalRoadmap();
+    syncRoadmapStats();
+    card.classList.remove('open');
+    resetGoalForm();
+    // If the newly added goal already meets its target, handle completion immediately
+    if (newGoal.current >= newGoal.target) {
+      // it's at index 0 in the combined list
+      handleGoalCompletionByIndex(0);
+    }
+  });
+
+  function resetGoalForm() {
+    ['goalName','goalTarget','goalCurrent','goalDeadline','goalReward','goalWhy','careerPath','careerMilestone'].forEach(id => {
+      document.getElementById(id).value = '';
+      document.getElementById(id).style.borderColor = '';
+    });
+    document.querySelectorAll('#goalChips .chip').forEach(c => c.classList.remove('selected'));
+    document.querySelector('#goalChips .chip[data-tag="save"]').classList.add('selected');
+    selectedTag = 'save';
+  }
+
+  function formatDate(iso) {
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+    } catch (e) { return iso; }
+  }
+
+  // ============ RENDER GOALS ============
+  function renderGoals() {
+    const list = document.getElementById('goalsList');
+    list.innerHTML = '';
+    const all = [...userGoals, ...SEED_GOALS];
+    all.forEach((g, idx) => {
+      const pct = Math.min(100, Math.round((g.current / g.target) * 100));
+      const isCareer = g.tag === 'career' || g.isCareer;
+      const currentLabel = isCareer ? g.current.toLocaleString() : '$' + g.current.toLocaleString();
+      const targetLabel = isCareer ? g.target.toLocaleString() : '$' + g.target.toLocaleString();
+      const el = document.createElement('div');
+      el.className = 'goal-card';
+      el.innerHTML = `
+        <div class="goal-info">
+          <span class="goal-tag ${g.tag}">${g.tagLabel}</span>
+          <div class="goal-title">${escapeHTML(g.title)}</div>
+          <div class="goal-desc">${escapeHTML(g.desc)}</div>
+          ${g.deadline ? `<div class="goal-deadline">Target: ${g.deadline}</div>` : ''}
+          <div class="goal-actions">
+            <button class="goal-action-btn add-progress" data-i="${idx}">+ Log progress</button>
+            <button class="goal-action-btn delete" data-i="${idx}">Remove</button>
+          </div>
+        </div>
+        <div class="goal-progress-wrap">
+          <div class="goal-progress-nums">
+            <span class="goal-current">${currentLabel}</span>
+            <span class="goal-target">of ${targetLabel} · ${pct}%</span>
+          </div>
+          <div class="pbar"><div class="pbar-fill ${g.tag}" style="width: 0%"></div></div>
+        </div>
+        <div class="goal-reward">
+          <div class="goal-reward-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Reward at finish
+          </div>
+          <div class="goal-reward-name">${escapeHTML(g.reward)}</div>
+          <div class="goal-reward-detail">${escapeHTML(g.rewardDetail)}</div>
+        </div>
+      `;
+      list.appendChild(el);
+      requestAnimationFrame(() => {
+        setTimeout(() => { el.querySelector('.pbar-fill').style.width = pct + '%'; }, 200 + (idx * 100));
+      });
+    });
+
+    // Wire up actions
+    list.querySelectorAll('.add-progress').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.i);
+        promptLogAmount(i);
+      });
+    });
+    list.querySelectorAll('.delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.i);
+        if (i < userGoals.length) {
+          // Only allow deleting user goals — remove from data and DOM without full re-render
+          userGoals.splice(i, 1);
+          const cards = Array.from(list.querySelectorAll('.goal-card'));
+          const card = cards[i];
+          if (card && card.parentNode) card.parentNode.removeChild(card);
+          // Reindex remaining buttons' data-i
+          const remaining = Array.from(list.querySelectorAll('.goal-card'));
+          remaining.forEach((c, idx) => {
+            const add = c.querySelector('.add-progress'); if (add) add.dataset.i = idx;
+            const del = c.querySelector('.delete'); if (del) del.dataset.i = idx;
+          });
+          renderGoals();
+          updateStatsFromGoals();
+          syncCareerHurdles();
+        } else {
+          // For seed goals, maybe just hide or show a message
+          showToast('Seed goals cannot be deleted.');
+        }
+      });
+    });
+  }
+
+  function escapeHTML(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  renderGoals();
+  updateStatsFromGoals();
+  makeFinanceEditable();
+  setupFinanceEditor();
+  syncCareerHurdles();
+  syncRoadmapStats();
+  positionHurdlesEvenly();
+
+  // ============ NAV ============
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', () => switchView(item.dataset.view));
+  });
+
+  function switchView(view) {
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.view === view));
+    document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (view === 'dashboard') {
+      document.querySelectorAll('.pbar-fill').forEach((bar, i) => {
+        const w = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => bar.style.width = w, 100 + (i * 100));
+      });
+    }
+    if (view === 'journey') {
+      renderGoalRoadmap();
+      syncRoadmapStats();
+    }
+  }
+
+  // ============ COINS / TOAST ============
+  function addCoins(n) {
+    coins += n;
+    document.getElementById('coinCount').textContent = coins;
+    const journeyCoins = document.getElementById('journeyCoinCount');
+    if (journeyCoins) journeyCoins.textContent = coins;
+    const pill = document.querySelector('.coin-pill');
+    const r = pill.getBoundingClientRect();
+    const fc = document.createElement('div');
+    fc.className = 'floating-coin';
+    fc.textContent = '+' + n + '¢';
+    fc.style.left = (r.left + r.width / 2 - 30) + 'px';
+    fc.style.top = (r.top + r.height + 8) + 'px';
+    document.body.appendChild(fc);
+    setTimeout(() => fc.remove(), 1300);
+    syncRoadmapStats();
+  }
+
+  function showToast(text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastText').textContent = text;
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  function goalPercent(g) {
+    const target = Number(g.target) || 1;
+    const current = Number(g.current) || 0;
+    return Math.max(0, Math.min(100, Math.round((current / target) * 100)));
+  }
+
+  function goalDateValue(deadline) {
+    if (!deadline) return new Date('2099-12-31').getTime();
+
+    const parsed = new Date(deadline);
+    if (!Number.isNaN(parsed.getTime())) return parsed.getTime();
+
+    const monthYear = String(deadline).match(/([A-Za-z]+)\s+(\d{4})/);
+    if (monthYear) return new Date(`${monthYear[1]} 1, ${monthYear[2]}`).getTime();
+
+    return new Date('2099-12-31').getTime();
+  }
+
+  function getRoadmapGoals() {
+    return [...userGoals, ...SEED_GOALS]
+      .map((goal, originalIndex) => ({ ...goal, originalIndex }))
+      .sort((a, b) => {
+        const dateDiff = goalDateValue(a.deadline) - goalDateValue(b.deadline);
+        if (dateDiff !== 0) return dateDiff;
+        return a.originalIndex - b.originalIndex;
+      });
+  }
+
+  function syncRoadmapStats() {
+    const goals = getRoadmapGoals();
+    const completed = goals.filter(g => goalPercent(g) >= 100).length;
+
+    const cleared = document.getElementById('hurdlesCleared');
+    const total = document.getElementById('totalHurdles');
+    if (cleared) cleared.textContent = completed;
+    if (total) total.textContent = goals.length;
+
+    const journeyCoins = document.getElementById('journeyCoinCount');
+    if (journeyCoins) journeyCoins.textContent = coins;
+  }
+
+  function buildGoalHurdleDetail(goal, index, total) {
+    const pct = goalPercent(goal);
+    const isCareer = goal.tag === 'career' || goal.isCareer;
+    const hasStarted = Number(goal.current) > 0;
+    const isComplete = pct >= 100;
+    const progressWord = isCareer ? 'steps' : 'saved';
+    const progressLine = isCareer
+      ? `${goal.current.toLocaleString()} of ${goal.target.toLocaleString()} steps complete`
+      : `$${goal.current.toLocaleString()} of $${goal.target.toLocaleString()} saved`;
+
+    return {
+      stage: isComplete
+        ? `Hurdle ${index + 1} of ${total} · cleared`
+        : `Hurdle ${index + 1} of ${total} · ${isCareer ? 'career goal' : 'money goal'}`,
+      title: `${escapeHTML(goal.title)} <em>${isCareer ? 'career goal' : 'goal'}.</em>`,
+      desc: `${escapeHTML(goal.desc || 'Goal added from your dashboard.')} ${goal.deadline ? `Target date: ${escapeHTML(goal.deadline)}.` : ''}`,
+      tasks: [
+        ['Add this goal to your dashboard', true],
+        [`Log progress toward this goal`, hasStarted],
+        [progressLine, hasStarted],
+        ['Reach 100% progress', isComplete]
+      ],
+      reward: escapeHTML(goal.reward || (isCareer ? '+25¢ career boost' : '+10¢ goal boost')),
+      detail: escapeHTML(goal.rewardDetail || `Unlocked when this ${isCareer ? 'career' : 'money'} goal is completed.`),
+      amount: isCareer ? '+25¢' : '+10¢'
+    };
+  }
+
+  function goalLabel(goal) {
+    const label = goal.careerMilestone || goal.title || 'Goal';
+    return label.length > 26 ? label.slice(0, 26) + '…' : label;
+  }
+
+  function renderGoalRoadmap() {
+    const path = document.getElementById('roadPath');
+    const layer = document.getElementById('goalHurdleLayer');
+    const carLayer = document.getElementById('roadCarLayer');
+    if (!path || !layer || !carLayer) return;
+
+    const goals = getRoadmapGoals();
+    HURDLES = {};
+    layer.innerHTML = '';
+    carLayer.innerHTML = '';
+
+    if (goals.length === 0) {
+      layer.innerHTML = `
+        <text x="600" y="790" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="26" fill="#8B1E5C">
+          Add a goal on the dashboard to build your roadmap.
+        </text>`;
+      syncRoadmapStats();
+      const detail = document.getElementById('hurdleDetail');
+      if (detail) {
+        detail.innerHTML = `<div class="hurdle-detail-info"><span class="hurdle-stage-label">No hurdles yet</span><h3>Add your first <em>goal.</em></h3><p>Your roadmap will be generated from the goals you create on the dashboard.</p></div>`;
+      }
+      return;
+    }
+
+    let totalLength = 0;
+    try { totalLength = path.getTotalLength(); } catch (e) { totalLength = 0; }
+    const pad = Math.min(90, totalLength * 0.05);
+    const usable = Math.max(0, totalLength - pad * 2);
+    const firstUnfinished = Math.max(0, goals.findIndex(g => goalPercent(g) < 100));
+    const currentIndex = firstUnfinished === -1 ? goals.length - 1 : firstUnfinished;
+
+    goals.forEach((goal, index) => {
+      const id = `goal-${index}`;
+      const pct = goalPercent(goal);
+      const isCareer = goal.tag === 'career' || goal.isCareer;
+      const state = pct >= 100 ? 'done' : (index === currentIndex ? 'current' : 'locked');
+      const t = goals.length === 1 ? 0.5 : index / (goals.length - 1);
+      const point = totalLength ? path.getPointAtLength(pad + t * usable) : { x: 600, y: 780 };
+      const reward = isCareer ? '+25¢ career boost' : '+10¢ goal boost';
+      const labelY = index % 2 === 0 ? -56 : -70;
+      const rewardY = index % 2 === 0 ? 72 : 88;
+      const circleFill = state === 'done' ? '#10B981' : state === 'current' ? '#F472B6' : '#FCE7F3';
+      const circleStroke = state === 'current' ? '#8B1E5C' : state === 'done' ? '#1F0B17' : '#8B5A75';
+      const dash = state === 'locked' ? 'stroke-dasharray="5 5"' : '';
+
+      HURDLES[id] = buildGoalHurdleDetail(goal, index, goals.length);
+
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('class', `hurdle goal-hurdle ${state} ${isCareer ? 'career-hurdle' : ''}`);
+      g.setAttribute('data-id', id);
+      g.setAttribute('transform', `translate(${point.x}, ${point.y})`);
+      g.style.cursor = 'pointer';
+      g.innerHTML = `
+        <circle r="${state === 'current' ? 42 : 36}" fill="${circleFill}" stroke="${circleStroke}" stroke-width="${state === 'current' ? 4 : 3}" ${dash}/>
+        ${state === 'done'
+          ? '<path d="M -12 0 L -3 9 L 14 -8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>'
+          : `<text y="7" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="22" font-weight="600" fill="${state === 'current' ? 'white' : '#8B1E5C'}">${index + 1}</text>`}
+        <text y="${labelY}" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="20" fill="#1F0B17">${escapeHTML(goalLabel(goal))}</text>
+        <text y="${rewardY}" text-anchor="middle" font-family="DM Sans" font-size="14" font-weight="600" fill="${isCareer ? '#2563EB' : '#8B1E5C'}">${reward}</text>
+      `;
+      g.addEventListener('click', () => renderHurdle(id));
+      layer.appendChild(g);
+    });
+
+    // Car follows the current unfinished goal instead of an old fixed hurdle.
+    const carT = goals.length === 1 ? 0.5 : currentIndex / (goals.length - 1);
+    const carPt = totalLength ? path.getPointAtLength(pad + carT * usable) : { x: 600, y: 780 };
+    carLayer.innerHTML = `
+      <g transform="translate(${carPt.x + 74}, ${carPt.y - 4})">
+        <circle cx="0" cy="0" r="62" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.22"/>
+        <g transform="scale(0.82)">
+          <path d="M -44 14 C -42 -8 -32 -24 -10 -24 H 24 C 38 -24 50 -8 55 14 H 64 V 26 H -50 V 14 Z" fill="#EC4899" stroke="#1F0B17" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M -18 -22 L -4 -38 H 20 L 34 -22 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="4" stroke-linejoin="round"/>
+          <circle cx="-28" cy="28" r="13" fill="#1F0B17"/><circle cx="-28" cy="28" r="6" fill="#FCE7F3"/>
+          <circle cx="36" cy="28" r="13" fill="#1F0B17"/><circle cx="36" cy="28" r="6" fill="#FCE7F3"/>
+        </g>
+        <text y="-60" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="18" fill="#8B1E5C">you are here</text>
+        <text y="-40" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="600" fill="#8B5A75">next goal ↓</text>
+      </g>`;
+
+    syncRoadmapStats();
+    renderHurdle(`goal-${currentIndex}`);
+  }
+
+  function syncCareerHurdles() {
+    renderGoalRoadmap();
+  }
+
+  // ============ JOURNEY: HURDLE CLICKS ============
+  function renderHurdle(id) {
+    const h = HURDLES[id];
+    if (!h) return;
+    const detail = document.getElementById('hurdleDetail');
+    detail.innerHTML = `
+      <div class="hurdle-detail-info">
+        <span class="hurdle-stage-label">${h.stage}</span>
+        <h3>${h.title}</h3>
+        <p>${h.desc}</p>
+        <div class="hurdle-tasks">
+          ${h.tasks.map(([text, done]) => `
+            <div class="hurdle-task ${done ? 'done' : ''}">
+              <span class="dot"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              ${text}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="reward-card">
+        <div class="reward-card-label">${String(id).startsWith('career') ? 'Career hurdle reward' : (id < 4 ? 'Reward earned' : 'Reward unlocked at finish')}</div>
+        <div class="reward-card-title">${h.reward}</div>
+        <div class="reward-card-detail">${h.detail}</div>
+        <div class="reward-amount">${h.amount}</div>
+      </div>
+    `;
+    detail.style.animation = 'none';
+    void detail.offsetWidth;
+    detail.style.animation = 'fadeUp 0.4s ease both';
+    detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  // Default hurdle detail is set by renderGoalRoadmap().
+
+  // Refresh goal-based roadmap when the page layout changes.
+  function positionHurdlesEvenly() {
+    renderGoalRoadmap();
+  }
+
+  // Initial positioning and responsive updates
+  positionHurdlesEvenly();
+  window.addEventListener('resize', () => { positionHurdlesEvenly(); });
+
+  // dots animation
+  setInterval(() => {
+    const d = document.getElementById('dots');
+    if (!d) return;
+    const t = d.textContent;
+    d.textContent = t.length >= 3 ? '' : t + '.';
+  }, 350);
+
+</script>
+
+</body>
+</html>
+
