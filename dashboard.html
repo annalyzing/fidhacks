@@ -3206,7 +3206,7 @@
     const carT = goals.length === 1 ? 0.5 : currentIndex / (goals.length - 1);
     const carPt = totalLength ? path.getPointAtLength(pad + carT * usable) : { x: 600, y: 780 };
     carLayer.innerHTML = `
-      <g transform="translate(${carPt.x + 74}, ${carPt.y - 4})">
+      <g transform="translate(${carPt.x + 154}, ${carPt.y - 25})">
         <g transform="scale(0.9)" style="transform: scaleX(-1); right: 90px;">
           <path d="M 18 38 L 26 24 L 38 18 L 76 18 L 86 8 L 96 8 L 104 24 L 108 38 Z" fill="#EC4899" stroke="#1F0B17" stroke-width="2" stroke-linejoin="round"/>
           <path d="M 38 22 L 46 10 L 76 10 L 86 22 Z" fill="#DBEAFE" stroke="#1F0B17" stroke-width="1.5" stroke-linejoin="round"/>
