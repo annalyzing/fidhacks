@@ -2459,20 +2459,237 @@
     openLesson();
   });
 
+  // Map lesson titles to their specific content
+  const LESSON_CONTENT = {
+    'What is a Roth IRA, really': {
+      title: 'What is a Roth IRA, <em>really.</em>',
+      intro: 'A Roth IRA is the closest thing to a financial cheat code you get as a young person. You put in after-tax money, it grows tax-free for decades, and you never pay taxes on the gains. That\'s not normal. That\'s unfair in your favor.',
+      eyebrow: '📚 Investing',
+      meta: { read: '9 min', coins: '25¢', level: 'Intermediate', audience: 'First-time investors' },
+      sections: [
+        {
+          type: 'h2',
+          title: 'Why this matters <em>right now</em>'
+        },
+        {
+          type: 'p',
+          content: 'Most people don\'t start investing until their 30s. By then, they\'ve left tens of thousands of dollars in compound growth on the table. You\'re thinking about this in your 20s, which means you have a 40+ year runway. That time advantage is worth more than how much money you put in.'
+        },
+        {
+          type: 'p',
+          content: 'A Roth IRA starting at 20 with just <strong>$150/month</strong> could be worth roughly <strong>$500K+</strong> by age 65. The same person starting at 30 might only hit <strong>$200K</strong>. The difference? 10 years of compound interest doing the work for you.'
+        },
+        {
+          type: 'h2',
+          title: 'The basic <em>structure</em>'
+        },
+        {
+          type: 'p',
+          content: 'A Roth IRA has three rules that make it special:'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: '<strong>Contributions are after-tax.</strong> You put in money you\'ve already paid taxes on. That sounds annoying, but it\'s the secret sauce.' },
+            { text: '<strong>Growth is tax-free forever.</strong> All the money your investments earn (dividends, capital gains, everything) grows without touching taxes.' },
+            { text: '<strong>Withdrawals at retirement are tax-free too.</strong> At 59½, you pull out your original contribution + all the growth with zero tax bill.' }
+          ]
+        },
+        {
+          type: 'callout',
+          label: '💡 The comparison',
+          content: 'Compare that to a traditional 401(k) or IRA, where you save on taxes now but pay taxes on everything when you retire. Roth is the opposite deal — pay now, tax-free forever.'
+        },
+        {
+          type: 'h2',
+          title: 'The <em>limits</em> (and why they don\'t matter yet)'
+        },
+        {
+          type: 'p',
+          content: 'In 2026, you can contribute up to $7,000/year to a Roth IRA (if you have earned income). That\'s about $583/month. But there\'s a catch: income limits exist.'
+        },
+        {
+          type: 'p',
+          content: 'If you make more than $146K (single filer, 2026), you can\'t contribute to a Roth directly. But here\'s the move: there\'s a workaround called the <strong>backdoor Roth</strong> that high earners use. For now, at college wages, this doesn\'t apply to you. Contribute what you can, max it out, enjoy the simplicity.'
+        },
+        {
+          type: 'formula',
+          label: 'The annual limit',
+          formula: '$7,000/year · or $583/month · or as much as your earned income (whichever is less)'
+        },
+        {
+          type: 'h2',
+          title: 'How to get <em>started</em> this week'
+        },
+        {
+          type: 'ol',
+          items: [
+            { text: '<strong>Pick a brokerage.</strong> Vanguard, Fidelity, Schwab are the "big three"—all excellent, low-fee, beginner-friendly. If you can\'t decide, flip a coin. You can\'t go wrong.' },
+            { text: '<strong>Open a Roth IRA account.</strong> Takes 10 minutes online. You\'ll connect your bank account for funding.' },
+            { text: '<strong>Choose what to invest in.</strong> Start with a target-date fund or an S&P 500 index fund. Boring is good. Boring compounds.' },
+            { text: '<strong>Set up automatic monthly contributions.</strong> $50, $100, $150—whatever you can afford. Let it run on autopilot.' }
+          ]
+        },
+        {
+          type: 'h2',
+          title: 'The <em>biggest mistakes</em> first-time Roth investors make'
+        },
+        {
+          type: 'p',
+          content: 'Don\'t be these people:'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: '<strong>Waiting for the "right time" to invest.</strong> The market goes up, it goes down. You\'ll never feel ready. The best time to plant a tree was 20 years ago. The second best time is today. Start now, even with $25/month.' },
+            { text: '<strong>Picking individual stocks.</strong> You\'re tempted by a crypto coin or a hot stock tip. Resist. Index funds beat individual stock pickers 90% of the time over 20+ years. Boring wins.' },
+            { text: '<strong>Panic selling when the market drops.</strong> Markets correct every few years. It\'s normal. You\'re not retiring for 40+ years, so ignore the noise. Keep buying.' },
+            { text: '<strong>Treating it like a savings account.</strong> A Roth is long-term. Unless it\'s a true emergency, pretend that money is locked away until you\'re retired.' }
+          ]
+        }
+      ]
+    }
+  };
+
   function openLesson() {
     // Update lesson view based on currentCourse
     if (currentCourse && currentCourse.firstModule) {
       const fm = currentCourse.firstModule;
       document.getElementById('lessonCourseName').textContent = currentCourse.titleText;
-      // adapt title slightly — but keep the rich budget content as our flagship lesson
       const itemName = fm.item.name;
-      // Wrap last word as emphasis
-      const parts = itemName.split(' ');
-      const head = parts.slice(0, -2).join(' ');
-      const tail = parts.slice(-2).join(' ');
-      document.getElementById('lessonTitle').innerHTML = head + (head ? ' ' : '') + `<em>${tail}.</em>`;
+      
+      // Only render custom content if lesson is explicitly in LESSON_CONTENT
+      if (LESSON_CONTENT[itemName]) {
+        renderLessonContent(itemName);
+      } else {
+        // Default: show the default lesson (Build your first budget) with wrapped title
+        const parts = itemName.split(' ');
+        const head = parts.slice(0, -2).join(' ');
+        const tail = parts.slice(-2).join(' ');
+        document.getElementById('lessonTitle').innerHTML = head + (head ? ' ' : '') + `<em>${tail}.</em>`;
+        // Make sure the default lesson content is visible (don't call renderLessonContent)
+      }
     }
     switchView('lesson');
+  }
+
+  // Render lesson content based on lesson name
+  function renderLessonContent(lessonName) {
+    const content = LESSON_CONTENT[lessonName];
+    const lessonContent = document.getElementById('lessonContent');
+    
+    if (!content) {
+      return; 
+    }
+    
+    let html = `
+      <div class="lesson-eyebrow">${content.eyebrow}</div>
+      <h1 id="lessonTitle">${content.title}</h1>
+      <p class="lesson-intro">${content.intro}</p>
+      <div class="lesson-meta">
+        <span>⏱ <strong>${content.meta.read}</strong> read</span>
+        <span>💎 Earn <strong>${content.meta.coins}</strong></span>
+        <span>📈 ${content.meta.level}</span>
+        <span>🎯 ${content.meta.audience}</span>
+      </div>
+    `;
+    
+    // Render sections
+    content.sections.forEach(section => {
+      switch(section.type) {
+        case 'h2':
+          html += `<h2>${section.title}</h2>`;
+          break;
+        case 'p':
+          html += `<p>${section.content}</p>`;
+          break;
+        case 'ul':
+          html += '<ul>' + section.items.map(item => `<li>${item.text}</li>`).join('') + '</ul>';
+          break;
+        case 'ol':
+          html += '<ol>' + section.items.map(item => `<li>${item.text}</li>`).join('') + '</ol>';
+          break;
+        case 'callout':
+          html += `
+            <div class="callout">
+              <div class="callout-label">${section.label}</div>
+              <p>${section.content}</p>
+            </div>
+          `;
+          break;
+        case 'formula':
+          html += `
+            <div class="formula-box">
+              <div class="formula-label">${section.label}</div>
+              <div class="formula-text">${section.formula}</div>
+            </div>
+          `;
+          break;
+        case 'quiz':
+          const optionsHtml = section.options.map((opt, i) => `
+            <button class="quiz-option" data-correct="${opt.correct}">
+              <span class="opt-letter">${String.fromCharCode(65 + i)}</span>
+              <span>${opt.text}</span>
+            </button>
+          `).join('');
+          html += `
+            <div class="quiz-block">
+              <div class="quiz-label">${section.label}</div>
+              <h3>${section.question}</h3>
+              <div class="quiz-options">${optionsHtml}</div>
+              <div class="quiz-feedback">✓ Exactly. That\'s the Roth magic. You contributed after-tax dollars, grew tax-free, and withdraw tax-free. No taxes on the growth, ever.</div>
+            </div>
+          `;
+          break;
+      }
+    });
+    
+    html += `
+      <div class="complete-section">
+        <div class="complete-info">
+          Lesson complete? You'll earn <strong>+${content.meta.coins}</strong> and unlock the next lesson.
+        </div>
+        <button class="complete-btn" id="completeBtn">
+          Mark lesson complete
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    `;
+    
+    lessonContent.innerHTML = html;
+    
+    // Re-attach quiz handlers
+    document.querySelectorAll('.quiz-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const isCorrect = opt.dataset.correct === 'true';
+        document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('correct', 'wrong'));
+        if (isCorrect) {
+          opt.classList.add('correct');
+          opt.closest('.quiz-block').querySelector('.quiz-feedback').classList.add('show');
+        } else {
+          opt.classList.add('wrong');
+          const correct = opt.closest('.quiz-block').querySelector('.quiz-option[data-correct="true"]');
+          setTimeout(() => correct.classList.add('correct'), 400);
+        }
+      });
+    });
+    
+    // Re-attach complete button
+    const completeBtn = document.getElementById('completeBtn');
+    if (completeBtn) {
+      completeBtn.addEventListener('click', (e) => {
+        if (e.target.closest('.complete-btn').classList.contains('done')) return;
+        addCoins(25);
+        lessonsCompleted += 1;
+        syncRoadmapStats();
+        const btn = document.getElementById('completeBtn');
+        btn.classList.add('done');
+        btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Lesson completed!`;
+        document.querySelector('.lesson-progress-fill').style.width = '40%';
+        showToast('+25¢ earned. Lesson 2 unlocked.');
+        setTimeout(() => switchView('dashboard'), 1800);
+      });
+    }
   }
 
   // ============ LESSON: BACK + COMPLETE ============
