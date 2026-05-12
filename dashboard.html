@@ -2461,6 +2461,112 @@
 
   // Map lesson titles to their specific content
   const LESSON_CONTENT = {
+    'Reading your first paystub': {
+      title: 'Decode your first <em>paystub.</em>',
+      intro: 'Your paystub is a receipt for your work. But it\'s also a roadmap of where your money actually goes. Most people never read theirs — which means they\'re leaving money on the table and have no idea how taxes work. Not you.',
+      eyebrow: '📚 Career Money',
+      meta: { read: '6 min', coins: '25¢', level: 'Beginner', audience: 'First-time earners' },
+      sections: [
+        {
+          type: 'h2',
+          title: 'What\'s actually on a <em>paystub</em>'
+        },
+        {
+          type: 'p',
+          content: 'A paystub breaks down into three main sections: what you earned, what came out, and what you got paid.'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: '<strong>Gross pay (top).</strong> The total amount you earned before anything came out. If you work 40 hours at $15/hour, that\'s $600 gross.' },
+            { text: '<strong>Deductions (middle).</strong> All the things subtracted from your paycheck. Federal taxes, state taxes (if applicable), Social Security, Medicare, health insurance, 401(k) contributions, etc.' },
+            { text: '<strong>Net pay (bottom).</strong> What actually hits your bank account. This is take-home pay — what\'s left after deductions.' }
+          ]
+        },
+        {
+          type: 'h2',
+          title: 'The big <em>deductions</em> explained'
+        },
+        {
+          type: 'p',
+          content: 'Let\'s break down the most common ones you\'ll see:'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: '<strong>Federal income tax (FIT).</strong> Money the IRS withholds from every paycheck. The amount depends on how much you fill out on your W-4 form. More dependents claimed = less withheld (but you might owe at tax time). It\'s confusing, but it\'s money you\'ll get back (hopefully) when you file taxes.' },
+            { text: '<strong>State income tax.</strong> Some states have this, some don\'t. California? Yes. Texas? No. If you see this line, that\'s your state\'s cut.' },
+            { text: '<strong>Social Security (6.2% of gross).</strong> This goes into your Social Security account for retirement. Your employer matches it. It\'s locked in — you can\'t touch it until 62, but future-you will appreciate it.' },
+            { text: '<strong>Medicare (1.45% of gross).</strong> Health insurance for when you\'re 65+. Also employer-matched. Same deal — you can\'t touch it now.' },
+            { text: '<strong>Health insurance (if offered).</strong> Your share of health insurance premiums. Pre-tax, so it saves you money compared to paying for it yourself.' }
+          ]
+        },
+        {
+          type: 'formula',
+          label: 'Quick math',
+          formula: 'Gross pay − all deductions = Net pay (what you actually get)'
+        },
+        {
+          type: 'h2',
+          title: 'A real <em>example</em>'
+        },
+        {
+          type: 'p',
+          content: 'Say you earn $2,000 gross biweekly (that\'s ~$52K/year). Here\'s what a typical paystub might look like:'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: 'Gross pay: <strong>$2,000</strong>' },
+            { text: 'Federal income tax: −<strong>$240</strong>' },
+            { text: 'Social Security: −<strong>$124</strong>' },
+            { text: 'Medicare: −<strong>$29</strong>' },
+            { text: 'Health insurance: −<strong>$150</strong>' },
+            { text: 'State income tax: −<strong>$80</strong>' },
+            { text: '<strong>Net pay: $1,377</strong>' }
+          ]
+        },
+        {
+          type: 'p',
+          content: 'So you earned $2,000, but only $1,377 hit your bank account. That\'s a <strong>31% reduction</strong>. This is why knowing your paystub matters — you can\'t budget on gross pay. You budget on net pay.'
+        },
+        {
+          type: 'h2',
+          title: 'Three things to check <em>right now</em>'
+        },
+        {
+          type: 'ol',
+          items: [
+            { text: '<strong>Is your net pay correct?</strong> Do the math: gross − deductions should equal net. Payroll systems mess up. Catch it early.' },
+            { text: '<strong>Are your deductions reasonable?</strong> If federal tax is way more than you expected, you might have filled out your W-4 wrong. Too little, and you might owe at tax time.' },
+            { text: '<strong>Check year-to-date totals.</strong> At the bottom of most paystubs is a YTD (year-to-date) section. Make sure Social Security and Medicare look right for the year so far.' }
+          ]
+        },
+        {
+          type: 'callout',
+          label: '💡 The W-4 secret',
+          content: 'Your W-4 is a form that tells your employer how much tax to withhold. The more allowances/dependents you claim, the less gets withheld (but you might owe taxes later). The fewer you claim, the more gets withheld now (and you might get a refund). Most people aim for zero refund and zero owed at tax time — but that takes tweaking.'
+        },
+        {
+          type: 'h2',
+          title: 'Why this <em>matters</em>'
+        },
+        {
+          type: 'p',
+          content: 'Understanding your paystub means you can:'
+        },
+        {
+          type: 'ul',
+          items: [
+            { text: 'Spot payroll errors before they compound.' },
+            { text: 'Know your real (net) take-home for budgeting.' },
+            { text: 'Understand where your tax refund comes from and why.' },
+            { text: 'Know what Social Security and Medicare mean for your future.' },
+            { text: 'Negotiate salary using <em>gross</em> numbers (because that\'s what matters to the company).' }
+          ]
+        }
+      ]
+    },
     'What is a Roth IRA, really': {
       title: 'What is a Roth IRA, <em>really.</em>',
       intro: 'A Roth IRA is the closest thing to a financial cheat code you get as a young person. You put in after-tax money, it grows tax-free for decades, and you never pay taxes on the gains. That\'s not normal. That\'s unfair in your favor.',
